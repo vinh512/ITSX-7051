@@ -1,7 +1,6 @@
 package edu.acc.vinh.studentgrades;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,19 +12,30 @@ public class StudentGrade extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StudentGrade</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StudentGrade at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String value = "/WEB-INF/";
+
+        String message = "Does this work?";        
+        request.setAttribute("message", message);
+        
+        
+        if (request.getParameter("choice") != null) {
+
+            try {
+                if (request.getParameter("choice").equals("1")) {
+                    value += "createstudent.jsp";
+                } else {
+                    value += "studentgrades.jsp";
+                }
+            } catch (Exception e) {
+                System.out.println("error!");
+            }
+
+        } else {
+            value += "studentgrades.jsp";
         }
+
+        request.getRequestDispatcher(value).forward(request, response);
+//        request.getRequestDispatcher("/WEB-INF/studentgrades.jsp").forward(request, response);
     }
 
     @Override
