@@ -7,27 +7,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "StudentGrade", urlPatterns = {"/StudentGrade"})
+@WebServlet(name = "StudentGrade", urlPatterns = {"/"})
 public class StudentGrade extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String value = "/WEB-INF/";
-
-        String message = "Does this work?";        
+        
+        String message = "Does this work?";
         request.setAttribute("message", message);
-        
-        
+
         if (request.getParameter("choice") != null) {
 
-            try {
-                if (request.getParameter("choice").equals("1")) {
+            switch (request.getParameter("choice")) {
+                case "1":
                     value += "createstudent.jsp";
-                } else {
+                    break;
+                case "2":
+                    value += "displaystudents.jsp";
+                    break;
+                default:
                     value += "studentgrades.jsp";
-                }
-            } catch (Exception e) {
-                System.out.println("error!");
+                    break;
             }
 
         } else {
