@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class StudentGrade extends HttpServlet {
 
     ArrayList<Student> studentList = new ArrayList<>();
+    Boolean isValid = true;
     String studentName;
     double grade;
 
@@ -19,6 +20,7 @@ public class StudentGrade extends HttpServlet {
             throws ServletException, IOException {
 
         String value = "/WEB-INF/";
+        String choice = request.getParameter("choice");
 
         try {
             studentName = request.getParameter("studentname");
@@ -29,12 +31,8 @@ public class StudentGrade extends HttpServlet {
             request.setAttribute("errorMessage", errorMessage);
         }
 
-        String message = "Does this work?";
-        request.setAttribute("message", message);
-
-        if (request.getParameter("choice") != null) {
-
-            switch (request.getParameter("choice")) {
+        if (choice != null) {
+            switch (choice) {
                 case "1":
                     value += "createstudent.jsp";
                     break;
@@ -43,12 +41,15 @@ public class StudentGrade extends HttpServlet {
                     break;
                 default:
                     value += "studentgrades.jsp";
+                    isValid = false;
                     break;
             }
         } else {
             value += "studentgrades.jsp";
         }
 
+        request.setAttribute("isValid", isValid);
+        
         request.setAttribute("studentList", studentList);
 
         request.getRequestDispatcher(value).forward(request, response);

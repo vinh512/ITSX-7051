@@ -1,4 +1,5 @@
 <%@page import="edu.acc.vinh.studentgrades.Student"%>
+<%--<%@page import="java.util.*" %>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,11 @@
             <input type='submit' value='Submit'>
         </form>
         
+        <% 
+            if(!(Boolean)request.getAttribute("isValid")) {
+                out.print("Please enter 1 or 2");
+            }
+        %>
         <br>
         <%= request.getAttribute("studentList").toString() %>
         <br>
