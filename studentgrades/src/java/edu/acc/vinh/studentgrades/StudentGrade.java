@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "StudentGrade", urlPatterns = {"/"})
 public class StudentGrade extends HttpServlet {
 
+    ArrayList<Student> studentList = new ArrayList<>();
+    String studentName;
+    double grade;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String value = "/WEB-INF/";
-        String studentName = "John Doe";
-        double grade = 0.0;
-
-        ArrayList<Student> studentList = new ArrayList<>();
 
         try {
             studentName = request.getParameter("studentname");
@@ -49,7 +49,7 @@ public class StudentGrade extends HttpServlet {
             value += "studentgrades.jsp";
         }
 
-        request.setAttribute("studentlist", studentList);
+        request.setAttribute("studentList", studentList);
 
         request.getRequestDispatcher(value).forward(request, response);
     }

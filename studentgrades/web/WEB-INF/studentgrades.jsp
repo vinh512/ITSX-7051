@@ -18,7 +18,7 @@
         </form>
         
         <br>
-        <%= request.getAttribute("studentlist").toString() %>
+        <%= request.getAttribute("studentList").toString() %>
         <br>
         <%= request.getAttribute("message") %>
     </body>
