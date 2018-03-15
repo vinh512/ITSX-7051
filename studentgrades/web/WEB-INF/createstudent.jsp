@@ -22,6 +22,7 @@
                     <td style='text-align: right'><input type='submit' value='Submit'></td>
                 </tr>
             </table>
+            <p>${errorMessage}</p>
         </form>
     </body>
 </html>

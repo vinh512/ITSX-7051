@@ -1,6 +1,7 @@
 package edu.acc.vinh.studentgrades;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,18 +13,24 @@ public class StudentGrade extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String value = "/WEB-INF/";
-        
-        String studentName = request.getParameter("studentname");
-        String grade = request.getParameter("gpa");
-        
-        
-        
-        
+        String studentName = "John Doe";
+        double grade = 0.0;
+
+        ArrayList<Student> studentList = new ArrayList<>();
+
+        try {
+            studentName = request.getParameter("studentname");
+            grade = Double.parseDouble(request.getParameter("gpa"));
+            studentList.add(new Student(studentName, grade));
+        } catch (Exception e) {
+            String errorMessage = "If you are seeing this, it would mean that studentName or grade is null";
+            request.setAttribute("errorMessage", errorMessage);
+        }
+
         String message = "Does this work?";
         request.setAttribute("message", message);
-        request.setAttribute("grade", grade);
 
         if (request.getParameter("choice") != null) {
 
@@ -38,13 +45,13 @@ public class StudentGrade extends HttpServlet {
                     value += "studentgrades.jsp";
                     break;
             }
-
         } else {
             value += "studentgrades.jsp";
         }
 
+        request.setAttribute("studentlist", studentList);
+
         request.getRequestDispatcher(value).forward(request, response);
-//        request.getRequestDispatcher("/WEB-INF/studentgrades.jsp").forward(request, response);
     }
 
     @Override

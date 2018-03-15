@@ -1,3 +1,4 @@
+<%@page import="edu.acc.vinh.studentgrades.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,10 @@
             <input type='text' name='choice' placeholder='selection'>
             <input type='submit' value='Submit'>
         </form>
-        <%= request.getAttribute("grade") %>
+        
+        <br>
+        <%= request.getAttribute("studentlist").toString() %>
+        <br>
         <%= request.getAttribute("message") %>
     </body>
 </html>

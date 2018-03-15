@@ -7,5 +7,6 @@
     </head>
     <body>
         <h1>Display Students Here!</h1>
+        <p>${message}</p>
     </body>
 </html>
