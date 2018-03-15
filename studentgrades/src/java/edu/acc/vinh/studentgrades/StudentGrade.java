@@ -12,10 +12,18 @@ public class StudentGrade extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String value = "/WEB-INF/";
+        
+        String studentName = request.getParameter("studentname");
+        String grade = request.getParameter("gpa");
+        
+        
+        
         
         String message = "Does this work?";
         request.setAttribute("message", message);
+        request.setAttribute("grade", grade);
 
         if (request.getParameter("choice") != null) {
 

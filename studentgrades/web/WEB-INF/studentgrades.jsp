@@ -15,6 +15,7 @@
             <input type='text' name='choice' placeholder='selection'>
             <input type='submit' value='Submit'>
         </form>
+        <%= request.getAttribute("grade") %>
         <%= request.getAttribute("message") %>
     </body>
 </html>
