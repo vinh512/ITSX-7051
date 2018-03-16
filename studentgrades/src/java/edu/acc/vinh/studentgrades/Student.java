@@ -19,17 +19,18 @@ public class Student {
     public double getGrade() {
         return this.grade;
     }
-    
-    public int getId() {
-        return this.id;
+
+    public int getCounter() {
+        return counter;
     }
     
     public String getRecord() {
-        return "ID# " + counter + ": " + name + " - " + grade;
+        return "ID# " + getCounter() + ": " + name + " - " + grade;
     }
     
     @Override
     public String toString() {
         return getRecord();
     }
+
 }

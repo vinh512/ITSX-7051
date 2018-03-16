@@ -4,6 +4,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create Student</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Hawking Academy - Create Entry</h1>
@@ -12,16 +14,16 @@
         <form action='StudentGrade' method='POST'>
             <table>
                 <tr>
-                    <td>Student Name </td>
-                    <td><input type='text' name='studentname' placeholder='Name'></td>
+                    <td>Student Name</td>
+                    <td><input type='text' name='studentname' placeholder=' Name' autofocus></td>
                 </tr>
                 <tr>
-                    <td>GPA </td>
-                    <td><input type='text' name='gpa' placeholder='Grade'></td>
+                    <td>Grade</td>
+                    <td><input type='text' name='gpa' placeholder=' GPA'></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td style='text-align: right'><input type='submit' value='Submit'></td>
+                    <td style='text-align: right'><button type='submit' value='Submit'>Submit</button></td>
                 </tr>
             </table>
         </form>

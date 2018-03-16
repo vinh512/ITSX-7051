@@ -2,13 +2,15 @@ package edu.acc.vinh.studentgrades;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "StudentGrade", urlPatterns = {"/"})
+@WebServlet(name = "StudentGrade", urlPatterns = {"/StudentGrade"})
 public class StudentGrade extends HttpServlet {
 
     ArrayList<Student> studentList = new ArrayList<>();
@@ -25,6 +27,7 @@ public class StudentGrade extends HttpServlet {
         try {
             studentName = request.getParameter("studentname");
             grade = Double.parseDouble(request.getParameter("gpa"));
+                    
             studentList.add(new Student(studentName, grade));
         } catch (Exception e) {
             String errorMessage = "If you are seeing this, it would mean that studentName or grade is null";

@@ -1,11 +1,12 @@
 <%@page import="edu.acc.vinh.studentgrades.Student"%>
-<%--<%@page import="java.util.*" %>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Selection Home</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Hawking Academy</h1>
@@ -15,16 +16,13 @@
             <li>2. View Students</li>
         </ul>
         <form action='StudentGrade' method='POST'>
-            <input type='text' name='choice' placeholder='selection'>
-            <input type='submit' value='Submit'>
-        </form>
-        
+            <input type='text' name='choice' placeholder=' Choice' autofocus>
+            <button type='submit' value='Submit'>Submit</button>
+        </form>        
         <% 
             if(!(Boolean)request.getAttribute("isValid")) {
-                out.print("Please enter 1 or 2");
+                out.print("<p class='warning'>Please enter 1 or 2<p>");
             }
         %>
-        <br>
-        <%= request.getAttribute("studentList").toString() %>
     </body>
 </html>
