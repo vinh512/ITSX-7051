@@ -4,10 +4,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Display Students</title>
     </head>
     <body>
-        <h1>Display Students Here!</h1>
+        <h1>Hawking Academy - Students</h1>
+        <hr>
         <c:forEach var="student" items="${studentList}">
             ${student} <br>
         </c:forEach>

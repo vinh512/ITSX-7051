@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 public class StudentGrade extends HttpServlet {
 
     ArrayList<Student> studentList = new ArrayList<>();
-    Boolean isValid = true;
     String studentName;
     double grade;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        Boolean isValid = true;
         String value = "/WEB-INF/";
         String choice = request.getParameter("choice");
 

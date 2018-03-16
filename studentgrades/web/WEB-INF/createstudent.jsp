@@ -3,10 +3,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Create Student</title>
     </head>
     <body>
-        <h1>Create Student!</h1>
+        <h1>Hawking Academy - Create Entry</h1>
+        <hr>
+        
         <form action='StudentGrade' method='POST'>
             <table>
                 <tr>
