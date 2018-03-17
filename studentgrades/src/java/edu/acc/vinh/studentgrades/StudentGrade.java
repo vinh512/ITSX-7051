@@ -2,8 +2,6 @@ package edu.acc.vinh.studentgrades;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,20 +15,20 @@ public class StudentGrade extends HttpServlet {
     String studentName;
     double grade;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Boolean isValid = true;
         String value = "/WEB-INF/";
         String choice = request.getParameter("choice");
-
+        
         try {
             studentName = request.getParameter("studentname");
             grade = Double.parseDouble(request.getParameter("gpa"));
-                    
             studentList.add(new Student(studentName, grade));
         } catch (Exception e) {
-            String errorMessage = "If you are seeing this, it would mean that studentName or grade is null";
+            String errorMessage = "Invalid entry";
             request.setAttribute("errorMessage", errorMessage);
         }
 
@@ -52,27 +50,8 @@ public class StudentGrade extends HttpServlet {
         }
 
         request.setAttribute("isValid", isValid);
-        
         request.setAttribute("studentList", studentList);
-
         request.getRequestDispatcher(value).forward(request, response);
     }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

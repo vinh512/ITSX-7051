@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +10,7 @@
     <body>
         <h1>Hawking Academy - Create Entry</h1>
         <hr>
-        
-        <form action='StudentGrade' method='POST'>
+        <form action='StudentGrade' method='GET'>
             <table>
                 <tr>
                     <td>Student Name</td>
@@ -19,7 +18,7 @@
                 </tr>
                 <tr>
                     <td>Grade</td>
-                    <td><input type='text' name='gpa' placeholder=' GPA'></td>
+                    <td><input type='text' name='gpa' placeholder=' GPA (ex: 3.0)'></td>
                 </tr>
                 <tr>
                     <td></td>

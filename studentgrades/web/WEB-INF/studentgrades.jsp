@@ -1,5 +1,5 @@
-<%@page import="edu.acc.vinh.studentgrades.Student"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="edu.acc.vinh.studentgrades.Student"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,14 +15,18 @@
             <li>1. Create Student Entry</li>
             <li>2. View Students</li>
         </ul>
-        <form action='StudentGrade' method='POST'>
+        <form action='StudentGrade' method='GET'>
             <input type='text' name='choice' placeholder=' Choice' autofocus>
             <button type='submit' value='Submit'>Submit</button>
         </form>        
-        <% 
-            if(!(Boolean)request.getAttribute("isValid")) {
+        <%
+            if (!(Boolean) request.getAttribute("isValid")) {
                 out.print("<p class='warning'>Please enter 1 or 2<p>");
             }
+            
+//            if ((Boolean) request.getAttribute("errorMessage")) {
+//                out.print("<p class='warning'>Invalid entry - Please try again</p>");
+//            }
         %>
     </body>
 </html>
