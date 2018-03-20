@@ -12,32 +12,25 @@ import javax.servlet.http.HttpSession;
 public class IncrementCounter extends HttpServlet {
 
     int counter = 0;
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        counter++;
-        
-        request.setAttribute("request_counter", counter);
-        
-        HttpSession session = request.getSession();
-        session.setAttribute("session_counter", counter);
-        
-        request.getServletContext().setAttribute("application_counter", counter);
-        
-        request.getRequestDispatcher("Counter").forward(request, response);
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        
+        counter++;
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+        // set counter to request scope
+        request.setAttribute("request_counter", counter);
+
+        // set counter to session scope
+        HttpSession session = request.getSession();
+        session.setAttribute("session_counter", counter);
+
+        // set counter to application scope
+        request.getServletContext().setAttribute("application_counter", counter);
+
+        // send redirect to Counter servlet
+        request.getRequestDispatcher("Counter").forward(request, response);
     }
 
     @Override
