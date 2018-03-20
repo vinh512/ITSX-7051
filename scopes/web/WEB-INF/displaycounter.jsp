@@ -9,8 +9,18 @@
         <h1>Counter Page</h1>
         
          
-        <p>This is the request counter: ${request_counter}</p>
-        <p>This is the application counter: ${application_counter}</p>
-        <p>This is the session counter: ${session_counter}</p>
+
+        <%
+            Integer req = (Integer)request.getAttribute("request_counter");
+            out.println(String.format("<p>This is the request counter: %s</p>", req));
+            
+            Integer sess = (Integer)session.getAttribute("session_counter");
+            out.println(String.format("<p>This is the session counter: %s</p>", sess));
+            
+            Integer app = (Integer)request.getServletContext().getAttribute("application_counter");
+            out.println(String.format("<p>This is the application counter: %s</p>", app));
+            %>
+        
+
     </body>
 </html>
