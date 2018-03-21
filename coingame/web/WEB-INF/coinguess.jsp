@@ -7,5 +7,11 @@
     </head>
     <body>
         <h1>Guess Heads or Tails!</h1>
+        
+        
+        
+        <form action="/CoinGameServlet" method="POST">
+            <input type="submit" name="coinChoice" value="Heads">
+        </form>
     </body>
 </html>

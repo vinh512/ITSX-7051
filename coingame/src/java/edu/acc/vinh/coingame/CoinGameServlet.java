@@ -6,34 +6,47 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/CoinGameServlet")
 public class CoinGameServlet extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        {
-//        
+            
+    
+    
 //        1 - have servlet direct us to our view
 //        2 - instantiate model within our servlet
 //        3 - forward model to ourS jsp
 
-        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
-        
-        }
-    }
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
+        
+        if (currentGame == null) {
+            // our CoinGame model is instantiated and set it to the session object
+            currentGame = new CoinGame();            
+            request.getSession().setAttribute("coingame", currentGame);
+        }            
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String playerChoice = request.getParameter("coinChoice");
+        
+        CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
+        
+        if (currentGame != null) {
+            currentGame.getCoinFlip();
+        }
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
+//        response.sendRedirect("/CoinGameServlet/");
     }
 
     @Override
