@@ -29,6 +29,8 @@ public class CoinGameServlet extends HttpServlet {
             request.getSession().setAttribute("coingame", currentGame);
         }            
         
+        // we then goto the JSP so that the player can choose heads or tails value which
+        // cause us to use a POST method...
         getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
         
     }
@@ -37,13 +39,18 @@ public class CoinGameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // extract the player value from the input button
         String playerChoice = request.getParameter("coinChoice");
         
+        // we retrieve the coingame object within the session
         CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
         
-        if (currentGame != null) {
-            currentGame.getCoinFlip();
-        }
+        request.getSession().setAttribute("thisgame", currentGame);
+        
+        
+//        if (currentGame != null) {
+//            currentGame.getCoinFlip();
+//        }
         
         getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
 //        response.sendRedirect("/CoinGameServlet/");

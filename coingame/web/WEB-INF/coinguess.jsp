@@ -8,9 +8,10 @@
     <body>
         <h1>Guess Heads or Tails!</h1>
         
+        <p>${thisgame.getCoinFlip()}</p>
         
         
-        <form action="/CoinGameServlet" method="POST">
+        <form action="/coingame/CoinGameServlet" method="POST">
             <input type="submit" name="coinChoice" value="Heads">
         </form>
     </body>
