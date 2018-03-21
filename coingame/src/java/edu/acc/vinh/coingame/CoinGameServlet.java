@@ -39,21 +39,26 @@ public class CoinGameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
         // extract the player value from the input button
         String playerChoice = request.getParameter("coinChoice");
+        
+
         
         // we retrieve the coingame object within the session
         CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
         
-        request.getSession().setAttribute("thisgame", currentGame);
+        // I need to pass in this playerChoice into getResult
+        request.getSession().setAttribute("playerChoice", playerChoice);
+        request.getSession().setAttribute("currentGame", currentGame);
         
         
 //        if (currentGame != null) {
 //            currentGame.getCoinFlip();
 //        }
         
-        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
-//        response.sendRedirect("/CoinGameServlet/");
+//        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
+        response.sendRedirect("/coingame/CoinGameServlet");
     }
 
     @Override
