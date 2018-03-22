@@ -1,46 +1,45 @@
 package edu.acc.vinh.coingame;
 
+import java.text.DecimalFormat;
+
 public class CoinGame {
     
-    private int gameCounter = 0;
-    private int wins = 0;
-//    private String playerChoice;
+    private int gameCounter = 1;
+    int score = 0;
     String result;
      
 //    1) we want to instantiate the game object
 //    2) we use the instance to run the method flipCoin()
 //    3) we return that result        
-    
+
     public CoinGame() {
         
     }
     
-//    public String getPlayerChoice() {
-//        return this.playerChoice;
-//    }
-    
     public String getResult(String playerChoice) {
         
-        if (playerChoice.equals(getCoinFlip())) {
-            wins++;
-            return "You chose " + playerChoice + "! You WIN!";
-        } else {
-            return "You chose " + playerChoice + "! You LOSE!";
-        }
+        result = getCoinFlip(); 
         
-//    return "yo this is it here: " + playerChoice + "!";
-
+        if (playerChoice.equals(result)) {
+            score++;
+            return String.format("You chose %s.<br>Computer flipped %s.<br>You WIN!", playerChoice, result);
+        } else {
+            return String.format("You chose %s.<br>Computer flipped %s.<br>You LOSE!", playerChoice, result);
+        }
     }
     
-    public int getWins() {
-//        if (this.playerChoice.equals(this.getCoinFlip())) {
-//            wins++;
-//        }
-        return wins;
+    public int getScore() {
+        return score;
     }
      
-    public double getWinPercentage() {
-        return this.wins / this.gameCounter;
+    public int getGameCounter() {
+        return gameCounter;
+    }
+    
+    public String getWinPercentage() {
+        double winPercentage = ((double)this.score / this.gameCounter) * 100;
+        DecimalFormat numberFormat = new DecimalFormat("#.##");
+        return numberFormat.format(winPercentage);
     }
       
     public String getCoinFlip() {
@@ -48,7 +47,7 @@ public class CoinGame {
     }
     
     public String coinFlip() {
-        this.gameCounter++;
+        gameCounter++;
         return (Math.random() <= 0.5) ? "Heads" : "Tails";
     }
     

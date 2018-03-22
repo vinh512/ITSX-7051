@@ -39,11 +39,8 @@ public class CoinGameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
         // extract the player value from the input button
         String playerChoice = request.getParameter("coinChoice");
-        
-
         
         // we retrieve the coingame object within the session
         CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
