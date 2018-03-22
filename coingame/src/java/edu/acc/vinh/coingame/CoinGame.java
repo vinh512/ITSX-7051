@@ -5,16 +5,24 @@ import java.text.DecimalFormat;
 public class CoinGame {
     
     private int gameCounter = 1;
-    int score = 0;
-    String result;
+    private int score;
+    private int winPercentage;
+    private String result;
+    
      
 //    1) we want to instantiate the game object
 //    2) we use the instance to run the method flipCoin()
 //    3) we return that result        
-
+    
     public CoinGame() {
         
     }
+    
+//    public CoinGame(int score, int gameCounter, int winPercentage) {
+//        this.score = score;
+//        this.gameCounter = gameCounter;
+//        this.winPercentage = winPercentage;
+//    }
     
     public String getResult(String playerChoice) {
         
@@ -36,10 +44,9 @@ public class CoinGame {
         return gameCounter;
     }
     
-    public String getWinPercentage() {
-        double winPercentage = ((double)this.score / this.gameCounter) * 100;
+    public String getWinPercentage() {        
         DecimalFormat numberFormat = new DecimalFormat("#.##");
-        return numberFormat.format(winPercentage);
+        return numberFormat.format(((double)score / gameCounter) * 100);
     }
       
     public String getCoinFlip() {

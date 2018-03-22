@@ -6,21 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/CoinGameServlet")
 public class CoinGameServlet extends HttpServlet {
-            
     
-    
-//        1 - have servlet direct us to our view
-//        2 - instantiate model within our servlet
-//        3 - forward model to ourS jsp
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+    
         CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
         
         if (currentGame == null) {
@@ -28,7 +21,7 @@ public class CoinGameServlet extends HttpServlet {
             currentGame = new CoinGame();            
             request.getSession().setAttribute("coingame", currentGame);
         }            
-        
+
         // we then goto the JSP so that the player can choose heads or tails value which
         // cause us to use a POST method...
         getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
@@ -49,18 +42,7 @@ public class CoinGameServlet extends HttpServlet {
         request.getSession().setAttribute("playerChoice", playerChoice);
         request.getSession().setAttribute("currentGame", currentGame);
         
-        
-//        if (currentGame != null) {
-//            currentGame.getCoinFlip();
-//        }
-        
-//        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
         response.sendRedirect("/coingame/CoinGameServlet");
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
