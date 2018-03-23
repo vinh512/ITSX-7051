@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class CoinGame {
     
     private int gameCounter = 1;
-    private int score;
+    private int score = 0;
     private int winPercentage;
     private String result;
     

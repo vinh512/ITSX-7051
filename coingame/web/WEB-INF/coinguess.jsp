@@ -31,7 +31,7 @@
         <h1>Guess Heads or Tails!</h1>
         
         <%
-//            out.println("<p> aaww" + session.getAttribute("playerChoice") + "</p>");
+//            out.println("<p>" + session.getAttribute("playerChoice") + "</p>");
         %>
         
         <p>Score: ${currentGame.getScore()} games won. 
