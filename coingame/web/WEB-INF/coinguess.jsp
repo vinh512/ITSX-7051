@@ -1,5 +1,6 @@
-<%@page import="edu.acc.vinh.coingame.CoinGame"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="edu.acc.vinh.coingame.CoinGame"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,9 +16,9 @@
             input {
                 font-size: 2em;
                 cursor:pointer;
-                
+
             }
-            
+
             h1 {
                 padding: 30px;
                 margin: 0px;
@@ -26,30 +27,33 @@
             }
         </style>
     </head>
-    
+
     <body>
         <h1>Guess Heads or Tails!</h1>
-        
-        <%
-//            out.println("<p>" + session.getAttribute("playerChoice") + "</p>");
-        %>
-        
-        <p>Score: ${currentGame.getScore()} games won. 
-           Games played: ${currentGame.getGameCounter()} 
-           Win percentage: ${currentGame.getWinPercentage()}%</p>
+
+        <p>Score: ${coingame.getScore()} games won. 
+            Games played: ${coingame.getGameCounter()} 
+            Win percentage: ${coingame.getWinPercentage()}%</p>
         
         <hr>
-        
-        <p>${currentGame.getResult(sessionScope.playerChoice)}</p>
-        
+
+        <!--        if gameCounter not equal to zero, run the following:-->
+    
+    
+    <c:out value="${sessionScope.playerChoice}"/>
+    
+    <c:if test = "${sessionScope.playerChoice != null}"> 
+            <p>${coingame.getResult(sessionScope.playerChoice)}</p>
+        </c:if>
+
         <form action="/coingame/CoinGameServlet" method="POST">
             <input type="submit" name="coinChoice" value="Heads">
             <input type="submit" name="coinChoice" value="Tails">
         </form>
-        
+
         <form action="/coingame/Reset" method="GET">
             <input type="submit" value="Reset">
         </form>
-        
+
     </body>
 </html>

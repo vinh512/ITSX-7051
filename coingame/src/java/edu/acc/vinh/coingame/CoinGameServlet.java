@@ -14,14 +14,18 @@ public class CoinGameServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
+        // this will initially be null
         CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
         
         if (currentGame == null) {
             // our CoinGame model is instantiated and set it to the session object
-            currentGame = new CoinGame();            
+            currentGame = new CoinGame(0,0);            
             request.getSession().setAttribute("coingame", currentGame);
         }            
 
+        System.out.println("current game Score: " + currentGame.getScore());
+        System.out.println("current game gameCounter: " + currentGame.getGameCounter());
+        System.out.println("current game winPercentage: " + currentGame.getWinPercentage());
         // we then goto the JSP so that the player can choose heads or tails value which
         // cause us to use a POST method...
         getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
@@ -34,13 +38,9 @@ public class CoinGameServlet extends HttpServlet {
         
         // extract the player value from the input button
         String playerChoice = request.getParameter("coinChoice");
-        
-        // we retrieve the coingame object within the session
-        CoinGame currentGame = (CoinGame)request.getSession().getAttribute("coingame");
-        
+         
         // I need to pass in this playerChoice into getResult
         request.getSession().setAttribute("playerChoice", playerChoice);
-        request.getSession().setAttribute("currentGame", currentGame);
         
         response.sendRedirect("/coingame/CoinGameServlet");
     }
