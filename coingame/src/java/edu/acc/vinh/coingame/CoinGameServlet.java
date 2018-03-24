@@ -42,6 +42,9 @@ public class CoinGameServlet extends HttpServlet {
         // I need to pass in this playerChoice into getResult
         request.getSession().setAttribute("playerChoice", playerChoice);
         
+        // means the player clicked on a
+        request.getSession().setAttribute("gameStart", true);
+        
         response.sendRedirect("/coingame/CoinGameServlet");
     }
 

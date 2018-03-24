@@ -4,14 +4,15 @@ public class CoinGame {
 
     private int gameCounter;
     private int score;
-    double winPercentage = 0.0;
+    double winPercentage;
     private String result;
-
+    
     public CoinGame(int score, int gameCounter) {
         this.score = score;
         this.gameCounter = gameCounter;
     }
-
+    
+    
     public String getResult(String playerChoice) {
 
         result = getCoinFlip();
@@ -33,11 +34,6 @@ public class CoinGame {
     }
 
     public String getCoinFlip() {
-        return coinFlip();
-    }
-
-    public String coinFlip() {
-        gameCounter++;
         return (Math.random() <= 0.5) ? "Heads" : "Tails";
     }
 
@@ -45,6 +41,10 @@ public class CoinGame {
         return score;
     }
 
+    public void incrementGameCounter() {
+        gameCounter++;
+    }
+    
     public int getGameCounter() {
         return gameCounter;
     }
