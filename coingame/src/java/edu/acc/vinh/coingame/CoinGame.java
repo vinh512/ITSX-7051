@@ -1,35 +1,41 @@
 package edu.acc.vinh.coingame;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class CoinGame {
 
     private int gameCounter;
     private int score;
-    double winPercentage;
+    private double winPercentage;
     private String result;
-    
-    public CoinGame(int score, int gameCounter) {
-        this.score = score;
-        this.gameCounter = gameCounter;
-    }
-    
+
     public String getResult(String playerChoice) {
         gameCounter++;
         result = getCoinFlip();
         
+        String msg = String.format("You chose %s.<br>Computer flipped %s.<br>You ", playerChoice, result);
+        
         if (playerChoice.equals(result)) {
             score++;
-            return String.format("You chose %s.<br>Computer flipped %s.<br>You WIN!", playerChoice, result);
+            return msg + " <span class='win'>WIN</span>!";
         } else {
-            return String.format("You chose %s.<br>Computer flipped %s.<br>You LOSE!", playerChoice, result);
+            return msg + " <span class='lose'>LOSE</span>!";
         }
     }
 
-    public double getWinPercentage() {
-        // No games have been played thereby cannot divide by zero so return 0 to prevent NaN
+    public String getWinPercentage() {
+        // No games have been played so cannot divide by zero. Return 0 to prevent NaN
         if (gameCounter == 0) {
-            return 0;
+            return "0.0";
         }
-        return (score / (double) gameCounter) * 100;
+        
+        // Calculate win percentage as a double
+        winPercentage = ((double)score / gameCounter) * 100;
+        
+        // Format decimal to have only one trailing value
+        NumberFormat formatter = new DecimalFormat("#0.0");        
+        return formatter.format(winPercentage);
     }
 
     public String getCoinFlip() {
@@ -46,6 +52,6 @@ public class CoinGame {
 
     @Override
     public String toString() {
-        return "yo";
+        return "This is the CoinGame object";
     }
 }

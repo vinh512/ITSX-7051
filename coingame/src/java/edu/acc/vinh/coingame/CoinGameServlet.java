@@ -19,17 +19,11 @@ public class CoinGameServlet extends HttpServlet {
         
         if (currentGame == null) {
             // our CoinGame model is instantiated and set it to the session object
-            currentGame = new CoinGame(0,0);            
+            currentGame = new CoinGame();            
             request.getSession().setAttribute("coingame", currentGame);
         }            
-
-        System.out.println("current game Score: " + currentGame.getScore());
-        System.out.println("current game gameCounter: " + currentGame.getGameCounter());
-        System.out.println("current game winPercentage: " + currentGame.getWinPercentage());
-        // we then goto the JSP so that the player can choose heads or tails value which
-        // cause us to use a POST method...
-        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
         
+        getServletContext().getRequestDispatcher("/WEB-INF/coinguess.jsp").forward(request, response);
     }
 
     @Override
