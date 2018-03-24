@@ -26,7 +26,7 @@
                 color: white;
                 background-color: #FFA07A;
             }
-            
+
             .filler {
                 height: 100px;
                 margin: 0;
@@ -35,29 +35,23 @@
     </head>
     <body> 
         <h1>Guess Heads or Tails</h1>
-       
-        <!-- once the game has started, increment the game counter -->
-        <c:if test = "${sessionScope.gameStart}"> 
-            ${coingame.incrementGameCounter()}
-        </c:if>
+        <c:choose>            
+            <c:when test = "${sessionScope.gameStart}">
+                <!-- checks if player wins & displays message -->
+                <p class="filler">${coingame.getResult(sessionScope.playerChoice)}</p>                
+                <!-- displays stats of gameplay -->
+                <p>
+                    Score: ${coingame.getScore()} games won. 
+                    Games played: ${coingame.getGameCounter()} 
+                    Win percentage: ${coingame.getWinPercentage()}%
+                </p>                
+            </c:when>
+            <c:otherwise>
+                <div class="filler"><br>Press a Button to Start</div> 
+            </c:otherwise>
+        </c:choose>
 
-        <!-- displays stats of gameplay -->
-        <p>Score: ${coingame.getScore()} games won. 
-           Games played: ${coingame.getGameCounter()} 
-           Win percentage: ${coingame.getWinPercentage()}%</p>
-
-        <hr>
-
-            <c:choose>
-                <c:when test = "${sessionScope.gameStart}">
-                    <p class="filler">${coingame.getResult(sessionScope.playerChoice)}</p>
-                </c:when>
-                <c:otherwise>
-                    <div class="filler"><br>Press a Button to Start</div> 
-                </c:otherwise>
-            </c:choose>
-            
-            <form action="/coingame/CoinGameServlet" method="POST" onsubmit="myFunction()">
+        <form action="/coingame/CoinGameServlet" method="POST" onsubmit="myFunction()">
             <input type="submit" name="coinChoice" value="Heads">
             <input type="submit" name="coinChoice" value="Tails">
         </form>

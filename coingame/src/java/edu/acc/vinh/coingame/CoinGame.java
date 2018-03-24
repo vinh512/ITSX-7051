@@ -12,11 +12,10 @@ public class CoinGame {
         this.gameCounter = gameCounter;
     }
     
-    
     public String getResult(String playerChoice) {
-
+        gameCounter++;
         result = getCoinFlip();
-
+        
         if (playerChoice.equals(result)) {
             score++;
             return String.format("You chose %s.<br>Computer flipped %s.<br>You WIN!", playerChoice, result);
@@ -41,10 +40,6 @@ public class CoinGame {
         return score;
     }
 
-    public void incrementGameCounter() {
-        gameCounter++;
-    }
-    
     public int getGameCounter() {
         return gameCounter;
     }
