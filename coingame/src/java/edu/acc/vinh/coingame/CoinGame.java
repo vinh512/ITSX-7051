@@ -41,6 +41,10 @@ public class CoinGame {
     public String getCoinFlip() {
         return (Math.random() <= 0.5) ? "Heads" : "Tails";
     }
+    
+    public int getGamesLost() {
+        return (getGameCounter() - getScore());
+    }
 
     public int getScore() {
         return score;

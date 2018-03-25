@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Reset")
-public class ResetServlet extends HttpServlet {
+@WebServlet("/Quit")
+public class Quit extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("/coingame/CoinGameServlet");
+        getServletContext().getRequestDispatcher("/WEB-INF/endgame.jsp").forward(request, response);
     }
-
+    
 }
