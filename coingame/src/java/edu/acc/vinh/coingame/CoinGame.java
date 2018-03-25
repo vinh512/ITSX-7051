@@ -8,15 +8,15 @@ public class CoinGame {
     private int gameCounter;
     private int score;
     private double winPercentage;
-    private String result;
+    private String coinResult;
 
     public String getResult(String playerChoice) {
         gameCounter++;
-        result = getCoinFlip();
+        coinResult = getCoinFlip();
         
-        String msg = String.format("You chose %s.<br>Computer flipped %s.<br>You ", playerChoice, result);
+        String msg = String.format("You chose %s<br>Computer flipped %s<br>You ", playerChoice, coinResult);
         
-        if (playerChoice.equals(result)) {
+        if (playerChoice.equals(coinResult)) {
             score++;
             return msg + " <span class='win'>WIN</span>!";
         } else {
