@@ -6,6 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Coin Game</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body> 
