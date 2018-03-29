@@ -7,5 +7,6 @@
     </head>
     <body>
         <h1>Display Comments here!</h1>
+        <p>${commentManager.get(0).name}</p>
     </body>
 </html>
