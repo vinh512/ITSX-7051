@@ -8,5 +8,8 @@
     <body>
         <h1>Display Comments here!</h1>
         <p>${commentManager.get(0).name}</p>
+        
+        <a href="${pageContext.request.contextPath}/AddComment">Add New Comment</a> 
+            
     </body>
 </html>
