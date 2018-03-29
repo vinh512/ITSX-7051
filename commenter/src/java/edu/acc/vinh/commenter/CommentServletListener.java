@@ -11,8 +11,9 @@ public class CommentServletListener implements ServletContextListener {
         // I initialize the data here
         ArrayList<Comment> commentManager = new ArrayList<>();
         
+        // this shouldn't be here and should be in the servlet used to populate the arraylist
         // add an instantiated Comment literal to the arraylist
-        commentManager.add(new Comment("Howdy", "Vinh", "vinh@email.com"));
+        commentManager.add(new Comment("Vinh", "Howdy"));
         
         // make your data structure, an arraylist and add it to the servlet
         sce.getServletContext().setAttribute("commentManager", commentManager);

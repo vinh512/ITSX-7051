@@ -16,8 +16,8 @@ public class CommentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-            ArrayList commentManager = (ArrayList) getServletContext().getAttribute("commentManager");
-        
+            
+            
             getServletContext().getRequestDispatcher("/WEB-INF/displaycomments.jsp").forward(request, response);
     }
 

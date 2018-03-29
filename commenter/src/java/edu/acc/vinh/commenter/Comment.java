@@ -4,22 +4,18 @@ public class Comment {
     
     private final String comment;
     private final String name;
-    private final String email;
     
-    public Comment(String comment, String name, String email) {
-        this.comment = comment;
+    public Comment(String name, String comment) {
         this.name = name;
-        this.email = email;
+        this.comment = comment;
     }
 
     public String getName() {
         return name;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
     
+    public String getComment() {
+        return comment;
+    }
     
 }

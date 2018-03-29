@@ -2,6 +2,7 @@
 package edu.acc.vinh.commenter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,22 @@ public class AddCommentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        // this grabs the arraylist from the servlet listener
+            ArrayList commentManager = (ArrayList) getServletContext().getAttribute("commentManager");
+        
+            // extracts values from the form (name & comment)
+            String name = (String) getServletContext().getAttribute("name");
+            String comment = (String) getServletContext().getAttribute("comment");
+            
+            // sets the aformentioned form-extracted values and sets them in the servlet object
+            getServletContext().setAttribute("name", name);
+            getServletContext().setAttribute("comment", comment);
+            
+            // adds the form entries to instantiate a new Comment object & adds to the ArrayList
+            commentManager.add(new Comment(name, comment));
+            
+            response.sendRedirect("/commenter/Comments");
         
     }
 
