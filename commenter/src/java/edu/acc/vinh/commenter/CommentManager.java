@@ -13,10 +13,5 @@ public class CommentManager {
     public void addComment(Comment newComment) {
         comments.add(newComment);
     }
-    
-    @Override
-    public String toString() {
-        return "this is the arraylist";
-    }
-    
+
 }

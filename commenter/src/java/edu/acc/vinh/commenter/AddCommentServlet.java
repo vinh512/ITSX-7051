@@ -1,8 +1,6 @@
-
 package edu.acc.vinh.commenter;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,44 +13,37 @@ public class AddCommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.getServletContext().getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request,response);
-        
+
+        request.getServletContext().getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
     }
 
- 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // this grabs the arraylist from the servlet listener
-//            ArrayList commentManager = (ArrayList) getServletContext().getAttribute("commentManager");
-        
-            CommentManager commentManager = (CommentManager) getServletContext().getAttribute("commentManager");
 
-            // extracts values from the form (name & comment)
-//            String name = (String) getServletContext().getAttribute("author");
-//            String comment = (String) getServletContext().getAttribute("comment");
-            
-            String name = (String) request.getParameter("author");
-            String comment = (String) request.getParameter("comment");
-            
-            System.out.println(name);
-            
-            // sets the aformentioned form-extracted values and sets them in the servlet object
-            getServletContext().setAttribute("name", name);
-            getServletContext().setAttribute("comment", comment);
-            
+        // this grabs the arraylist from the servlet listener        
+        CommentManager commentManager = (CommentManager) getServletContext().getAttribute("commentManager");
+
+        // extracts values from the form (name & comment)
+        String name = (String) request.getParameter("author");
+        String comment = (String) request.getParameter("comment");
+
+        if (name == null || name.length() == 0 || comment == null || comment.length() == 0) {
+            request.setAttribute("errorMsg", true);
+            request.getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
+        } else {
             // adds the form entries to instantiate a new Comment object & adds to the ArrayList
             commentManager.addComment(new Comment(name, comment));
-            
+
             // adds the ArrayList to the response object
             getServletContext().setAttribute("commentManager", commentManager);
-            
+
+            System.out.println(name);
+            System.out.println(comment);
+
             // redirects to the Comments servlet
             response.sendRedirect("/commenter/Comments");
-        
+        }
     }
-
 
 }

@@ -8,19 +8,19 @@
     </head>
     <body>
         <h1>Display Comments here!</h1>
-        <p>Current Object: ${commentManager.class}</p>
-        <p>Current Object: ${commentList}</p>
-        
-    
-    <c:forEach var="comment" items="${commentList}">
-        
-            <p>${comment.name}</p>
-        
-    </c:forEach>
-    
-        
-        
+
+        <c:forEach var="comment" items="${commentList}">
+
+            <div>
+                <p><c:out value="${comment.name}"/></p>
+                <p>${comment.timeStamp}</p>
+                <p>${comment.comment}</p>
+                <hr>
+            </div>
+
+        </c:forEach>
+
         <a href="${pageContext.request.contextPath}/AddComment">Add New Comment</a> 
-            
+
     </body>
 </html>
