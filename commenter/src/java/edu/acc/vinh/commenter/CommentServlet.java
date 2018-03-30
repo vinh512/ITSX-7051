@@ -15,9 +15,13 @@ public class CommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+            CommentManager commentManager = (CommentManager) getServletContext().getAttribute("commentManager");
             
+            ArrayList<Comment> commentList = commentManager.getAllComments();
             
-            
+            request.setAttribute("commentList", commentList);
+        
             getServletContext().getRequestDispatcher("/WEB-INF/displaycomments.jsp").forward(request, response);
     }
 

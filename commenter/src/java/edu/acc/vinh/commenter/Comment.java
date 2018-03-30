@@ -10,6 +10,10 @@ public class Comment {
         this.comment = comment;
     }
 
+    Comment(String comment) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getName() {
         return name;
     }
