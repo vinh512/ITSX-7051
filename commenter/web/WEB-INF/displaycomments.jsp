@@ -13,8 +13,10 @@
             }
             
             h1 {
-                padding: 15px;
-                margin: 0;
+                border-radius: 10px 10px 0 0;
+                margin: 0 auto;
+                width: 50%;
+                padding: 15px 25px;
                 background-color: #56bd8d;
                 color: white;
                 font-size: 3em;
@@ -22,7 +24,9 @@
             }
             
             .comment-block {
-                padding: 15px 45px;
+                margin: 0 auto;
+                width: 50%;
+                padding: 15px 25px;
                 background-color: white;
                 border-bottom: 1px solid #eee;
                 
@@ -44,7 +48,7 @@
             
             .timestamp {
                 font-size: 0.9em;
-                border-left: 2px solid #969696;
+                border-left: 2px solid #56bd8d;
                 color: rgb(150,150,150);
                 display: inline-block;
                 margin: 0 5px;
@@ -59,7 +63,24 @@
                 margin-bottom: 5px;
             }
         
-        
+            a.button {
+                font-family: 'Roboto', sans-serif;
+                margin: 0 auto;
+                display: block;
+                width: 50%;
+                text-decoration: none;
+                padding: 15px 25px;
+                background-color: #56bd8d;
+                border-radius: 0 0 10px 10px;
+                color: white;
+                font-size: 1.2em;
+                text-align: center;
+                border-top: 5px solid #449772;
+            }
+            
+            a.button:hover {
+                background-color: #449772;
+            }
         
         </style>
     </head>
@@ -74,7 +95,7 @@
             </div>
         </c:forEach>
 
-        <a href="${pageContext.request.contextPath}/AddComment">Add New Comment</a> 
+        <a href="${pageContext.request.contextPath}/AddComment" class='button'>Add New Comment</a> 
 
     </body>
 </html>
