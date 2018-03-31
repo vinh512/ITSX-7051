@@ -21,9 +21,16 @@
             </form> 
         </div>
 
+        <!-- displays error message based on input fields -->
         <c:choose>
             <c:when test="${errorMsg}">
-                <div class='errorMsg'>Error - Input field cannot be empty</div>
+                <div class='errorMsg'>Error - Input fields cannot be empty</div>
+            </c:when>
+            <c:when test="${nameErrorMsg}">
+                <div class='errorMsg'>Error - Name input field cannot be empty</div>
+            </c:when>
+            <c:when test="${commentErrorMsg}">
+                <div class='errorMsg'>Error - Comment input field cannot be empty</div>
             </c:when>
             <c:otherwise>
                 <div class='errorMsg'>&nbsp;</div>

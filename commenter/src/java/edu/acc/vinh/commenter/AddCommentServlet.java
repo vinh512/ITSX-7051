@@ -28,9 +28,15 @@ public class AddCommentServlet extends HttpServlet {
         String name    = (String) request.getParameter("author");
         String comment = (String) request.getParameter("comment");
 
-        // error handle if input field(s) are left empty
-        if (name == null || name.length() == 0 || comment == null || comment.length() == 0) {
+        // handles error message based on input fields
+        if ((name == null || name.length() == 0) && (comment == null || comment.length() == 0)) {
             request.setAttribute("errorMsg", true);
+            request.getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
+        } else if (name == null || name.length() == 0) {
+            request.setAttribute("nameErrorMsg", true);
+            request.getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
+        } else if (comment == null || comment.length() == 0) {
+            request.setAttribute("commentErrorMsg", true);
             request.getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
         } else {
             // adds the form entries to instantiate a new Comment object & adds to the ArrayList
