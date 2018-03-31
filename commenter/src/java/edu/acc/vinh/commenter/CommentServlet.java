@@ -15,11 +15,18 @@ public class CommentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
+        final int commentCapacity = 10;
+        
         // get the CommentManager object from the servlet context
         CommentManager commentManager = (CommentManager) getServletContext().getAttribute("commentManager");
 
         // extract the ArrayList using CommentManager method   
         ArrayList<Comment> commentList = commentManager.getAllComments();
+        
+        // removes the oldest comment once capacity reached
+        if (commentList.size() > commentCapacity) {
+            commentList.remove(0);
+        }
 
         // pass in the ArrayList to the request object
         request.setAttribute("commentList", commentList);
