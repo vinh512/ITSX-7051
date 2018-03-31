@@ -20,14 +20,15 @@ textarea {
     font-weight: 300;
 }
 
-input[type=submit] {
+input[type="submit"] {
     color: rgb(100,100,100);
     font-size: 2em;
     margin-top: 10px;
-    width: 15%;  
+    width: 25%; 
+    float: right;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
     color: #56bd8d;
 }
 
@@ -93,7 +94,7 @@ a.button:hover {
     background-color: #f8f7f7;
     margin: 0 auto;
     width: 50%;
-    padding: 15px 25px;
+    padding: 15px 25px 45px;
 }
 
 .boxsizingBorder {
@@ -116,7 +117,7 @@ a.button:hover {
 }
 
 .input-name {
-    width: 30%;
+    width: 30%; 
 }
 
 .name-font {
@@ -124,4 +125,3 @@ a.button:hover {
     font-weight: 300;
     color: rgb(100,100,100);
 }
-
