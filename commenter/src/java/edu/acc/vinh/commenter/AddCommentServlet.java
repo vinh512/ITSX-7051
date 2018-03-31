@@ -13,7 +13,7 @@ public class AddCommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         request.getServletContext().getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
     }
 
@@ -28,6 +28,7 @@ public class AddCommentServlet extends HttpServlet {
         String name    = (String) request.getParameter("author");
         String comment = (String) request.getParameter("comment");
 
+        // error handle if input field(s) are left empty
         if (name == null || name.length() == 0 || comment == null || comment.length() == 0) {
             request.setAttribute("errorMsg", true);
             request.getRequestDispatcher("/WEB-INF/addcomment.jsp").forward(request, response);
