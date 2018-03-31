@@ -4,20 +4,74 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Comments Page</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+        <title>Twiddler</title>
+        <style>
+            body {
+                margin: 0;
+                background-color: #e6ecf1;
+            }
+            
+            h1 {
+                padding: 15px;
+                margin: 0;
+                background-color: #56bd8d;
+                color: white;
+                font-size: 3em;
+                border-bottom: 5px solid #449772;
+            }
+            
+            .comment-block {
+                padding: 15px 45px;
+                background-color: white;
+                border-bottom: 1px solid #eee;
+                
+            }
+            
+            .comment-block:nth-child(odd) {
+                background-color: #f8f7f7;
+            }
+            
+            .name {
+                font-family: 'Roboto', sans-serif;
+                color: rgb(100,100,100);
+                display: inline-block;
+                font-size: 1.1em;
+                font-weight: 500;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+            
+            .timestamp {
+                font-size: 0.9em;
+                border-left: 2px solid #969696;
+                color: rgb(150,150,150);
+                display: inline-block;
+                margin: 0 5px;
+                padding-left: 5px;
+            }
+            
+            .comment {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                font-size: 1.2em;
+                color: rgb(100,100,100);
+                margin-bottom: 5px;
+            }
+        
+        
+        
+        </style>
     </head>
     <body>
-        <h1>Display Comments here!</h1>
+        <h1>Twiddler</h1>
 
         <c:forEach var="comment" items="${commentList}">
-
-            <div>
-                <p><c:out value="${comment.name}"/></p>
-                <p>${comment.timeStamp}</p>
-                <p>${comment.comment}</p>
-                <hr>
+            <div class='comment-block'>
+                <p class='name'><c:out value="${comment.name}"/></p>
+                <p class='timestamp'>${comment.timeStamp}</p>
+                <p class='comment'>${comment.comment}</p>
             </div>
-
         </c:forEach>
 
         <a href="${pageContext.request.contextPath}/AddComment">Add New Comment</a> 

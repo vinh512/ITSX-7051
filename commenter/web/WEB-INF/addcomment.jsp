@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,6 +8,10 @@
     </head>
     <body>
         <h1>Add Comment!</h1>
+        <c:if test="${errorMsg}">
+            <div>Error - Input Field Empty</div>
+        </c:if>
+        
         <form action="${pageContext.request.contextPath}/AddComment" method="POST">
             Name: <input type="text" name="author">
             <br><br>

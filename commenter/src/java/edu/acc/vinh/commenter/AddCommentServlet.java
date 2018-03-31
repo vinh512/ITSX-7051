@@ -25,7 +25,7 @@ public class AddCommentServlet extends HttpServlet {
         CommentManager commentManager = (CommentManager) getServletContext().getAttribute("commentManager");
 
         // extracts values from the form (name & comment)
-        String name = (String) request.getParameter("author");
+        String name    = (String) request.getParameter("author");
         String comment = (String) request.getParameter("comment");
 
         if (name == null || name.length() == 0 || comment == null || comment.length() == 0) {
@@ -37,9 +37,6 @@ public class AddCommentServlet extends HttpServlet {
 
             // adds the ArrayList to the response object
             getServletContext().setAttribute("commentManager", commentManager);
-
-            System.out.println(name);
-            System.out.println(comment);
 
             // redirects to the Comments servlet
             response.sendRedirect("/commenter/Comments");
