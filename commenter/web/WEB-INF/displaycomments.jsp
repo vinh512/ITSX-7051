@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,5 +21,25 @@
 
         <a href="${pageContext.request.contextPath}/AddComment" class='button'>Add New Comment</a> 
 
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var originalColor;
+                var commentNodeList = document.getElementsByClassName('comment-block');
+
+                for (var i = 0; i < commentNodeList.length; i++) {
+                    commentNodeList[i].addEventListener('mouseover', mouseOver, false);
+                    commentNodeList[i].addEventListener('mouseout', mouseOut, false);
+                }
+
+                function mouseOver() {
+                    originalColor = this.style.backgroundColor;
+                    this.style.backgroundColor = "#e0faee";
+                }
+
+                function mouseOut() {
+                    this.style.backgroundColor = originalColor;
+                }
+            });
+        </script>
     </body>
 </html>
