@@ -15,7 +15,7 @@
             <div class='comment-block'>
                 <p class='name'><c:out value="${comment.name}"/></p>
                 <p class='timestamp'>${comment.timeStamp}</p>
-                <p class='comment'>${comment.comment}</p>
+                <p class='comment'><c:out value="${comment.comment}"/></p>
             </div>
         </c:forEach>
 
