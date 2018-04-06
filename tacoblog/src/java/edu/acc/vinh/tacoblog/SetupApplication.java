@@ -7,14 +7,16 @@ public class SetupApplication implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        System.out.println("context Initialized!");
+        
         // instantiate manager objects
         BlogManager blogManager = new BlogManager();
         UserManager userManager = new UserManager();
         
         // initialize app with blog data
-        blogManager.addBlog(new Blog("Torchy's", "Damn Good Tacos is their motto and its easy to see why."));
-        blogManager.addBlog(new Blog("Taco Deli", "Handcrafted gourmet tacos. Eat Great. Live Great."));
-        blogManager.addBlog(new Blog("Cool Beans", "This vegan Mexican spot is as good as anything fried in lard."));
+        blogManager.addBlog(new Blog("Bob", "Torchy's", "Damn Good Tacos is their motto and its easy to see why."));
+        blogManager.addBlog(new Blog("Sally", "Taco Deli", "Handcrafted gourmet tacos. Eat Great. Live Great."));
+        blogManager.addBlog(new Blog("Rufus", "Cool Beans", "This vegan Mexican spot is as good as anything fried in lard."));
         
         // initialize app with user data
         userManager.addUser(new User("Bob", "password123"));

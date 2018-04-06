@@ -15,6 +15,7 @@ public class TacoBlogServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // gets the Manager objects we initialized from SetupApplicatio
         BlogManager blogManager = (BlogManager) getServletContext().getAttribute("blogManager");
 
         // now that i have the blogmanger, i can use the method to get the array.
@@ -25,7 +26,7 @@ public class TacoBlogServlet extends HttpServlet {
         request.setAttribute("blogList", blogList);
         
         
-        request.getRequestDispatcher("/WEB-INF/displayblog.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/displayblog.jsp").forward(request, response);
     }
 
     @Override
