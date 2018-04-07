@@ -47,25 +47,7 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("userInvalid", true);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             
-            
-            
-//            // get list of existing users
-//            ArrayList<User> userList = userManager.getAllUsers();
-//
-//            // create User
-//            User newUser = new User(name, password);
-//
-//            // add new user to the user list
-//            userList.add(newUser);
-//
-//            request.getServletContext().setAttribute("user", newUser);
-        
-        }
-        
-        
-        
-        
-        
+        }        
     }
 
 }

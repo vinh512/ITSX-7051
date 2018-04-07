@@ -19,7 +19,7 @@
                     <input type="submit" value="Login">
                 </form>
                 
-                <form action="${pageContext.request.contextPath}/LoginServlet" method="GET" >
+                <form action="${pageContext.request.contextPath}/CreateAccountServlet" method="GET" >
                     <input type="submit" value="Create Account">
                 </form>    
                     
