@@ -21,6 +21,7 @@ public class CreateBlogServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // get form values
         String name  = request.getParameter("name");
         String title = request.getParameter("title");
         String blog  = request.getParameter("blog");
@@ -28,15 +29,16 @@ public class CreateBlogServlet extends HttpServlet {
         // get the blog manager helper from servlet   
         BlogManager blogManager = (BlogManager) request.getServletContext().getAttribute("blogManager");
         
+        // add blog to our data store object
         blogManager.addBlog(new Blog(name, title, blog));
         
+        // get the blog ArrayList
         ArrayList<Blog> blogList = blogManager.getAllBlogs();
         
+        // add the blog ArrayList into the servlet
         request.getServletContext().setAttribute("blogList", blogList);
         
         response.sendRedirect("/tacoblog/TacoBlogServlet");
-        
-        
     }
 
 }

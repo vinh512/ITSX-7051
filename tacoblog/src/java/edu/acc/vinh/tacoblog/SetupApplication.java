@@ -7,8 +7,6 @@ public class SetupApplication implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("context Initialized!");
-        
         // instantiate manager objects
         BlogManager blogManager = new BlogManager();
         UserManager userManager = new UserManager();
@@ -31,4 +29,5 @@ public class SetupApplication implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {    
     }
+    
 }

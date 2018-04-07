@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class UserManager {
     
+    // create empty ArrayList
     ArrayList<User> userList = new ArrayList<>();
     
     // if there was an entry, iterate through list to see if user exists
@@ -29,4 +30,5 @@ public class UserManager {
     public void addUser(User newUser) {
         userList.add(newUser);
     }
+    
 }

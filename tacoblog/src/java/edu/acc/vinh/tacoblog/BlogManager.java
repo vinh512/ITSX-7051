@@ -12,5 +12,6 @@ public class BlogManager {
     
     public void addBlog(Blog newBlog) {
         blogList.add(newBlog);
-    }
+    }   
+    
 }

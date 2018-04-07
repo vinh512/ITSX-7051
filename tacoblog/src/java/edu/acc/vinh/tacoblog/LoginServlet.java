@@ -13,9 +13,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-        
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);   
     }
 
     @Override
@@ -32,21 +30,13 @@ public class LoginServlet extends HttpServlet {
         // checks to see if there's an existing user with the same name & password
         User user = userManager.findUserIfValid(name, password);
         
-        System.out.println("This is the user: " + user);
-        System.out.println("Number of users: " + userManager.getNumberOfUsers());
-        
-        // if the user exists, set user into the session and redirect to blog page
+        // if the user exists, set user into the session and redirect to main page
         if (user != null) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/tacoblog/TacoBlogServlet");
         } else {
-            System.out.println("User does not exist");
-            // add error msg saying user doesn't exist
-            // redirects to login page
-            
             request.setAttribute("userInvalid", true);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            
         }        
     }
 

@@ -1,7 +1,6 @@
 package edu.acc.vinh.tacoblog;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,17 +27,16 @@ public class CreateAccountServlet extends HttpServlet {
         // get the User manager initialized from Setup Application
         UserManager userManager = (UserManager) getServletContext().getAttribute("userManager");
 
-        ArrayList<User> userList = userManager.getAllUsers();
-
-        User userNew = new User(name, password);
-
         // if inputs are invalid, display error message else add to list & session
         if ((name == null || name.length() == 0) || (password == null || password.length() == 0)) {
             request.setAttribute("errorMsg", true);
             request.getRequestDispatcher("/WEB-INF/createaccount.jsp").forward(request, response);
         } else {
+            // create new User
+            User userNew = new User(name, password);
+            
             // add new user to our 'data base' aka ArrayList
-            userList.add(userNew);
+            userManager.addUser(userNew);
 
             // add new user to session object
             request.getSession().setAttribute("user", userNew);

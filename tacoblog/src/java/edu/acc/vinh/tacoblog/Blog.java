@@ -23,5 +23,5 @@ public class Blog {
     public String getContentBody() {
         return contentBody;
     }
-    
+  
 }
