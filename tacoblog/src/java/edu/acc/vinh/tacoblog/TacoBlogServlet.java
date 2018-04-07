@@ -15,24 +15,23 @@ public class TacoBlogServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // gets the Manager objects we initialized from SetupApplicatio
+        // gets the Blog manager initialized from Setup Application
         BlogManager blogManager = (BlogManager) getServletContext().getAttribute("blogManager");
+        
+        // gets the User manager initialized from Setup Application
+        UserManager userManager = (UserManager) getServletContext().getAttribute("userManager");
 
-        // now that i have the blogmanger, i can use the method to get the array.
-        // then pass the array into the request for the jsp to use
+        // gets the ArrayList from the manager
         ArrayList<Blog> blogList = blogManager.getAllBlogs();
         
-        // pass in blog list into request object
+        // gets the number of existing users
+        int numberOfUsers = userManager.getNumberOfUsers();
+
+        // pass in blog list & number of users into request object
         request.setAttribute("blogList", blogList);
-        
+        request.setAttribute("numberOfUsers", numberOfUsers);
         
         getServletContext().getRequestDispatcher("/WEB-INF/displayblog.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
     }
 
 }

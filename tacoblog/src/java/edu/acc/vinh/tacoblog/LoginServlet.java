@@ -27,13 +27,14 @@ public class LoginServlet extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         
-        // get the user manager DAO we initialized in the Setup Application
+        // get the User manager initialized from Setup Application
         UserManager userManager = (UserManager) request.getServletContext().getAttribute("userManager");
 
         // checks to see if there's an existing user with the same name & password
         User user = userManager.findUserIfValid(name, password);
         
         System.out.println("This is the user: " + user);
+        System.out.println("Number of users: " + userManager.getNumberOfUsers());
         
         // if the user exists, set user into the session and redirect to blog page
         if (user != null) {

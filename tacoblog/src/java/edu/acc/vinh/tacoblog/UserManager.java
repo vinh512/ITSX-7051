@@ -22,6 +22,10 @@ public class UserManager {
         return userList;
     }
     
+    public int getNumberOfUsers() {
+        return userList.size();
+    }
+    
     public void addUser(User newUser) {
         userList.add(newUser);
     }
