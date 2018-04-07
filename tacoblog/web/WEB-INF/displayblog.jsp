@@ -18,6 +18,11 @@
                 <form action="${pageContext.request.contextPath}/LoginServlet" method="GET" >
                     <input type="submit" value="Login">
                 </form>
+                
+                <form action="${pageContext.request.contextPath}/LoginServlet" method="GET" >
+                    <input type="submit" value="Create Account">
+                </form>    
+                    
             </c:otherwise>
         </c:choose>
         

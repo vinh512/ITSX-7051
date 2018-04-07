@@ -1,6 +1,7 @@
 package edu.acc.vinh.tacoblog;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,24 +41,26 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/tacoblog/TacoBlogServlet");
         } else {
             System.out.println("User does not exist");
-        }
-        
-        
-//        
-//        
-//        // get list of existing users
-//        ArrayList<User> userList = userManager.getAllUsers();
-//        
-//        // create User
-//        User newUser = new User(name, password);
-//        
-//        // add new user to the user list
-//        userList.add(newUser);
-//        
+            // add error msg saying user doesn't exist
+            // redirects to login page
+            
+            request.setAttribute("userInvalid", true);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            
+            
+            
+//            // get list of existing users
+//            ArrayList<User> userList = userManager.getAllUsers();
 //
-//        request.getServletContext().setAttribute("user", newUser);
-//        
+//            // create User
+//            User newUser = new User(name, password);
+//
+//            // add new user to the user list
+//            userList.add(newUser);
+//
+//            request.getServletContext().setAttribute("user", newUser);
         
+        }
         
         
         
