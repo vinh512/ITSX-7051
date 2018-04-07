@@ -18,6 +18,10 @@ public class UserManager {
         return null;
     }
     
+    public ArrayList<User> getAllUsers() {
+        return userList;
+    }
+    
     public void addUser(User newUser) {
         userList.add(newUser);
     }
