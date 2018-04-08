@@ -12,9 +12,19 @@ public class SetupApplication implements ServletContextListener {
         UserManager userManager = new UserManager();
         
         // initialize app with blog data
-        blogManager.addBlog(new Blog("Bob", "Torchy's", "Damn Good Tacos is their motto and its easy to see why."));
-        blogManager.addBlog(new Blog("Sally", "Taco Deli", "Handcrafted gourmet tacos. Eat Great. Live Great."));
-        blogManager.addBlog(new Blog("Rufus", "Cool Beans", "This vegan Mexican spot is as good as anything fried in lard."));
+        blogManager.addBlog(new Blog("Bob Simmons", "Torchy's Damn Good Tacos", "Every day is taco ipsum tuesday. It’s raining "
+                + "tacos, from out of the sky, tacos, don’t even ask why. It’s taco time all the time. Can you put some "
+                + "peppers and onions on that? I’ve been following that taco truck around all day. 50 cent tacos! "));
+        
+        blogManager.addBlog(new Blog("Sally Wrassler", "Taco Deli", "Handcrafted gourmet tacos. Eat Great. Live Great. I’ll take 30. "
+                + "TACOS!! Fish tacos: lettuce or cabbage, pico de gallo, avocado and a sour cream or citrus/mayonnaise "
+                + "sauce, all placed on top of a corn or flour tortilla. It’s raining tacos, from out of the sky, tacos,"
+                + " don’t even ask why. Make it a double there pal."));
+        
+        blogManager.addBlog(new Blog("Rufus Kale", "Cool Beans", "This vegan Mexican spot is as good as anything fried in lard. "
+                + "Tacos, tacos, tacos. Fish tacos: lettuce or cabbage, pico de gallo, avocado and a sour cream or "
+                + "citrus/mayonnaise sauce, all placed on top of a corn or flour tortilla. It’s raining tacos, from out of "
+                + "the sky, tacos, don’t even ask why."));
         
         // initialize app with user data
         userManager.addUser(new User("Bob", "password123"));
