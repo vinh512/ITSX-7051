@@ -42,6 +42,7 @@
         </div> <!-- end of header-->
 
         <div class='blog-body'>
+            
         <c:forEach var="blog" items="${blogList}">
             <div class='blog-container'>
                 <div class='blog-header'>

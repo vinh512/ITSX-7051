@@ -46,6 +46,9 @@ body .blog-container:first-of-type {
     background-color: #fdda24;
     border-bottom: 5px solid #e8c92f;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .members {
@@ -121,6 +124,7 @@ body .blog-container:first-of-type {
 
 .blog-body {
     margin-bottom: 60px;
+    padding-top: 100px;
 }
 
 .form-submit-btn {
