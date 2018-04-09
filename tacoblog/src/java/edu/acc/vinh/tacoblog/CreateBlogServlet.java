@@ -30,7 +30,7 @@ public class CreateBlogServlet extends HttpServlet {
             request.setAttribute("errorMsg", true);
             request.getRequestDispatcher("/WEB-INF/createblog.jsp").forward(request, response);
         } else {
-        
+            
         // get the blog manager helper from servlet   
         BlogManager blogManager = (BlogManager) request.getServletContext().getAttribute("blogManager");
         
