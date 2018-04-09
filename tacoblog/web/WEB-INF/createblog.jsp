@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -145,6 +146,10 @@
     <body>
         <div class='top-header'>
             <h1>Create Blog</h1>
+            
+            <c:if test='${errorMsg}'>
+                <h1 class='invalid-entry-msg'>&nbsp;- Invalid Input!</h1>
+            </c:if>
         </div>
         
         <form action="${pageContext.request.contextPath}/CreateBlogServlet" method="POST">

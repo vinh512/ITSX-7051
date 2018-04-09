@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -143,12 +143,10 @@
         <div class='top-header'>
             <h1>Log In</h1>
         
-        
-        <c:if test="${userInvalid}">
-            <h1 class='invalid-entry-msg'>&nbsp;- Invalid Input!</h1>
-        </c:if>
-            
-            </div>
+            <c:if test="${userInvalid}">
+                <h1 class='invalid-entry-msg'>&nbsp;- Invalid Input!</h1>
+            </c:if>
+        </div>
         
         <form action="${pageContext.request.contextPath}/LoginServlet" method="POST">  
             <table>

@@ -26,6 +26,11 @@ public class CreateBlogServlet extends HttpServlet {
         String title = request.getParameter("title");
         String blog  = request.getParameter("blog");
         
+        if ((title == null || title.length() == 0) || (blog == null || blog.length() == 0)) {
+            request.setAttribute("errorMsg", true);
+            request.getRequestDispatcher("/WEB-INF/createblog.jsp").forward(request, response);
+        } else {
+        
         // get the blog manager helper from servlet   
         BlogManager blogManager = (BlogManager) request.getServletContext().getAttribute("blogManager");
         
@@ -39,6 +44,7 @@ public class CreateBlogServlet extends HttpServlet {
         request.getServletContext().setAttribute("blogList", blogList);
         
         response.sendRedirect("/tacoblog/TacoBlogServlet");
+        }
     }
 
 }
