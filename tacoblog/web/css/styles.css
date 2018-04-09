@@ -22,6 +22,10 @@ td textarea {
     margin-left: 20px;
 }
 
+form {
+    padding-top: 90px;
+}
+
 input[type=submit] {
     -webkit-appearance: none;
     font-size: 1.5em;
