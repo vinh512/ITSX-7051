@@ -12,9 +12,14 @@
         <div class='top-header'>
             <h1>Create Account</h1>
             
+            <c:if test="${userExists}">
+                <h1 class='invalid-entry-msg'>&nbsp;- User already in System - Log in</h1>
+            </c:if>
+                
             <c:if test="${errorMsg}">
                 <h1 class='invalid-entry-msg'>&nbsp;- Invalid Input!</h1>
-            </c:if>
+            </c:if>    
+                
         </div>
         
         <form action="${pageContext.request.contextPath}/CreateAccountServlet" method="POST">
