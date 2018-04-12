@@ -15,7 +15,7 @@
             <c:choose>
                 <c:when test="${user != null}">
                     <div class="login-forms">
-                        <h2 class='user-logged-in'><c:out value="${user.name}"></c:out></h2>
+                        <h2 class='user-logged-in'><c:out value="${user.name}"/></h2>
 
                         <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" >
                             <input type="submit" value="Log Out">
@@ -46,11 +46,11 @@
         <c:forEach var="blog" items="${blogList}">
             <div class='blog-container'>
                 <div class='blog-header'>
-                    <span class='blog-title'>${blog.title}</span>
-                    <span class='blog-author'>&#8211; ${blog.name}</span>
+                    <span class='blog-title'><c:out value="${blog.title}"/></span>
+                    <span class='blog-author'>&#8211; <c:out value="${blog.name}"/></span>
                 </div>
                 
-                <div class='blog-content'>${blog.contentBody}</div>
+                <div class='blog-content'><c:out value="${blog.contentBody}"/></div>
                 <br>
             </div>
         </c:forEach>
