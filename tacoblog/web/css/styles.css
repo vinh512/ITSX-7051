@@ -140,3 +140,11 @@ body .blog-container:first-of-type {
     color: white;
 }
 
+.invalid-entry-msg a {
+    text-decoration: none;
+    color: white;
+}
+
+.invalid-entry-msg a:hover {
+    color: #51acc1;
+}

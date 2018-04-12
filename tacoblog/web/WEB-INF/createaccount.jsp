@@ -13,7 +13,8 @@
             <h1>Create Account</h1>
             
             <c:if test="${userExists}">
-                <h1 class='invalid-entry-msg'>&nbsp;- User already in System - Log in</h1>
+                <h1 class='invalid-entry-msg'>&nbsp;- User already in System - 
+                    <a href="/tacoblog/LoginServlet">Log in</a></h1>
             </c:if>
                 
             <c:if test="${errorMsg}">
