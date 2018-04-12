@@ -10,8 +10,9 @@ public class BlogManager {
         return blogList;
     }
     
+    // inserts blog at beginning of ArrayList
     public void addBlog(Blog newBlog) {
-        blogList.add(newBlog);
+        blogList.add(0, newBlog);
     }   
     
 }
