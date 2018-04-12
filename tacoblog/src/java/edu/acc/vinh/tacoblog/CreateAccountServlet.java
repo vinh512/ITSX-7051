@@ -31,7 +31,7 @@ public class CreateAccountServlet extends HttpServlet {
         UserManager userManager = (UserManager) getServletContext().getAttribute("userManager");
         
         // checks to see if user already exists in our data store
-        if (userManager.userExists(userNew)) {
+        if (userManager.findUserIfValid(name, password) != null) {
             request.setAttribute("userExists", true);
             request.getRequestDispatcher("/WEB-INF/createaccount.jsp").forward(request, response);
         }

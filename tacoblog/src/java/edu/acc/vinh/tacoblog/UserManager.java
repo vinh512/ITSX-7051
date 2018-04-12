@@ -19,16 +19,6 @@ public class UserManager {
         return null;
     }
     
-    // check to see if user exists
-    public boolean userExists(User userNew) {
-        for (User user : userList) {
-            if (userNew.getName().equals(user.getName()) && userNew.getPassword().equals(user.getPassword())) {
-                return true;
-            }
-        }
-        return false;
-    }
-    
     public ArrayList<User> getAllUsers() {
         return userList;
     }
