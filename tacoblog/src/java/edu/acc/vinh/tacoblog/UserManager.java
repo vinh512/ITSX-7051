@@ -11,7 +11,7 @@ public class UserManager {
     public User findUserIfValid(String name, String password) {
         if (name != null && password != null) {
             for (User user : userList) {
-                if (user.getName().equals(name) && user.getPassword().equals(password)) {
+                if (user.getName().equals(name) && user.checkPassword(password)) {
                     return user;
                 }
             }
