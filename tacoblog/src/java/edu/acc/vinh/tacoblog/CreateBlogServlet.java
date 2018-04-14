@@ -14,7 +14,13 @@ public class CreateBlogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/createblog.jsp").forward(request, response);
+        // checks to see if user is logged in, in order to access create-blog page
+        if (request.getSession().getAttribute("user") != null) {
+            System.out.println("here: "  + request.getSession().getAttribute("user"));
+            request.getRequestDispatcher("/WEB-INF/createblog.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/tacoblog/TacoBlogServlet");
+        }
     }
 
     @Override
