@@ -16,10 +16,10 @@ public class MovieManager extends DBManager {
 //    ArrayList<Movie> movies = new ArrayList<>();
 
     private Movie movieFromDB(ResultSet resultSet) throws SQLException {
-        System.out.println("Entering method movieFromDB!!!");
+        System.out.println("*** Isolating movie now ***");
         Movie movie = new Movie();
-        movie.setTitle(resultSet.getString("title"));
-        System.out.println(resultSet.getString("title"));
+        movie.setTitle(resultSet.getString("Title"));
+        movie.setReleaseYear((Integer)resultSet.getInt("ReleaseYear"));
         return movie;
     }
     
