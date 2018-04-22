@@ -20,7 +20,6 @@
     </head>
     <body>
         <h1>Disney Movie Database:</h1>
-
         <table>
             <thead>
                 <tr>
@@ -31,7 +30,7 @@
             <tbody>
                 <c:forEach var="movie" items="${movies}">
                     <tr>
-                        <td>${movie.title}</td>
+                        <td><a href="/moviesdb/movies/info?id=${movie.id}">${movie.title}</a></td>
                         <td>${movie.releaseYear}</td>
                     </tr>
                 </c:forEach>

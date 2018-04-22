@@ -8,18 +8,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/movies")
-public class MovieServlet extends HttpServlet {
-   
+@WebServlet("/movies/info")
+public class MovieDetailsServlet extends HttpServlet {
+
     @Inject
     MovieManager manager;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("movies", manager.getMovies());
         
-        request.getRequestDispatcher("/WEB-INF/movies.jsp").forward(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Movie movie = manager.getMovieById(id);
+        
+        System.out.println(movie.getTitle());
+        
+        request.setAttribute("movie", movie);
+        request.getRequestDispatcher("/WEB-INF/movie_details.jsp").forward(request, response);
+
     }
-    
+
 }

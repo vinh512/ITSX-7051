@@ -18,8 +18,10 @@ public class MovieManager extends DBManager {
     private Movie movieFromDB(ResultSet resultSet) throws SQLException {
         System.out.println("*** Isolating movie now ***");
         Movie movie = new Movie();
+        
+        movie.setId(resultSet.getInt("id"));
         movie.setTitle(resultSet.getString("Title"));
-        movie.setReleaseYear((Integer)resultSet.getInt("ReleaseYear"));
+        movie.setReleaseYear(resultSet.getInt("ReleaseYear"));
         return movie;
     }
     
@@ -55,6 +57,36 @@ public class MovieManager extends DBManager {
         }
         
         return movies;
+    }
+    
+    public Movie getMovieById(int id) {
+        Movie movie = new Movie();
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("SELECT * FROM movies where id = ?");
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                movie = (movieFromDB(resultSet));
+            }
+                    
+        } catch (SQLException ex) {
+            ex.printStackTrace();            
+        } 
+        
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
+        }
+        
+        return movie;
     }
     
 }
