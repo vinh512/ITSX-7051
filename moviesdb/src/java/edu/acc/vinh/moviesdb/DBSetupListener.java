@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebListener;
         name = "java:app/jdbc/movieDB",
         className = "org.apache.derby.jdbc.ClientDataSource",
         url = "jdbc:derby://localhost:1527/",
-        databaseName = "movies",
+        databaseName = "movieDB",
         user = "app",
         password = "app")
 
