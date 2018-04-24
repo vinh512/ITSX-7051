@@ -25,6 +25,6 @@
             <p>A mermaid princess makes a Faustian bargain with an unscrupulous sea-witch in order to meet a human prince on land.</p>
         </div>
 
-        <a class='back' href='/moviesdb/movies'>Back</a>
+        <a class='back' href='/moviesdb/'>Back</a>
     </body>
 </html>

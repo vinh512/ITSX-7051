@@ -9,14 +9,11 @@
             30
         </session-timeout>
     </session-config>
-<!--    
-    <resource-ref>
-        <res-ref-name>jdbc/movies</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-        <res-sharing-scope>Shareable</res-sharing-scope>
-    </resource-ref>
-    -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/notfound.jsp</location>
+    </error-page>
+        
 </web-app>
 
 

@@ -73,6 +73,8 @@ public class MovieManager extends DBManager {
             
             if (resultSet.next()) {
                 movie = (movieFromDB(resultSet));
+            } else {
+                movie = null;
             }
                     
         } catch (SQLException ex) {

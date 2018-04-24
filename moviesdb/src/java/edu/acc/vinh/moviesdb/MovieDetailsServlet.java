@@ -17,19 +17,30 @@ public class MovieDetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Movie movie = findMovie(request);
-        
-        request.setAttribute("movie", movie);
-        request.getRequestDispatcher("/WEB-INF/movie_details.jsp").forward(request, response);
-    }
-       
-    protected int IdParameter(HttpServletRequest request) {
-        return Integer.parseInt(request.getParameter("id"));
+
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        Movie movie = findMovie(id);
+
+        if (movie == null) {
+            response.sendError(404, "Not Found");
+        } else {
+            request.setAttribute("movie", movie);
+            request.getRequestDispatcher("/WEB-INF/movie_details.jsp").forward(request, response);
+        }
     }
 
-    protected Movie findMovie(HttpServletRequest request) {
-        return manager.getMovieById(IdParameter(request));
+    protected Movie findMovie(int id) {
+        try {
+            return manager.getMovieById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
+
+//    protected int idParameter(HttpServletRequest request) {
+//        return Integer.parseInt(request.getParameter("id"));
+//    }
 
 }

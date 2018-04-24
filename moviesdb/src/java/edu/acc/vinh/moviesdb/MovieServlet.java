@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/movies")
+@WebServlet("")
 public class MovieServlet extends HttpServlet {
    
     @Inject
