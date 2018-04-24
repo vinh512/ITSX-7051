@@ -14,7 +14,6 @@ public class MovieManager extends DBManager {
     DataSource dataSource;
 
     private Movie movieFromDB(ResultSet resultSet) throws SQLException {
-        System.out.println("*** Isolating movie now ***");
         Movie movie = new Movie();
         
         movie.setId(resultSet.getInt("id"));
@@ -31,8 +30,6 @@ public class MovieManager extends DBManager {
     }
     
     public ArrayList<Movie> getMovies() {
-        System.out.println("Get Movies done here!");
-        
         ArrayList<Movie> movies = new ArrayList<>();
         
         Connection connection = null;
@@ -40,7 +37,6 @@ public class MovieManager extends DBManager {
         ResultSet resultSet = null;
         
         try {
-            System.out.println("Did you at least try?!");
             connection = dataSource.getConnection();
             statement = connection.prepareStatement("SELECT * FROM movies ORDER BY releaseYear ASC");
             resultSet = statement.executeQuery();

@@ -11,11 +11,11 @@
         <h1>Disney Movie Database:</h1>
         <table>
             <tbody>
-                
+
                 <c:forEach var="movie" items="${movies}">
                     <tr>
                         <td>
-                             <a href="/moviesdb/movies/info?id=${movie.id}">
+                            <a href="/moviesdb/movies/info?id=${movie.id}">
                                 <img src="${movie.movieCover}" alt="${movie.title} cover">
                             </a>
                         </td>
@@ -23,7 +23,7 @@
                         <td>${movie.releaseYear}</td>
                     </tr>
                 </c:forEach>
-                    
+
             </tbody>
         </table>
     </body>
