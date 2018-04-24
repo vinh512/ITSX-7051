@@ -13,20 +13,23 @@ public class MovieDetailsServlet extends HttpServlet {
 
     @Inject
     MovieManager manager;
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id = Integer.parseInt(request.getParameter("id"));
-        
-        Movie movie = manager.getMovieById(id);
-        
-        System.out.println(movie.getTitle());
+        Movie movie = findMovie(request);
         
         request.setAttribute("movie", movie);
         request.getRequestDispatcher("/WEB-INF/movie_details.jsp").forward(request, response);
+    }
+       
+    protected int IdParameter(HttpServletRequest request) {
+        return Integer.parseInt(request.getParameter("id"));
+    }
 
+    protected Movie findMovie(HttpServletRequest request) {
+        return manager.getMovieById(IdParameter(request));
     }
 
 }

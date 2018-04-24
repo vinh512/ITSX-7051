@@ -17,8 +17,8 @@ public class MovieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("movies", manager.getMovies());
         
+        request.setAttribute("movies", manager.getMovies());
         request.getRequestDispatcher("/WEB-INF/movies.jsp").forward(request, response);
     }
     

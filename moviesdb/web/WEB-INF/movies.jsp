@@ -5,35 +5,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Movies Page</title>
-        <style>
-            table {
-                border: 1px solid #ddd;
-            }
-            td {
-                border: 1px solid #ddd;
-                padding-right: 50px;
-            }
-            th {
-                text-align: left;
-            }
-        </style>
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Disney Movie Database:</h1>
         <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
             <tbody>
+                
                 <c:forEach var="movie" items="${movies}">
                     <tr>
+                        <td>
+                             <a href="/moviesdb/movies/info?id=${movie.id}">
+                                <img src="${movie.movieCover}" alt="${movie.title} cover">
+                            </a>
+                        </td>
                         <td><a href="/moviesdb/movies/info?id=${movie.id}">${movie.title}</a></td>
                         <td>${movie.releaseYear}</td>
                     </tr>
                 </c:forEach>
+                    
             </tbody>
         </table>
     </body>

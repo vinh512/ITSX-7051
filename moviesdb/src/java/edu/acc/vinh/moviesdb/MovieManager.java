@@ -12,8 +12,6 @@ public class MovieManager extends DBManager {
     
     @Resource(lookup = "java:app/jdbc/movieDB")
     DataSource dataSource;
-    
-//    ArrayList<Movie> movies = new ArrayList<>();
 
     private Movie movieFromDB(ResultSet resultSet) throws SQLException {
         System.out.println("*** Isolating movie now ***");
@@ -22,6 +20,13 @@ public class MovieManager extends DBManager {
         movie.setId(resultSet.getInt("id"));
         movie.setTitle(resultSet.getString("Title"));
         movie.setReleaseYear(resultSet.getInt("ReleaseYear"));
+        movie.setRating(resultSet.getString("Rating"));
+        movie.setRunTime(resultSet.getString("RunTime"));
+        movie.setGenre(resultSet.getString("Genre"));
+        movie.setReleaseDate(resultSet.getString("ReleaseDate"));
+        movie.setDirector(resultSet.getString("Director"));
+        movie.setMovieCover(resultSet.getString("MovieCover"));
+        
         return movie;
     }
     
@@ -37,17 +42,15 @@ public class MovieManager extends DBManager {
         try {
             System.out.println("Did you at least try?!");
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("SELECT * FROM movies");
+            statement = connection.prepareStatement("SELECT * FROM movies ORDER BY releaseYear ASC");
             resultSet = statement.executeQuery();
             
             while (resultSet.next()) {
                 movies.add(movieFromDB(resultSet));
             }
-                    
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
-            System.out.println("*** didn't work!!!!! ***");
-            
         } 
         
         finally {
