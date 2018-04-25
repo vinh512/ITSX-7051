@@ -5,32 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 public class MovieManager extends DBManager {
-    
-    @Resource(lookup = "java:app/jdbc/movieDB")
-    DataSource dataSource;
 
-    private Movie movieFromDB(ResultSet resultSet) throws SQLException {
-        Movie movie = new Movie();
-        
-        movie.setId(resultSet.getInt("id"));
-        movie.setTitle(resultSet.getString("Title"));
-        movie.setReleaseYear(resultSet.getInt("ReleaseYear"));
-        movie.setRating(resultSet.getString("Rating"));
-        movie.setRunTime(resultSet.getString("RunTime"));
-        movie.setGenre(resultSet.getString("Genre"));
-        movie.setReleaseDate(resultSet.getString("ReleaseDate"));
-        movie.setDirector(resultSet.getString("Director"));
-        movie.setCover(resultSet.getString("Cover"));
-        movie.setSynopsis(resultSet.getString("Synopsis"));
-        
-        return movie;
-    }
-    
-    public ArrayList<Movie> getMovies() {
+    // gets all the movies from the database and puts them in an array
+    public ArrayList<Movie> getMovies(DataSource dataSource) {
         ArrayList<Movie> movies = new ArrayList<>();
         
         Connection connection = null;
@@ -45,21 +25,21 @@ public class MovieManager extends DBManager {
             while (resultSet.next()) {
                 movies.add(movieFromDB(resultSet));
             }
-            
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         } 
-        
         finally {
             close(resultSet);
             close(statement);
             close(connection);
         }
-        
+
         return movies;
     }
     
-    public Movie getMovieById(int id) {
+    // gets a single movie based on the ID value
+    public Movie getMovieById(DataSource dataSource, int id) {
         Movie movie = new Movie();
         
         Connection connection = null;
@@ -76,12 +56,11 @@ public class MovieManager extends DBManager {
                 movie = (movieFromDB(resultSet));
             } else {
                 movie = null;
-            }
-                    
-        } catch (SQLException ex) {
+            }          
+        } 
+        catch (SQLException ex) {
             ex.printStackTrace();            
         } 
-        
         finally {
             close(resultSet);
             close(statement);
@@ -89,6 +68,24 @@ public class MovieManager extends DBManager {
         }
         
         return movie;
+    }
+    
+    // constructs a movie with data from the DB's result set
+    private Movie movieFromDB(ResultSet resultSet) throws SQLException {
+        Movie newMovie = new Movie();
+        
+        newMovie.setId(resultSet.getInt("id"));
+        newMovie.setTitle(resultSet.getString("Title"));
+        newMovie.setReleaseYear(resultSet.getInt("ReleaseYear"));
+        newMovie.setRating(resultSet.getString("Rating"));
+        newMovie.setRunTime(resultSet.getString("RunTime"));
+        newMovie.setGenre(resultSet.getString("Genre"));
+        newMovie.setReleaseDate(resultSet.getString("ReleaseDate"));
+        newMovie.setDirector(resultSet.getString("Director"));
+        newMovie.setCover(resultSet.getString("Cover"));
+        newMovie.setSynopsis(resultSet.getString("Synopsis"));
+        
+        return newMovie;
     }
     
 }

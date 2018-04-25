@@ -1,24 +1,28 @@
 package edu.acc.vinh.moviesdb;
 
 import java.io.IOException;
-import javax.inject.Inject;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 @WebServlet("")
 public class MovieServlet extends HttpServlet {
    
-    @Inject
-    MovieManager manager;
+    @Resource(lookup = "java:app/jdbc/movieDB")
+    DataSource dataSource;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request.setAttribute("movies", manager.getMovies());
+        // retrieves DAO manager from servlet listener
+        MovieManager manager = (MovieManager)request.getServletContext().getAttribute("movieManager");
+        
+        request.setAttribute("movies", manager.getMovies(dataSource));
         request.getRequestDispatcher("/WEB-INF/movies.jsp").forward(request, response);
     }
     

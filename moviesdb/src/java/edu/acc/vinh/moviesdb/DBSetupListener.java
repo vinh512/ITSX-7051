@@ -20,9 +20,11 @@ public class DBSetupListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("DB Connected!");
+        sce.getServletContext().setAttribute("movieManager", new MovieManager());
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        System.out.println("Context Destroyed");
     }
 }

@@ -1,39 +1,45 @@
 package edu.acc.vinh.moviesdb;
 
 import java.io.IOException;
-import javax.inject.Inject;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
-// Displays the movie based on the id from the query string
 @WebServlet("/movies/info")
 public class MovieDetailsServlet extends HttpServlet {
 
-    @Inject
-    MovieManager manager;
+    @Resource(lookup = "java:app/jdbc/movieDB")
+    DataSource dataSource;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // gets id from query string parameter
         int id = idParameter(request);
         
-        Movie movie = findMovie(id);
-
+        // retrieves DAO manager from servlet listener
+        MovieManager manager = (MovieManager)request.getServletContext().getAttribute("movieManager");
+        
+        // uses DAO's method to find movie based on its ID and returns the movie
+        Movie movie = findMovie(manager, id);
+        
+        // if movie not found, redirect to error page
         if (movie == null) {
-            response.sendError(404, "Not Found");
+            response.sendError(404, "Not Found");            
         } else {
             request.setAttribute("movie", movie);
             request.getRequestDispatcher("/WEB-INF/movie_details.jsp").forward(request, response);
         }
     }
 
-    protected Movie findMovie(int id) {
+    protected Movie findMovie(MovieManager manager, int id) {
         try {
-            return manager.getMovieById(id);
+            return manager.getMovieById(dataSource, id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
