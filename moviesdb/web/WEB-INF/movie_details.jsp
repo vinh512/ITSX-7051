@@ -14,7 +14,7 @@
 
         <div class='display-width'>
             <hr>                
-            <img class='detail-view' src="${movie.movieCover}" alt="${movie.title} cover">
+            <img class='detail-view' src="${movie.cover}" alt="${movie.title} cover">
             <div>
                 <span>${movie.runTime}</span>
                 <span>${movie.genre}</span>

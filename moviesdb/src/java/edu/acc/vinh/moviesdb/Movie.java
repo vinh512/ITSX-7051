@@ -10,7 +10,7 @@ public class Movie {
     private String genre;
     private String releaseDate;
     private String director;
-    private String movieCover;
+    private String cover;
     private String synopsis;
     
     public int getId() {
@@ -77,12 +77,12 @@ public class Movie {
         this.director = director;
     }
 
-    public String getMovieCover() {
-        return movieCover;
+    public String getCover() {
+        return cover;
     }
 
-    public void setMovieCover(String movieCover) {
-        this.movieCover = movieCover;
+    public void setCover(String cover) {
+        this.cover = cover;
     }
     
     public String getSynopsis() {

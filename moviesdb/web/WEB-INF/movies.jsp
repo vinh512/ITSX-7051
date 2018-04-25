@@ -16,7 +16,7 @@
                     <tr>
                         <td>
                             <a href="/moviesdb/movies/info?id=${movie.id}">
-                                <img src="${movie.movieCover}" alt="${movie.title} cover">
+                                <img src="${movie.cover}" alt="${movie.title} cover">
                             </a>
                         </td>
                         <td><a href="/moviesdb/movies/info?id=${movie.id}">${movie.title}</a></td>
