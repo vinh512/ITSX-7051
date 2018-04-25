@@ -1,6 +1,7 @@
 package edu.acc.vinh.moviesdb;
 
 public class Movie {
+
     private int id;
     private String title;
     private int releaseYear;
@@ -10,6 +11,7 @@ public class Movie {
     private String releaseDate;
     private String director;
     private String movieCover;
+    private String synopsis;
     
     public int getId() {
         return id;
@@ -81,6 +83,14 @@ public class Movie {
 
     public void setMovieCover(String movieCover) {
         this.movieCover = movieCover;
+    }
+    
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 
 }

@@ -22,7 +22,7 @@
             </div>
             <br>
             <h3>Synopsis:</h3>
-            <p>A mermaid princess makes a Faustian bargain with an unscrupulous sea-witch in order to meet a human prince on land.</p>
+            <p>${movie.synopsis}</p>
         </div>
 
         <a class='back' href='/moviesdb/'>Back</a>

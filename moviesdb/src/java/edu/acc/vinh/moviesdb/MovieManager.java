@@ -25,6 +25,7 @@ public class MovieManager extends DBManager {
         movie.setReleaseDate(resultSet.getString("ReleaseDate"));
         movie.setDirector(resultSet.getString("Director"));
         movie.setMovieCover(resultSet.getString("MovieCover"));
+        movie.setSynopsis(resultSet.getString("Synopsis"));
         
         return movie;
     }
