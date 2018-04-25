@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// Displays the movie based on the id from the query string
 @WebServlet("/movies/info")
 public class MovieDetailsServlet extends HttpServlet {
 
@@ -17,9 +18,9 @@ public class MovieDetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        int id = Integer.parseInt(request.getParameter("id"));
-
+        
+        int id = idParameter(request);
+        
         Movie movie = findMovie(id);
 
         if (movie == null) {
@@ -39,8 +40,8 @@ public class MovieDetailsServlet extends HttpServlet {
         }
     }
 
-//    protected int idParameter(HttpServletRequest request) {
-//        return Integer.parseInt(request.getParameter("id"));
-//    }
+    protected int idParameter(HttpServletRequest request) {
+        return Integer.parseInt(request.getParameter("id"));
+    }
 
 }
