@@ -1,14 +1,14 @@
 CREATE TABLE movies (
     ID int GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT by 1),
-    Title varchar(100) NOT NULL,
+    Title varchar(128) NOT NULL,
     ReleaseYear int NOT NULL,
-    Rating varchar(5) NOT NULL,
-    RunTime varchar(10) NOT NULL,
-    Genre varchar(25) NOT NULL,
-    ReleaseDate varchar(15),
-    Director varchar(50) NOT NULL,
-    Cover varchar(255),
-    Synopsis varchar(1000),
+    Rating varchar(8) NOT NULL,
+    RunTime varchar(16) NOT NULL,
+    Genre varchar(32) NOT NULL,
+    ReleaseDate varchar(32),
+    Director varchar(64) NOT NULL,
+    Cover varchar(256),
+    Synopsis varchar(1024),
     primary key (id)
 );
 
