@@ -3,7 +3,5 @@ CREATE TABLE users (
     FirstName varchar(32) NOT NULL,
     LastName varchar(32) NOT NULL,
     Email varchar(64) NOT NULL,
-    Password varchar(256) NOT NULL,
-    DateOfBirth varchar(32) NOT NULL,
-    Address varchar(256) NOT NULL 
+    Password varchar(256) NOT NULL
 );

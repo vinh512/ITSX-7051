@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
-public class UserManager {
+public class UserManager extends DBManager {
     
     private final DataSource dataSource;
     
@@ -23,15 +23,12 @@ public class UserManager {
         user.setFirstName(resultSet.getString("FirstName"));
         user.setLastName(resultSet.getString("LastName"));
         user.setEmail(resultSet.getString("Email"));
-        user.setDateOfBirth(resultSet.getString("DateOfBirth"));
-        user.setAddress(resultSet.getString("Address"));
         
         return user;
     }
     
-    
     public List<User> getAllUsers() {
-        ArrayList<User> userList = new ArrayList();
+        ArrayList<User> userList = new ArrayList<>();
                 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -49,6 +46,12 @@ public class UserManager {
         
         catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
         }
         
         return userList;
