@@ -7,22 +7,22 @@ import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 
 @DataSourceDefinition(
-        name = "java:app/jdbc/manaDB",
+        name = "java:app/jdbc/userDB",
         className = "org.apache.derby.jdbc.ClientDataSource",
         url = "jdbc:derby://localhost:1527/",
-        databaseName = "manaDB",
+        databaseName = "userDB",
         user = "app",
         password = "app")
 
 public class SetupListener implements ServletContextListener {
 
-    @Resource(lookup = "java:app/jdbc/manaDB")
+    @Resource(lookup = "java:app/jdbc/userDB")
     DataSource dataSource;
     
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        
-//        sce.getServletContext().setAttribute(name, sce);
+        UserManager userManager = new UserManager(dataSource);
+        sce.getServletContext().setAttribute("userManager", userManager);
     }
 
     @Override
