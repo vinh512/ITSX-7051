@@ -27,6 +27,32 @@ public class UserManager extends DBManager {
         return user;
     }
     
+    public void addUser(User user) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("INSERT INTO users (FirstName, LastName, Email, Password) VALUES (?,?,?,?)");
+            
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getPassword());
+            
+            statement.execute();
+        } 
+        
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        finally {
+            close(statement);
+            close(connection);
+        }
+    }
+    
     public List<User> getAllUsers() {
         ArrayList<User> userList = new ArrayList<>();
                 
@@ -54,8 +80,40 @@ public class UserManager extends DBManager {
             close(connection);
         }
         
-        return userList;
+        return userList;        
+    }
+    
+    public User getUser(DataSource dataSource, String firstName) {
+        User user = new User();
+                
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
         
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("SELECT * FROM users WHERE FirstName = ?");
+            statement.setString(1, firstName);
+            resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                user = (userFromDB(resultSet));
+            } else {
+                user = null;
+            }          
+         }
         
-    } 
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
+        }
+        
+        return user; 
+    }
+    
 }

@@ -8,16 +8,17 @@
     <body>
         <h1>Login:</h1>
         
-        <form method="POST" action="/writedb/HomeSerlet">
+        <form method="POST" action="/writedb/HomeServlet">
             <table>
                 <tr>
                     <td>Name</td>
                     <td>Password</td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="name"></td>
-                    <td><input type="text" name="password"></td>
-                    <td><input type="button" value="Submit"></td> 
+                    <td><input type="text" name="login_name"></td>
+                    <td><input type="text" name="login_password"></td>
+                    <td><input type="submit" value="Submit"></td> 
                 </tr>
             </table>
         </form>
@@ -32,11 +33,12 @@
                 <tr>
                     <td><input type="text" name="first_name" placeholder="First name"></td>
                     <td><input type="text" name="last_name" placeholder="Last name"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="email" placeholder="Email"></td>                    
                     <td><input type="text" name="password" placeholder="Password"></td>
-                    <td><input type="button" value="Submit"></td> 
+                    <td><input type="submit" value="Submit"></td> 
                 </tr>
             </table>
         </form>
