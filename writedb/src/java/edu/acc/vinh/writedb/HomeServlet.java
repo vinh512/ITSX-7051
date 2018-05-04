@@ -18,44 +18,33 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Entered doGet!");
+        System.out.println("Entered doGet on /HomeServlet!");
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        System.out.println("Enter doPost!");
-        
-        String loginName     = request.getParameter("login_name");
+
+        String loginEmail    = request.getParameter("login_email");
         String loginPassword = request.getParameter("login_password");
-        
-        String firstName = request.getParameter("first_name"); 
-        String lastName  = request.getParameter("last_name");
-        String email     = request.getParameter("email");
-        String password  = request.getParameter("password");
-        
+
         UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
         
-        if (loginName != null && loginPassword != null) {
-            System.out.println("Existing User Account Exists!");
-        } else {
-            // create new user from form parameters
-            User newUser = new User(firstName, lastName, email, password);
-            
-            // add user to database
-            userManager.addUser(newUser);
-            
-            request.setAttribute("user", userManager.getUser(dataSource, firstName));
-        }
-        // FIRST PASS IN THE FIRSTNAME PARAMETER INTO REQUEST SCOPE
-        // THEN YOU CAN DO A REQUEST.GETATTRIBUTE ON THE FIRST NAME WITHIN THE DETAILS SERVLET
-        // THAT WAY, YOU CAN DO A REDIRECT ON POST
+        User user = userManager.getUser(dataSource, loginEmail, loginPassword);
         
-        System.out.println("Test: " + userManager.getUser(dataSource, firstName));
-//        response.sendRedirect("/writedb/UserDetailsServlet");
-        request.getRequestDispatcher("/WEB-INF/user_details.jsp").forward(request, response);
+        if (user != null) {
+            System.out.println("Existing User Account Exists!");
+            request.setAttribute("user", userManager.getUser(dataSource, loginEmail, loginPassword));
+            response.sendRedirect("/writedb/UserDetailsServlet");
+        } else {
+            request.getSession().setAttribute("invalidLogin", true);
+            response.sendRedirect("/writedb/HomeServlet");
+            
+//          request.setAttribute("invalidLogin", true);
+//          request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        }
+
     }
 
 }

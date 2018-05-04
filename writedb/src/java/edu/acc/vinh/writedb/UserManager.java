@@ -83,7 +83,8 @@ public class UserManager extends DBManager {
         return userList;        
     }
     
-    public User getUser(DataSource dataSource, String firstName) {
+    // gets user based on email
+    public User getUser(DataSource dataSource, String email, String password) {
         User user = new User();
                 
         Connection connection = null;
@@ -92,8 +93,9 @@ public class UserManager extends DBManager {
         
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("SELECT * FROM users WHERE FirstName = ?");
-            statement.setString(1, firstName);
+            statement = connection.prepareStatement("SELECT * FROM users WHERE Email = ? AND Password = ?");
+            statement.setString(1, email);
+            statement.setString(2, password);
             resultSet = statement.executeQuery();
             
             if (resultSet.next()) {
