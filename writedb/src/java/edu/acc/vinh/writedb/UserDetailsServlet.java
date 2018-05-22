@@ -40,7 +40,6 @@ public class UserDetailsServlet extends HttpServlet {
         String email     = request.getParameter("email");
         String password  = request.getParameter("password");
         
-        // ENSURE YOU CANNOT SUBMIT A BLANK EMPTY STRING INTO AN INPUT FIELD WHEN REGISTERING
         if (firstName.length() == 0 || lastName.length() == 0 || email.length() == 0 || password.length() == 0) {
             System.out.println("BLANKS!!");
             request.getSession().setAttribute("invalidRegister", true);            
