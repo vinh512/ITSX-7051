@@ -46,7 +46,7 @@
                     </div>
                     
                     <hr class="my-4">
-<!--                    <h1>Personal Info</h1>
+                    <h1>Personal Info</h1>
                     
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -79,7 +79,7 @@
                             <label for="inputZip">Zip</label>
                             <input type="text" class="form-control" id="inputZip">
                         </div>
-                    </div>-->
+                    </div>
 
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
