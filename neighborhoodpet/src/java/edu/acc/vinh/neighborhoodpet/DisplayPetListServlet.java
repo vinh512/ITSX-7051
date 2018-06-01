@@ -13,7 +13,10 @@ public class DisplayPetListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");    
+        System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");
+        
+//        PetManager petManager = (PetManager)request.getServletContext().getAttribute('petManager');
+        
         request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
 
     }
