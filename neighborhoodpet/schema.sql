@@ -34,14 +34,14 @@ CREATE TABLE pets (
     Age INTEGER NOT NULL,
     Size VARCHAR(32) NOT NULL, 
     Color VARCHAR(64) NOT NULL, 
-    Missing BOOLEAN,
+    IsMissing BOOLEAN,
     OwnerID INTEGER NOT NULL, 
     Bio VARCHAR(1024),
     PRIMARY KEY (PetID),   
     FOREIGN KEY (OwnerID) REFERENCES USERS (UserID)
 );
 
-INSERT INTO pets (PetName, Breed, Gender, Age, Size, Color, Missing, OwnerID, Bio)
+INSERT INTO pets (PetName, Breed, Gender, Age, Size, Color, IsMissing, OwnerID, Bio)
 VALUES ('Fluggie', 'Pug', 'Male', 2, 'small', 'tan', false, 1, 'This pug is an aggressive adventurer'),
        ('Tarzan', 'Husky', 'Male', 15, 'large', 'black & white', false, 2, 'Tarzan loves the cold'),
        ('Whiskers', 'Rat', 'Female', 1, 'small', 'white', false, 3, 'Rat Bio'),
