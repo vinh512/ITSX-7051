@@ -8,7 +8,7 @@ public class Pet {
     private String size;
     private String color;
     private boolean isMissing;
-    private String ownerID;
+    private int ownerID;
     private String bio;
 
     public String getPetName() {
@@ -59,7 +59,7 @@ public class Pet {
         this.color = color;
     }
 
-    public boolean isIsMissing() {
+    public boolean isMissing() {
         return isMissing;
     }
 
@@ -67,11 +67,11 @@ public class Pet {
         this.isMissing = isMissing;
     }
 
-    public String getOwnerID() {
+    public int getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(String ownerID) {
+    public void setOwnerID(int ownerID) {
         this.ownerID = ownerID;
     }
 
