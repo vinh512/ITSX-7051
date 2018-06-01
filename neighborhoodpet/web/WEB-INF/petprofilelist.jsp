@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,5 +10,10 @@
     </head>
     <body>
         <h1>Master - Pet Profiles</h1>
+        
+        <c:forEach var="pet" items="${petList}">
+            <p>${pet.petName}</p>
+        </c:forEach>
+            
     </body>
 </html>
