@@ -42,6 +42,7 @@ public class PetManager extends DBManager {
     private Pet petFromDB(ResultSet resultSet) throws SQLException {
         Pet newPet = new Pet();
         
+        newPet.setPetId(resultSet.getInt("PetID"));
         newPet.setPetName(resultSet.getString("PetName"));
         newPet.setBreed(resultSet.getString("Breed"));
         newPet.setGender(resultSet.getString("Gender"));
