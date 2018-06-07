@@ -1,6 +1,7 @@
 package edu.acc.vinh.neighborhoodpet;
 
 public class Pet {
+    private int petId;
     private String petName;
     private String breed;
     private String gender;
@@ -11,6 +12,14 @@ public class Pet {
     private int ownerID;
     private String bio;
 
+    public int getPetId() {
+        return petId;
+    }
+    
+    public void setPetId(int petId) {
+        this.petId = petId;
+    }
+    
     public String getPetName() {
         return petName;
     }
