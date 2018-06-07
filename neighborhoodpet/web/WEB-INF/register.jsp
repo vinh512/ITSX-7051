@@ -9,9 +9,8 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-sm bg-light  justify-content-end">
-
-            <a class="navbar-brand" href="#">Logo</a>
+        <nav class="navbar navbar-expand-sm bg-light justify-content-between">
+            <a class="navbar-brand" href="#">Logo - Nextdoor Pets</a>
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -24,7 +23,6 @@
                     <a class="nav-link" href="#">Link 3</a>
                 </li>
             </ul>
-
         </nav>
 
         <div class="container">

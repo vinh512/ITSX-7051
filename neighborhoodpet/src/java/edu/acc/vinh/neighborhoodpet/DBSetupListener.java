@@ -19,8 +19,8 @@ public class DBSetupListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("*** petsDB Connected! ***");
-//        sce.getServletContext().setAttribute("userManager", new userManager());
-//        sce.getServletContext().setAttribute("petManager", new petManager());
+//        sce.getServletContext().setAttribute("userManager", new UserManager());
+        sce.getServletContext().setAttribute("petManager", new PetManager());
     }
 
     @Override
