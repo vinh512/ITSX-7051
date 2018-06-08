@@ -37,6 +37,37 @@ public class PetManager extends DBManager {
 
         return petsList;
     }
+    
+    // gets a single pet based on the id number
+    public Pet getPetById(DataSource dataSource, int id) {
+        Pet pet = new Pet();
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("SELECT * FROM pets WHERE petId = ?");
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                pet = petFromDB(resultSet);
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
+        }
+        
+        return pet;
+    }
+    
 
     // constructs a pet with data from the DB's result set
     private Pet petFromDB(ResultSet resultSet) throws SQLException {
