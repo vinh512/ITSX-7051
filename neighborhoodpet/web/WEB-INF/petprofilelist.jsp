@@ -8,6 +8,10 @@
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
         <style>
+            body {
+                background-color: #eaeaea;
+            }
+            
             .img-card {
             margin: 15px 0;
             text-align: center;            
@@ -15,14 +19,18 @@
             
             img {
                 border-radius: 5px 5px 0 0;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
             }
             
             .img-info {
                 padding: 20px 0;
                 border-radius: 0 0 5px 5px;
-                background-color: lightblue;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+                background-color: #ffffff;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            }
+            
+            a:hover {
+                text-decoration: none;
             }
         </style>
     </head>
@@ -50,17 +58,19 @@
 
             <div class="row">
                 <c:forEach var="pet" items="${petList}">
+                    
                     <div class="col-lg-4 col-md-4 img-card">
                         <a href="/neighborhoodpet/pet/info?id=${pet.petId}">
                             <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
-                        </a>
+                        
                         <div class="img-info">
                             
-                               
-                            
                             <h4>${pet.petName}</h4>
+                            
                         </div>
+                        </a>
                     </div>    
+                        
                 </c:forEach>
             </div>
         </div>

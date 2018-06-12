@@ -23,7 +23,7 @@ public class PetManager extends DBManager {
             resultSet = statement.executeQuery();
             
             while (resultSet.next()) {
-                petsList.add(petFromDB(resultSet));
+                petsList.add(petFromResultSet(resultSet));
             }
         }
         catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class PetManager extends DBManager {
             resultSet = statement.executeQuery();
             
             while (resultSet.next()) {
-                pet = petFromDB(resultSet);
+                pet = petFromResultSet(resultSet);
             }
         }
         catch (SQLException ex) {
@@ -70,7 +70,7 @@ public class PetManager extends DBManager {
     
 
     // constructs a pet with data from the DB's result set
-    private Pet petFromDB(ResultSet resultSet) throws SQLException {
+    private Pet petFromResultSet(ResultSet resultSet) throws SQLException {
         Pet newPet = new Pet();
         
         newPet.setPetId(resultSet.getInt("PetID"));
