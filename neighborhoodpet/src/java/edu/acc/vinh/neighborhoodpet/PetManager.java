@@ -8,9 +8,15 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 public class PetManager extends DBManager {
+    
+    private final DataSource dataSource;
+    
+    public PetManager(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     // gets all the pets from the database and returns them as an array
-    public ArrayList<Pet> getPets(DataSource dataSource) {
+    public ArrayList<Pet> getPets() {
         ArrayList<Pet> petsList = new ArrayList<>();
         
         Connection connection = null;

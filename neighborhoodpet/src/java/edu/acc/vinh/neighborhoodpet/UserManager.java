@@ -88,7 +88,7 @@ public class UserManager extends DBManager {
     private User userFromResultSet(ResultSet resultSet) throws SQLException {
         User user = new User();
         
-        user.setUserId(resultSet.getInt("Id"));
+        user.setUserId(resultSet.getInt("UserId"));
         user.setFirstName(resultSet.getString("FirstName"));
         user.setLastName(resultSet.getString("LastName"));
         user.setAddress(resultSet.getString("Address"));

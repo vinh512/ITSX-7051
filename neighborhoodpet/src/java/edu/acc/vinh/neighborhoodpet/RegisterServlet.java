@@ -1,14 +1,19 @@
 package edu.acc.vinh.neighborhoodpet;
 
 import java.io.IOException;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
+    
+    @Resource(lookup = "java:app/jdbc/petsDB")
+    DataSource dataSource;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -21,23 +26,42 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        System.out.println("*** Entered doPost on /RegisterServlet! ***");
+
         // get Login Credentials from form
         String email    = request.getParameter("inputEmail");
         String password = request.getParameter("inputPassword");
         
-        // get Personal Info from form
+        System.out.printf("*** This is the form Data: /n [%s, %s] ***", email, password);
         
+        // get Personal Info from form
+
 //        String firstName = request.getParameter("inputFirstName");
 //        String lastName  = request.getParameter("inputLastName");
 //        String address   = request.getParameter("inputAddress");
 //        String city      = request.getParameter("inputCity");
 //        String state     = request.getParameter("inputState");
 //        int zip          = Integer.parseInt(request.getParameter("inputZip"));
+
+        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
+        request.setAttribute("user", userManager.getUser(dataSource, email, password));
         
-        System.out.printf("*** This is the form Data: /n [%s, %s] ***", email, password);
+        // SO IT WORKS HERE!
+        System.out.println("TEST on RegisterServlet " + userManager.getUser(dataSource, email, password).getZipCode());
+        
+        
         
         // redirect to master list of pets
         response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // get the User manager initialized from Setup Application
 //        UserManager userManager = (UserManager) request.getServletContext().getAttribute("userManager");

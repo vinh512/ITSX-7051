@@ -66,6 +66,7 @@
                         <div class="img-info">
                             
                             <h4>${pet.petName}</h4>
+                            <h4>Name: ${user.firstName}</h4>
                             
                         </div>
                         </a>

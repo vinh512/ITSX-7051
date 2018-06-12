@@ -25,6 +25,7 @@ public class PetDetailsServlet extends HttpServlet {
         int id = getIdParameter(request);
         
         PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
+        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
         
         Pet pet = findPet(petManager, id);
         

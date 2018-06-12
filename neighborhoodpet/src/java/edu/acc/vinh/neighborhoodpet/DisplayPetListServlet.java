@@ -21,8 +21,16 @@ public class DisplayPetListServlet extends HttpServlet {
         System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");
         
         PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
+        
+//        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
+        
+        // WHY DOESN'T IT WORK HERE?!?!
+        User user = (User)request.getAttribute("user");
+        System.out.println("DID THIS WORK? " + user);
+        request.setAttribute("user", user);
                 
-        request.setAttribute("petList", petManager.getPets(dataSource));
+        request.setAttribute("petList", petManager.getPets());
+        
         request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
 
     }
@@ -30,7 +38,7 @@ public class DisplayPetListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
     }
 
 }

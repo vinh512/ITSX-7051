@@ -31,7 +31,7 @@
 
             <div class="container">
                 <h1>Login Credentials</h1>
-                <form method="POST">
+                <form method="POST" action="/neighborhoodpet/RegisterServlet">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <input type="submit" class="btn btn-primary"/>
                 </form>
             </div>
 
