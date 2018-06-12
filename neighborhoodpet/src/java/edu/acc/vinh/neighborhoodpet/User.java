@@ -1,15 +1,24 @@
 package edu.acc.vinh.neighborhoodpet;
 
 public class User {
+    private int    userId;
     private String firstName;
     private String lastName;
     private String address;
     private String city;
     private String state;    
-    private int zipCode;
+    private int    zipCode;
     private String email;
     private String password;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -69,5 +78,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }
