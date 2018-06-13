@@ -44,12 +44,9 @@ public class RegisterServlet extends HttpServlet {
 //        int zip          = Integer.parseInt(request.getParameter("inputZip"));
 
         UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
-        request.setAttribute("user", userManager.getUser(dataSource, email, password));
-        
-        // SO IT WORKS HERE!
-        System.out.println("TEST on RegisterServlet " + userManager.getUser(dataSource, email, password).getZipCode());
-        
-        
+
+        User user = (User)userManager.getUser(dataSource, email, password);
+        request.getSession().setAttribute("user", user);
         
         // redirect to master list of pets
         response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");

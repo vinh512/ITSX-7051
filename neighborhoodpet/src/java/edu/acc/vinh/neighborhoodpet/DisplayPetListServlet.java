@@ -19,16 +19,11 @@ public class DisplayPetListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");
-        
-        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
-        
-//        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
-        
-        // WHY DOESN'T IT WORK HERE?!?!
-        User user = (User)request.getAttribute("user");
-        System.out.println("DID THIS WORK? " + user);
+
+        User user = (User)request.getSession().getAttribute("user");        
         request.setAttribute("user", user);
-                
+
+        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
         request.setAttribute("petList", petManager.getPets());
         
         request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
