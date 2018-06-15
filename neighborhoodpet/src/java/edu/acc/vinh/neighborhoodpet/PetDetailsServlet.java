@@ -24,15 +24,15 @@ public class PetDetailsServlet extends HttpServlet {
         // get id value from query string
         int id = getIdParameter(request);
         
-        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
-        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
+        UserPetManager userPetManager = (UserPetManager) request.getServletContext().getAttribute("userPetManager");
+//        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
+//        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
         
-        Pet pet = findPet(petManager, id);
+        UserPet userPetDetails = getAccountDetails(userPetManager, id);
         
-        request.setAttribute("pet", pet);
-        
-        request.getRequestDispatcher("/WEB-INF/pet_details.jsp").forward(request, response);
-        
+        request.setAttribute("userPetDetails", userPetDetails);
+
+        request.getRequestDispatcher("/WEB-INF/pet_details.jsp").forward(request, response);   
     }
 
     @Override
@@ -41,9 +41,9 @@ public class PetDetailsServlet extends HttpServlet {
 
     }
     
-    protected Pet findPet(PetManager petManager, int id) {
+    protected UserPet getAccountDetails(UserPetManager userPetManager, int id) {
         try {
-            return petManager.getPetById(dataSource, id);
+            return userPetManager.getDataById(dataSource, id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -44,6 +44,36 @@ public class UserPetManager extends DBManager {
         return usersPetsList;
     }
     
+    // Gets user-pet details based on the id number
+    public UserPet getDataById(DataSource dataSource, int id) {
+        UserPet userPet = new UserPet();
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("SELECT * FROM pets, users WHERE userid = pets.ownerId AND petId = ?");
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                userPet = usersPetsFromResultSet(resultSet);
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
+        }
+        
+        return userPet;
+    }
+    
     // Constructs a User-Pet object with data from the DB's result set
     private UserPet usersPetsFromResultSet(ResultSet resultSet) throws SQLException {
         UserPet newUserPet = new UserPet();
