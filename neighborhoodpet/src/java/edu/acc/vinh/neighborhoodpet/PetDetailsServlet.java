@@ -33,7 +33,6 @@ public class PetDetailsServlet extends HttpServlet {
         
         request.getRequestDispatcher("/WEB-INF/pet_details.jsp").forward(request, response);
         
-        
     }
 
     @Override

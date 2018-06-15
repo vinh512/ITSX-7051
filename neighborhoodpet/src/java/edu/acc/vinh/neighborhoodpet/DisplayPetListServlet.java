@@ -20,14 +20,11 @@ public class DisplayPetListServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");
 
-        User user = (User)request.getSession().getAttribute("user");        
-        request.setAttribute("user", user);
-
-        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
-        request.setAttribute("petList", petManager.getPets());
+        UserPetManager userPetManager = (UserPetManager)request.getServletContext().getAttribute("userPetManager");
         
-        request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
+        request.setAttribute("userPetList", userPetManager.getUsersAndPets());
 
+        request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
     }
 
     @Override

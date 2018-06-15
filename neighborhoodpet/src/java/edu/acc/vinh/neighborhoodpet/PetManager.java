@@ -74,7 +74,6 @@ public class PetManager extends DBManager {
         return pet;
     }
     
-
     // constructs a pet with data from the DB's result set
     private Pet petFromResultSet(ResultSet resultSet) throws SQLException {
         Pet newPet = new Pet();

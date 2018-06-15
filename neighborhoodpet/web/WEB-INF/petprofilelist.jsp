@@ -55,18 +55,17 @@
         <br>
 
         <div class="container">
-
             <div class="row">
-                <c:forEach var="pet" items="${petList}">
+                <c:forEach var="profile" items="${userPetList}">
                     
                     <div class="col-lg-4 col-md-4 img-card">
-                        <a href="/neighborhoodpet/pet/info?id=${pet.petId}">
+                        <a href="/neighborhoodpet/pet/info?id=${profile.petId}">
                             <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
                         
                         <div class="img-info">
                             
-                            <h4>${pet.petName}</h4>
-                            <h4>Name: ${user.firstName}</h4>
+                            <h4>${profile.petName}</h4>
+                            <h5>${profile.zipCode}</h5>
                             
                         </div>
                         </a>
