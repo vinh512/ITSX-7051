@@ -5,19 +5,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Home Page</title>
     </head>
     <body>
-        
+
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
-            <a class="navbar-brand" href="#">Nextdoor Pets</a>
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log In</a>
-                </li>
-            </ul>
+                
+                <!-- Site Title -->
+                <a class="navbar-brand" href="#"><i class="fa fa-paw"></i>&nbsp;Nextdoor Pets</a>
+                
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i>&nbsp;Log In</a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -26,12 +30,12 @@
             <p class="lead my-5">
                 Has your furry companion wandered off again? Familiarize yourself 
                 with your neighborhood companions and never lose a pet again!</p>
-<!--            <hr class="my-5">-->
+            <!--            <hr class="my-5">-->
 
             <form action="/neighborhoodpet/RegisterServlet"  method="GET">
-            <p class="lead">
-                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
-            </p>
+                <p class="lead">
+                    <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                </p>
             </form>
         </div>
 
