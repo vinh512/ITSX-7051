@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.sql.DataSource;
 
 public class UserManager extends DBManager {
@@ -47,7 +48,7 @@ public class UserManager extends DBManager {
         }
     }
     
-    // Gets user based on email & password
+    // Gets User based on email & password
     public User getUser(DataSource dataSource, String email, String password) {
         User user = new User();
                 
@@ -84,6 +85,35 @@ public class UserManager extends DBManager {
         return user; 
     }
     
+    // Gets all the Users from the database and puts them into an Array
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("SELECT * FROM users");
+            resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                users.add(userFromResultSet(resultSet));
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        finally {
+            close(resultSet);
+            close(statement);
+            close(connection);
+        }
+
+        return users;
+    }
+    
     // Extract values from ResultSet and instantiates a User from the data
     private User userFromResultSet(ResultSet resultSet) throws SQLException {
         User user = new User();
@@ -101,4 +131,16 @@ public class UserManager extends DBManager {
         return user;
     }
     
+    // Verify if the User exists
+    public User findUserIfValid(ArrayList<User> userList, String email, String password) {
+        if (email != null && password != null) {
+            for (User user : userList) {
+                if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                    return user;
+                }
+            }
+        }
+        return null;
+    }
+
 }

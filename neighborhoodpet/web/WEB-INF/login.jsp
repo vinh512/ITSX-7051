@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,10 @@
         <style>
             .wrap {
                 width: 700px;
+            }
+            
+            .invalid-entry-msg {
+                color: red;
             }
             </style>
     </head>
@@ -27,27 +32,30 @@
         <br>
         
         <div class="container wrap">
-            <h1>Login</h1>
-            <form method="POST" action="/neighborhoodpet/RegisterServlet">
+            <h1>Login
+                <!-- Displays error msg if invalid entries -->
+                <c:if test="${userInvalid}">
+                    <span class='invalid-entry-msg'>&nbsp;- Invalid Input!</span>
+                </c:if>
+            </h1>
+            
+            <form method="POST" action="/neighborhoodpet/Login">
                 <div class="form-row">
-                    
                     <!-- Email -->
                     <div class="form-group col-md-6">
                         <label for="inputEmail">Email</label>
                         <input type="email" class="form-control" name="inputEmail">
                     </div>
-                    
                     <!-- Password -->
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Password</label>
                         <input type="password" class="form-control" name="inputPassword">
                     </div>
-                    
-                </div>
-                
+                </div>    
                 <!-- Submit Button -->
                 <input type="submit" class="btn btn-primary"/>
             </form>
+            
         </div>
     </body>
 </html>
