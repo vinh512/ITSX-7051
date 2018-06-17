@@ -10,28 +10,30 @@
     </head>
     <body>
 
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
-                
+
                 <!-- Site Title -->
                 <a class="navbar-brand" href="#"><i class="fa fa-paw"></i>&nbsp;Nextdoor Pets</a>
-                
-                <!-- Links -->
+
+                <!-- Login -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i>&nbsp;Log In</a>
+                        <a class="nav-link" href="/neighborhoodpet/Login"><i class="fa fa-user"></i>&nbsp;Log In</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
+        <!-- Jumbotron -->
         <div class="jumbotron" id="home">
             <h1 class="display-3">Hello, Pet Neighbor!</h1>
-            <p class="lead my-5">
-                Has your furry companion wandered off again? Familiarize yourself 
-                with your neighborhood companions and never lose a pet again!</p>
-            <!--            <hr class="my-5">-->
+            <p class="lead my-5">Has your furry companion wandered off again? 
+                Familiarize yourself with your neighborhood companions and never
+                lose a pet again!</p>
 
+            <!-- Button Sign Up -->
             <form action="/neighborhoodpet/RegisterServlet"  method="GET">
                 <p class="lead">
                     <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
