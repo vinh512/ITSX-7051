@@ -8,27 +8,25 @@
         <title>Home Page</title>
     </head>
     <body>
+        
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
-            <a class="navbar-brand" href="#">Logo - Nextdoor Pets</a>
+            <div class="container">
+            <a class="navbar-brand" href="#">Nextdoor Pets</a>
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
+                    <a class="nav-link" href="#">Log In</a>
                 </li>
             </ul>
+            </div>
         </nav>
 
         <div class="jumbotron" id="home">
-            <h1 class="display-3">Hello, Pet Finder!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <h1 class="display-3">Hello, Pet Neighbor!</h1>
+            <p class="lead my-5">
+                Has your furry companion wandered off again? Familiarize yourself 
+                with your neighborhood companions and never lose a pet again!</p>
+<!--            <hr class="my-5">-->
 
             <form action="/neighborhoodpet/RegisterServlet"  method="GET">
             <p class="lead">
