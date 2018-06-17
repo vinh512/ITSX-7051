@@ -5,15 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
-
-
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-
         <title>JSP Page</title>
         <style>
-
+                
             h2 {
                 margin-top: 20px;
             }
@@ -65,13 +59,12 @@
     </head>
     <body>
 
-
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <a class="navbar-brand" href="#">Logo - Nextdoor Pets</a>
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
+                    <a class="nav-link" href="#">${userPet.firstName}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link 2</a>

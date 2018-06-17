@@ -8,7 +8,21 @@
         <title>Home Page</title>
     </head>
     <body>
-        <h1>Neighborhood Pet Finder (placeholder name)</h1>
+        <nav class="navbar navbar-expand-sm bg-light justify-content-between">
+            <a class="navbar-brand" href="#">Logo - Nextdoor Pets</a>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="jumbotron" id="home">
             <h1 class="display-3">Hello, Pet Finder!</h1>

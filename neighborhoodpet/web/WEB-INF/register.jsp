@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
         <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
+        <style>
+            .container {
+                width: 700px;
+            }
+            </style>
     </head>
     <body>
 
@@ -28,9 +33,8 @@
         <div class="container">
 
             <br>
-
-            <div class="container">
-                <h1>Login Credentials</h1>
+            
+                <h1>Login Info</h1>
                 <form method="POST" action="/neighborhoodpet/RegisterServlet">
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -43,7 +47,8 @@
                         </div>
                     </div>
                     
-                    <hr class="my-4">
+                    <hr class="my-5">
+                    
                     <h1>Personal Info</h1>
                     
                     <div class="form-row">
@@ -81,8 +86,7 @@
 
                     <input type="submit" class="btn btn-primary"/>
                 </form>
-            </div>
-
+            
         </div>
     </body>
 </html>
