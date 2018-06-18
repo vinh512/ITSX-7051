@@ -9,6 +9,26 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Home Page</title>
         <style>
+            .jumbotron {
+                color: white;
+                min-height: 500px;
+                background-image: url("${pageContext.request.contextPath}/images/DogCatSleep.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            
+            .jumbotron h1 {
+                font-weight: 500;
+                font-size: 5.8rem;
+            }
+            
+            .jumbotron p {
+                font-weight: 200;
+                font-size: 2.5rem;
+            }
+            
             .user-logged-in {
                 display: inline;
                 
@@ -20,6 +40,11 @@
                 display: inline;
             }
             
+            .login {
+                font-size: 1.25rem;
+                text-decoration: none !important;
+            }
+            
             .logout {
                 background: none;
                 border: none;
@@ -27,20 +52,28 @@
                 cursor: pointer;
                 font-size: 1.25rem;
                 padding-left: 0px;
+                margin-right: 10px;
                 display: inline;
             }
             
-            input:hover {
+            .logout:hover {
                 color: #007bff;
             }
             
-            .user-logged-in:hover {
-                color: #007bff;
+            button[type="submit"] {
+                padding: 14px 24px;
+                width: 150px;
+                font-size: 32px;
+                line-height: normal;
+                background-color: #63bedb;
+                border: none;
+                -webkit-border-radius: 8px;
+                   -moz-border-radius: 8px;
+                        border-radius: 8px;
             }
         </style>
     </head>
     <body>
-        
         
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
@@ -52,7 +85,13 @@
                 <c:choose>
                     <c:when test="${user != null}">
                         <div class="login-forms">
-                            <i class="fa fa-user"></i>&nbsp;<span class='user-logged-in nav-link'><c:out value="${user.firstName}"/></span>
+                            <!-- User Name -->
+                            <i class="fa fa-user"></i>
+                            <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" class="inline">
+                                <input type="submit" value="<c:out value='${user.firstName}'/>" class="logout">
+                            </form>
+                            
+                            <!-- Log Out -->
                             <i class="fa fa-window-close"></i>
                             <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" class="inline">
                                 <input type="submit" value="Log Out" class="logout">
@@ -63,7 +102,7 @@
                         <!-- Login -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="/neighborhoodpet/Login"><i class="fa fa-user"></i>&nbsp;Log In</a>
+                                <a class="login" href="/neighborhoodpet/Login"><i class="fa fa-user"></i>&nbsp;Log In</a>
                             </li>
                         </ul>
                     </c:otherwise>
@@ -74,10 +113,8 @@
 
         <!-- Jumbotron -->
         <div class="jumbotron" id="home">
-            <h1 class="display-3">Hello, Pet Neighbor!</h1>
-            <p class="lead my-5">Has your furry companion wandered off again? 
-                Familiarize yourself with your neighborhood companions and never
-                lose a pet again!</p>
+            <h1 class="display-3">Never Lose Your Pet Again</h1>
+            <p class="lead my-5">Get to know your neighborhood companions</p>
 
             <!-- Button Sign Up -->
             <form action="/neighborhoodpet/RegisterServlet"  method="GET">
