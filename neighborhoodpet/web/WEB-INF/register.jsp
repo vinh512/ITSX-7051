@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,13 +13,17 @@
                 color: #777;
                 background-color: #eee;
             }
+            
+            h1 {
+                color: #63bedb;
+            }
 
             .wrap {
                 width: 700px;
             }
 
-            h1 {
-                color: #63bedb;
+            .invalid-entry-msg {
+                color: red;
             }
         </style>
     </head>
@@ -34,7 +39,12 @@
 
         <div class="container wrap">
             <br>
-            <h1>Login Info</h1>
+            <h1>Login Info
+                <!-- Displays error msg if user exists -->
+                <c:if test="${userExists}">
+                - <span class='invalid-entry-msg'><i class="fa fa-exclamation-triangle"></i> Account Exists</span>
+                </c:if>
+            </h1>
 
             <form method="POST" action="/neighborhoodpet/RegisterServlet">
                 <div class="form-row">

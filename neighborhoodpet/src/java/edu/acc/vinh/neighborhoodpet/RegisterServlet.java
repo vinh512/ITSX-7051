@@ -1,6 +1,7 @@
 package edu.acc.vinh.neighborhoodpet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("*** Entered doGet on /RegisterServlet! ***");
-        
+
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);   
     }
 
@@ -28,6 +29,8 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("*** Entered doPost on /RegisterServlet! ***");
 
+        ArrayList<User> userList = new ArrayList<>();
+        
         // Gets Login and Personal Info from form
         String firstName = request.getParameter("inputFirstName");
         String lastName  = request.getParameter("inputLastName");
@@ -41,41 +44,26 @@ public class RegisterServlet extends HttpServlet {
         // Gets DAO from Listener
         UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
 
-        // Adds User into database
-        userManager.addUser(new User(firstName, lastName, address, city, state, zip, email, password));
+        // Gets all the users and puts them in an ArrayList
+        userList = userManager.getAllUsers();
         
-        // Gets the user 
-        User user = (User)userManager.getUser(dataSource, email, password);
+        // Checks to see if there's an existing user with the same name & password
+        User user = userManager.findUserIfValid(userList, email, password);
         
-        // Puts the user into session
-        request.getSession().setAttribute("user", user);
-        
-        // redirect to master list of pets
-        response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // get the User manager initialized from Setup Application
-//        UserManager userManager = (UserManager) request.getServletContext().getAttribute("userManager");
-
-        // checks to see if there's an existing user with the same name & password
-//        User user = userManager.findUserIfValid(name, password);
-        
-        // if the user exists, set user into the session and redirect to main page
-//        if (user != null) {
-//            request.getSession().setAttribute("user", user);
-//            response.sendRedirect("/tacoblog/TacoBlogServlet");
-//        } else {
-//            request.setAttribute("userInvalid", true);
-//            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-//        }        
+        // If the user does not exist, set user into the database and session
+        if (user == null) {
+            // Adds User into database
+            userManager.addUser(new User(firstName, lastName, address, city, state, zip, email, password));
+            
+            // Puts the user into session
+            request.getSession().setAttribute("user", user);
+            
+            response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");
+        } else {
+            System.out.println("USER ALREADY EXISTS");
+            request.setAttribute("userExists", true);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        }        
     }
 
 }

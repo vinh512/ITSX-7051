@@ -43,7 +43,7 @@
             <h1>Login
                 <!-- Displays error msg if invalid entries -->
                 <c:if test="${userInvalid}">
-                    <span class='invalid-entry-msg'>&nbsp;- Invalid Input!</span>
+                    - <span class='invalid-entry-msg'><i class="fa fa-exclamation-triangle"></i> Invalid Entry</span>
                 </c:if>
             </h1>
             
