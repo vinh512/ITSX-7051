@@ -18,34 +18,36 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("*** Entered doGet on /RegisterServlet! ***");    
+        System.out.println("*** Entered doGet on /RegisterServlet! ***");
+        
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);   
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         System.out.println("*** Entered doPost on /RegisterServlet! ***");
 
-        // get Login Credentials from form
-        String email    = request.getParameter("inputEmail");
-        String password = request.getParameter("inputPassword");
-        
-        System.out.printf("*** This is the form Data: /n [%s, %s] ***", email, password);
-        
-        // get Personal Info from form
+        // Gets Login and Personal Info from form
+        String firstName = request.getParameter("inputFirstName");
+        String lastName  = request.getParameter("inputLastName");
+        String address   = request.getParameter("inputAddress");
+        String city      = request.getParameter("inputCity");
+        String state     = request.getParameter("inputState");
+        int zip          = Integer.parseInt(request.getParameter("inputZip"));
+        String email     = request.getParameter("inputEmail");
+        String password  = request.getParameter("inputPassword");
 
-//        String firstName = request.getParameter("inputFirstName");
-//        String lastName  = request.getParameter("inputLastName");
-//        String address   = request.getParameter("inputAddress");
-//        String city      = request.getParameter("inputCity");
-//        String state     = request.getParameter("inputState");
-//        int zip          = Integer.parseInt(request.getParameter("inputZip"));
-
+        // Gets DAO from Listener
         UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
 
+        // Adds User into database
+        userManager.addUser(new User(firstName, lastName, address, city, state, zip, email, password));
+        
+        // Gets the user 
         User user = (User)userManager.getUser(dataSource, email, password);
+        
+        // Puts the user into session
         request.getSession().setAttribute("user", user);
         
         // redirect to master list of pets

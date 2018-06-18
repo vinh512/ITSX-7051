@@ -92,7 +92,7 @@
                     <!-- Zip -->
                     <div class="form-group col-md-2">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input type="text" class="form-control" name="inputZip">
                     </div>
                 </div>
 

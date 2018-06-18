@@ -11,6 +11,19 @@ public class User {
     private String email;
     private String password;
 
+    public User() {}
+    
+    public User(String firstName, String lastName, String address, String city, String state, Integer zipCode, String email, String password){
+        this.firstName = firstName;
+        this.lastName  = lastName;
+        this.address   = address;
+        this.city      = city;
+        this.state     = state;
+        this.zipCode   = zipCode;
+        this.email     = email;
+        this.password  = password;
+    }
+    
     public int getUserId() {
         return userId;
     }
