@@ -9,6 +9,15 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Login</title>
         <style>
+            body {
+                color: #777;
+                background-color: #eee;
+            }
+            
+            h1 {
+                color: #63bedb;
+            }            
+            
             .wrap {
                 width: 700px;
             }
@@ -22,8 +31,7 @@
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
-            <div class="container">
-
+            <div class="container wrap">
                 <!-- Site Title -->
                 <a class="navbar-brand" href="/neighborhoodpet/"><i class="fa fa-paw"></i>&nbsp;Nextdoor Pets</a>
             </div>
