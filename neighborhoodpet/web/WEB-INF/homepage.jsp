@@ -29,13 +29,6 @@
                 font-size: 2.5rem;
             }
             
-            .user-logged-in {
-                display: inline;
-                
-                padding: 0 20px 0 0px;
-                font-size: 1.25rem;
-            }
-            
             .inline {
                 display: inline;
             }
