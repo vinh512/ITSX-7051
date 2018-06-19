@@ -53,9 +53,24 @@
                 background-color: #ffffff;
                 box-shadow: 0 1px 5px rgba(0,0,0,0.1);
             }
+            
+            .img-info:hover {
+                background-color: #bddce6;
+            }
 
             a:hover {
                 text-decoration: none;
+            }
+            
+            .pet-name {
+                color: #3fa4c5;
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+            
+            .zip-code {
+                color: #777;
+                font-size: 1.1rem;
             }
         </style>
     </head>
@@ -86,22 +101,20 @@
 
         <div class="container">
             <div class="row">
+                
                 <c:forEach var="profile" items="${userPetList}">
-
                     <div class="col-lg-4 col-md-4 img-card">
                         <a href="/neighborhoodpet/pet/info?id=${profile.petId}">
                             <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
 
                             <div class="img-info">
-
-                                <h4>${profile.petName}</h4>
-                                <h5>${profile.zipCode}</h5>
-
+                                <div class="pet-name">${profile.petName}</div>
+                                <div class="zip-code">${profile.city}, ${profile.zipCode}</div>
                             </div>
                         </a>
                     </div>    
-
                 </c:forEach>
+                
             </div>
         </div>
 
