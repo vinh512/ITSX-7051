@@ -85,7 +85,7 @@
                 <div class="login-forms">
                     <!-- User Name -->
                     <i class="fa fa-user"></i>
-                    <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" class="inline">
+                    <form action="${pageContext.request.contextPath}/UserDetails" method="GET" class="inline">
                         <input type="submit" value="<c:out value='${user.firstName}'/>" class="logout">
                     </form>
 
