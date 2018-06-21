@@ -28,6 +28,7 @@ public class DBSetupListener implements ServletContextListener {
         sce.getServletContext().setAttribute("userPetManager", new UserPetManager(dataSource));
         sce.getServletContext().setAttribute("userManager", new UserManager(dataSource));
         sce.getServletContext().setAttribute("petManager", new PetManager(dataSource));
+        sce.getServletContext().setAttribute("imageManager", new ImageManager(dataSource));
     }
 
     @Override

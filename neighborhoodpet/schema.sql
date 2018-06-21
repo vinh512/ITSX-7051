@@ -21,14 +21,13 @@ VALUES ('Margie', 'Baker', '14225 Saluda Ave', 'Austin', 'TX', 78758, 'margie@em
        ('Phoebe', 'Roberts', '14385 Saluda Ave', 'Austin', 'TX', 78758, 'phoebe@email.com', 'phoebe'),
        ('Jose', 'Torres', '15868 Saluda Ave', 'Austin', 'TX', 78758, 'jose@email.com', 'jose');
 
-drop table users;
+DROP TABLE users;
 
-----------------------------------
+------------------------------------------------------------------------------------------------------
 
 CREATE TABLE pets (
     PetID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT by 1),
     PetName VARCHAR(32) NOT NULL,
---     Photo
     Breed VARCHAR(32) NOT NULL,
     Gender VARCHAR(8) NOT NULL,
     Age INTEGER NOT NULL,
@@ -51,4 +50,14 @@ VALUES ('Fluggie', 'Pug', 'Male', 2, 'small', 'tan', false, 1, 'This pug is an a
        ('Hank', 'Golden Lab', 'Male', 2, 'large', 'golden tan', true, 7, 'Hank Bio'),
        ('Rufus', 'Siamese', 'Male', 6, 'small', 'gray', false, 8, 'Rufus Bio');
 
-drop table pets;
+DROP TABLE pets;
+
+------------------------------------------------------------------------------------------------------
+
+CREATE TABLE images (
+  ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+  filename VARCHAR(128) NOT NULL,
+  content_type VARCHAR(128) NOT NULL,
+  content blob);
+
+DROP TABLE images;

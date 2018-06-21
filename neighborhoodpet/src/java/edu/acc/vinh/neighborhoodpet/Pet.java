@@ -9,9 +9,24 @@ public class Pet {
     private String size;
     private String color;
     private boolean isMissing;
-    private int ownerID;
+    private int ownerId;
     private String bio;
 
+    public Pet(){}
+    
+    public Pet(String petName, String breed, String gender, Integer age, String size,
+        String color, boolean isMissing, int ownerId, String bio) {
+        this.petName = petName;
+        this.breed = breed;
+        this.gender = gender;
+        this.age = age;
+        this.size = size;
+        this.color = color;
+        this.isMissing = isMissing;
+        this.ownerId = ownerId;
+        this.bio = bio;
+    }
+    
     public int getPetId() {
         return petId;
     }
@@ -76,12 +91,12 @@ public class Pet {
         this.isMissing = isMissing;
     }
 
-    public int getOwnerID() {
-        return ownerID;
+    public int getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwnerID(int ownerID) {
-        this.ownerID = ownerID;
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getBio() {

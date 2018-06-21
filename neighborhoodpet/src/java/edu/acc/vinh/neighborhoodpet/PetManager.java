@@ -86,10 +86,44 @@ public class PetManager extends DBManager {
         newPet.setSize(resultSet.getString("Size"));
         newPet.setColor(resultSet.getString("Color"));
         newPet.setIsMissing(resultSet.getBoolean("IsMissing"));
-        newPet.setOwnerID(resultSet.getInt("OwnerID"));
+        newPet.setOwnerId(resultSet.getInt("OwnerId"));
         newPet.setBio(resultSet.getString("Bio"));
         
         return newPet; 
+    }
+    
+        // Adds Pet into database
+    public void addPet(Pet pet) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("INSERT INTO pets"
+                    + " (petName, breed, gender, age, size, color,"
+                    + " isMissing, ownerId, bio) VALUES (?,?,?,?,?,?,?,?,?)");
+            
+            statement.setString(1, pet.getPetName());
+            statement.setString(2, pet.getBreed());
+            statement.setString(3, pet.getGender());
+            statement.setInt(4, pet.getAge());
+            statement.setString(5, pet.getSize());
+            statement.setString(6, pet.getColor());
+            statement.setBoolean(7, pet.isMissing());
+            statement.setInt(8, pet.getOwnerId());
+            statement.setString(9, pet.getBio());
+            
+            statement.execute();
+        } 
+        
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        finally {
+            close(statement);
+            close(connection);
+        }
     }
     
 }
