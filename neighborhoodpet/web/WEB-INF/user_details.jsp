@@ -54,9 +54,8 @@ Then we use that id value to assign to that pet, thereby knowing that pet is als
             <input type="submit" value="Upload">
         </form>
 
-
-<!--        imagedownloadservlet does indeed grab the id value...its just where/what servlet does that value come from???-->
-        <img src="/neighborhoodpet/image?id=${image.id}"/>
+    
+        <img src="/neighborhoodpet/image?id=${user.userId}"/>
         
     </body>
 </html>

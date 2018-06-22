@@ -40,12 +40,15 @@ public class PetUploadServlet extends HttpServlet {
         // Create and add new pet generated from the data gathered from the form 
         petManager.addPet(new Pet(petName, petBreed, petGender, petAge, petSize, petColor, isMissing, petOwnerId, petBio));
        
+        // Get user from session so we can get the User's Id and pass it into the saveImage method
+        User user = (User)request.getSession().getAttribute("user");
         
+        System.out.println("User Id is: " + user.getUserId());
         
-        
-        
+        // Gets Part from file upload form
         Part part = request.getPart("image");
         
+        // Proceed if an image file provided
         if (part != null) {
             ImageManager imageManager = (ImageManager) getServletContext().getAttribute("imageManager");
 
@@ -56,7 +59,8 @@ public class PetUploadServlet extends HttpServlet {
 
                 imageStream = part.getInputStream();
 
-                imageManager.saveImage(fileName, contentType, imageStream);
+                // Save image passing in data from form
+                imageManager.saveImage(fileName, contentType, imageStream, user.getUserId());
 
             } finally {
                 if (imageStream != null) {

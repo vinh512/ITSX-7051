@@ -75,7 +75,12 @@
         </style>
     </head>
     <body>
+        
+        <img src="/neighborhoodpet/image?id=${user.userId}"/>
 
+<!--        So if i can get a name associated with the images table,
+        i can make an method that getsImagesByOwner that returns an array of the images
+        i can then use that array in a for-loop to populate list. -->
 
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">

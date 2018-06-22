@@ -22,11 +22,12 @@ public class ImageManager extends DBManager {
 
     private ImageInfo imageFromResultSet(ResultSet resultSet) throws SQLException {
 
-        // returns a newly created ImageInfo object
+        // Returns a newly created ImageInfo object
         return new ImageInfo(
                 resultSet.getInt("id"),
                 resultSet.getString("filename"),
-                resultSet.getString("content_type"));
+                resultSet.getString("content_type"),
+                resultSet.getInt("ownerId"));
     }
 
     public List<ImageInfo> allImages() {
@@ -56,17 +57,18 @@ public class ImageManager extends DBManager {
         return images;
     }
 
-    boolean saveImage(String fileName, String contentType, InputStream inputStream) {
+    boolean saveImage(String fileName, String contentType, InputStream inputStream, int userId) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("INSERT INTO images (filename, content_type, content) values (?, ?, ?)");
+            statement = connection.prepareStatement("INSERT INTO images (filename, content_type, content, ownerId) values (?, ?, ?, ?)");
             statement.setString(1, fileName);
             statement.setString(2, contentType);
             statement.setBinaryStream(3, inputStream);
+            statement.setInt(4, userId);
 
             statement.execute();
 
@@ -82,18 +84,21 @@ public class ImageManager extends DBManager {
         return false;
     }
     
-    public ImageInfo imageInfoBy(int id) {
+    public ImageInfo imageInfoByUserId(int userId) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("SELECT id, filename, content_type FROM images where id=?");
-            statement.setInt(1, id);
+            statement = connection.prepareStatement("SELECT id, filename, content_type, ownerId FROM images WHERE ownerId=?");
+            statement.setInt(1, userId);
             resultSet = statement.executeQuery();
 
+            System.out.println("Outside" + userId);
+            
             if (resultSet.next()) {
+                System.out.println("Inside" + userId);
                 return imageFromResultSet(resultSet);
             }
 

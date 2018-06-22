@@ -17,13 +17,13 @@ public class ImageDownloadServlet extends HttpServlet {
         // Get DAO from Listener
         ImageManager imageManager = (ImageManager) getServletContext().getAttribute("imageManager");
         
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        ImageInfo image = imageManager.imageInfoBy(id);
+        Integer ownerId = Integer.parseInt(request.getParameter("id"));
+        ImageInfo image = imageManager.imageInfoByUserId(ownerId);
         
         if (image != null) {
             response.setStatus(200);
 	    response.setContentType(image.getContentType());
-            imageManager.copyImageContent(id, response.getOutputStream());
+            imageManager.copyImageContent(image.getId(), response.getOutputStream());
         } else {
             response.sendError(404);
         }
