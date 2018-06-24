@@ -76,11 +76,6 @@
     </head>
     <body>
         
-        <img src="/neighborhoodpet/image?id=${user.userId}"/>
-
-<!--        So if i can get a name associated with the images table,
-        i can make an method that getsImagesByOwner that returns an array of the images
-        i can then use that array in a for-loop to populate list. -->
 
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
@@ -107,11 +102,23 @@
         <div class="container">
             <div class="row">
                 
+                <!-- Use varStatus as the index to iterate over the userPetList array -->
+                <c:forEach var="pet" items="${userPetImages}" varStatus="status">
+                    <div class="col-lg-4 col-md-4 img-card">
+                        <a href="/neighborhoodpet/pet/info?id=${userPetList[status.index].petId}">
+                            <img src="/neighborhoodpet/image?id=${pet.ownerId}" class="img-fluid"/>
+                            <div class="img-info">
+                                <div class="pet-name">${userPetList[status.index].petName}</div>
+                                <div class="zip-code">${userPetList[status.index].city}, ${userPetList[status.index].zipCode}</div>
+                            </div>
+                        </a>
+                    </div>
+                </c:forEach>
+                
                 <c:forEach var="profile" items="${userPetList}">
                     <div class="col-lg-4 col-md-4 img-card">
-                        <a href="/neighborhoodpet/pet/info?id=${profile.petId}">
+                        <a href="/neighborhoodpet/pet/info?id=${profile.petId}">                            
                             <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
-
                             <div class="img-info">
                                 <div class="pet-name">${profile.petName}</div>
                                 <div class="zip-code">${profile.city}, ${profile.zipCode}</div>

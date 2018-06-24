@@ -30,7 +30,7 @@ public class ImageManager extends DBManager {
                 resultSet.getInt("ownerId"));
     }
 
-    public List<ImageInfo> allImages() {
+    public List<ImageInfo> getAllImages() {
         List<ImageInfo> images = new ArrayList<>();
 
         Connection connection = null;
@@ -40,7 +40,9 @@ public class ImageManager extends DBManager {
         try {
             connection = dataSource.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select id, filename, content_type from Images");
+//            "select * from pets, users where userid = pets.ownerId"
+//            resultSet = statement.executeQuery("select id, filename, content_type, ownerId from Images where userId=");
+             resultSet = statement.executeQuery("select * from images, users where users.userId = images.ownerId");
 
             while (resultSet.next()) {
                 images.add(imageFromResultSet(resultSet));
@@ -56,7 +58,8 @@ public class ImageManager extends DBManager {
 
         return images;
     }
-
+    
+    // Saves Image to database. Note the user's ID is passed in as the image table's ownerId column value
     boolean saveImage(String fileName, String contentType, InputStream inputStream, int userId) {
         Connection connection = null;
         PreparedStatement statement = null;

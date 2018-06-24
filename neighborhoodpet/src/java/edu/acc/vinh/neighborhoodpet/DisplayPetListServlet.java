@@ -21,9 +21,11 @@ public class DisplayPetListServlet extends HttpServlet {
         System.out.println("*** Entered doGet on /DisplayPetListServlet! ***");
 
         UserPetManager userPetManager = (UserPetManager)request.getServletContext().getAttribute("userPetManager");
-        
         request.setAttribute("userPetList", userPetManager.getUsersAndPets());
-
+        
+        ImageManager imageManager = (ImageManager)request.getServletContext().getAttribute("imageManager");
+        request.setAttribute("userPetImages", imageManager.getAllImages());
+        
         request.getRequestDispatcher("/WEB-INF/petprofilelist.jsp").forward(request, response);
     }
 
