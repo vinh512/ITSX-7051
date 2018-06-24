@@ -69,7 +69,7 @@
             
 /*            ---------*/
 
-.inline {
+            .inline {
                 display: inline;
             }
             

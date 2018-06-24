@@ -115,6 +115,8 @@
                     </div>
                 </c:forEach>
                 
+                
+                
                 <c:forEach var="profile" items="${userPetList}">
                     <div class="col-lg-4 col-md-4 img-card">
                         <a href="/neighborhoodpet/pet/info?id=${profile.petId}">                            
