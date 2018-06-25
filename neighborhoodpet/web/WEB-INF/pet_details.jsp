@@ -37,13 +37,15 @@
             }
 
             footer {
+                color: white;
                 text-align: center;
                 background-color: lightblue;
-                margin-top: 50px;
+                margin-top: 75px;
+                padding: 15px;
             }
 
             footer span {
-                font-size: 2em;
+                font-size: 1.2rem;
             }
 
             .carousel-inner img {
@@ -133,7 +135,6 @@
             </div>
         </nav>
         <br>
-
 
         <div class="container">
             <h1>My name is ${userPetDetails.petName}!</h1>
@@ -237,7 +238,7 @@
         </div>
 
         <footer>
-            <span>Footer Info Here</span>
+            <span>ACC Continuing Education 2018</span>
         </footer>
 
         <!-- jQuery library -->

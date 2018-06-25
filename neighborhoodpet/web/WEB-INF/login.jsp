@@ -61,7 +61,7 @@
                     </div>
                 </div>    
                 <!-- Submit Button -->
-                <input type="submit" class="btn btn-primary"/>
+                <input type="submit" class="btn btn-lg btn-info"/>
             </form>
             
         </div>

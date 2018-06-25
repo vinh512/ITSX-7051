@@ -109,12 +109,33 @@
                 padding-left: 15px;
             }
 
-            .add-pet {
-                margin-bottom: 260px;
+            .wrap {
+                width: 700px;
             }
+
+            /*            input{
+                            width: 100%;
+                            display: block;
+                        }*/
+
+            .radio-inline {
+                margin-left: 20px;
+            }
+
+            .radio-inline input {
+                margin-right: 10px;
+            }
+
+            .pet-missing {
+                margin-top: 20px;
+                margin-bottom: -10px;
+            }
+
+
         </style>
     </head>
     <body>
+
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
@@ -142,7 +163,6 @@
                         </ul>
                     </c:otherwise>
                 </c:choose>
-
             </div>
         </nav>
         <br>
@@ -164,12 +184,71 @@
             </div>
 
             <hr>
-            <h2>Pets</h2>
+            <h2>Register Pet</h2>        
             <br>
 
-            <form action="/neighborhoodpet/upload" method="get">
-                <input type="submit" class="btn btn-lg btn-info add-pet" value="Add Pet"/>
+            <!--This is the form to add more pets-->
+            <form action="/neighborhoodpet/upload" method="POST" enctype="multipart/form-data" class="wrap">            
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="petName">Name</label>
+                        <input type="text" class="form-control" name="petName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="petBreed">Breed</label>
+                        <input type="text" class="form-control" name="petBreed">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="petGender">Gender</label>
+                        <input type="text" class="form-control" name="petGender">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="petAge">Age</label>
+                        <input type="text" class="form-control" name="petAge">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="petSize">Size</label>
+                        <input type="text" class="form-control" name="petSize">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="petColor">Color</label>
+                        <input type="text" class="form-control" name="petColor">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">About Pet</label>
+                    <textarea class="form-control" rows="3" id="comment"></textarea>
+                </div>
+
+                <div class="row pet-missing">
+                    <div class="form-group col-md-12">
+                        Pet Missing?
+                        <label class="radio-inline">
+                            <input type="radio" name="isMissing" value="true">Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="isMissing" value="false">No
+                        </label>
+                    </div>
+                </div>
+
+                <h2>Upload Image&nbsp; </h2><input type="file" name="image"/>
+                
+                <input type="hidden" name="petOwnerId" value="${user.userId}">
+
+                <br><br><br>
+
+                <input type="submit" class="btn btn-lg btn-info"/>
+
             </form>
+
         </div>
 
         <footer>
