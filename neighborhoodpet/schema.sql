@@ -13,13 +13,13 @@ CREATE TABLE users (
 
 INSERT INTO users (FirstName, LastName, Address, City, State, ZipCode, Email, Password)
 VALUES ('Margie', 'Baker', '14225 Saluda Ave', 'Austin', 'TX', 78758, 'margie@email.com', 'margie'),
-       ('Anthony', 'Elkes', '9351 Copper Creek', 'Austin', 'TX', 78727, 'anthony@email.com', 'anthony'),
-       ('Claire', 'Redfield', '15378 Camino Ruiz', 'Austin', 'TX', 78728, 'claire@email.com', 'claire'),
+       ('Anthony', 'Elkes', '9351 Copper Creek', 'Austin', 'TX', 78757, 'anthony@email.com', 'anthony'),
+       ('Claire', 'Redfield', '15378 Camino Ruiz', 'Austin', 'TX', 78758, 'claire@email.com', 'claire'),
        ('Brittany', 'Vu', '6620 Willsburough Dr', 'Austin', 'TX', 78756, 'brittany@email.com', 'brittany'),
        ('Eric', 'Dunbar', '12843 Shadywood Blvd', 'Austin', 'TX', 78757, 'eric@email.com', 'eric'),
-       ('Kristy', 'Haskins', '5551 Foals Rd', 'Austin', 'TX', 78728, 'kristy@email.com', 'kristy'),
-       ('Phoebe', 'Roberts', '14385 Saluda Ave', 'Austin', 'TX', 78758, 'phoebe@email.com', 'phoebe'),
-       ('Jose', 'Torres', '15868 Saluda Ave', 'Austin', 'TX', 78758, 'jose@email.com', 'jose');
+       ('Kristy', 'Haskins', '5551 Foals Rd', 'Austin', 'TX', 78758, 'kristy@email.com', 'kristy'),
+       ('Phoebe', 'Roberts', '14385 Saluda Ave', 'Austin', 'TX', 78757, 'phoebe@email.com', 'phoebe'),
+       ('Jose', 'Torres', '15868 Saluda Ave', 'Austin', 'TX', 78756, 'jose@email.com', 'jose');
 
 DROP TABLE users;
 
@@ -41,14 +41,14 @@ CREATE TABLE pets (
 );
 
 INSERT INTO pets (PetName, Breed, Gender, Age, Size, Color, IsMissing, OwnerID, Bio)
-VALUES ('Fluggie', 'Pug', 'Male', 2, 'small', 'tan', false, 1, 'This pug is an aggressive adventurer'),
-       ('Tarzan', 'Husky', 'Male', 15, 'large', 'black & white', false, 2, 'Tarzan loves the cold'),
-       ('Whiskers', 'Rat', 'Female', 1, 'small', 'white', false, 3, 'Rat Bio'),
-       ('Felicia', 'Tabby Cat', 'Female', 4, 'small', 'orange', true, 4, 'Felicia Bio'),
-       ('Oreo', 'Pomeranian', 'Male', 10, 'small', 'white with black pattern', true, 5, 'Oreo Bio'),
-       ('Princess', 'Corgi', 'Female', 7, 'medium', 'brown with white', false, 6, 'Princess Bio'),
-       ('Hank', 'Golden Lab', 'Male', 2, 'large', 'golden tan', true, 7, 'Hank Bio'),
-       ('Rufus', 'Siamese', 'Male', 6, 'small', 'gray', false, 8, 'Rufus Bio');
+VALUES ('Pancake', 'Labrador', 'Male', 2, 'Small', 'Yellow', false, 1, 'Pancake loves getting pats from strangers. Don''t be shy when you see us walking about the neighborhood!'),
+       ('Tarzan', 'Pomeranian', 'Male', 5, 'Small', 'White', false, 2, 'Don''t let his fluffy appearance fool you. Tarzan is ferocious and will bark nonstop until you''re out of his sight. Advice is welcomed.'),
+       ('Whiskers', 'Tabby Cat', 'Female', 6, 'Small', 'Orange', false, 3, 'Whiskers often roams the neighborhood. Maybe he''s out looking for birds or mouses. Don''t worry though as he''s not lost. Thanks'),
+       ('Daisy', 'Terrier-Mix', 'Female', 10, 'Medium', 'Cream', false, 4, 'Daisy is the light of my life. I can''t imagine life without her.'),
+       ('Oreo', 'American Shorthair', 'Male', 4, 'Small', 'Gray with Black Stripes', false, 5, 'This guy just lounges wherever he goes. He''s the laziest cat I know.'),
+       ('Oscar', 'Box Turtle', 'Female', 5, 'Small', 'Brownish Green', true, 6, 'Oscar somehow escapes the backyard from time to time. Please contact me if you see a turtle on the loose.'),
+       ('Felicia', 'Scottish Fold', 'Female', 3, 'Small', 'Orange with Stripes', false, 7, 'Felicia is strictly an indoor house cat so chances are slim she''d ever be seen outside.'),
+       ('Rufus', 'French Bulldog', 'Male', 7, 'Medium', 'Dark Gray', true, 8, 'Rufus is lost! Please contact me as soon as you see him! Reward offered.');
 
 DROP TABLE pets;
 

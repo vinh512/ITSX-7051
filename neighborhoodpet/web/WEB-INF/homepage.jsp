@@ -228,7 +228,7 @@
                     <div class="col-lg-4 col-md-4 img-card">                        
                         <img src="${pageContext.request.contextPath}/images/TabbyCat.jpg" class="img-fluid">
                         <div class="img-info">
-                            <div class="pet-name">Tuna</div>
+                            <div class="pet-name">Whiskers</div>
                             <div class="zip-code">Austin, 78753</div>
                         </div>
                     </div>  

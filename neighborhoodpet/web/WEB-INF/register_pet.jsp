@@ -224,7 +224,7 @@
 
                 <div class="form-group">
                     <label for="comment">About Pet</label>
-                    <textarea class="form-control" rows="3" id="comment"></textarea>
+                    <textarea class="form-control" rows="3" name="petBio"></textarea>
                 </div>
 
                 <div class="row pet-missing">

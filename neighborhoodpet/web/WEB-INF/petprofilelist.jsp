@@ -133,18 +133,6 @@
                     </div>
                 </c:forEach>
                 
-                <c:forEach var="profile" items="${userPetList}">
-                    <div class="col-lg-4 col-md-4 img-card">
-                        <a href="/neighborhoodpet/pet/info?id=${profile.petId}">                            
-                            <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
-                            <div class="img-info">
-                                <div class="pet-name">${profile.petName}</div>
-                                <div class="zip-code">${profile.city}, ${profile.zipCode}</div>
-                            </div>
-                        </a>
-                    </div>    
-                </c:forEach>
-                
             </div>
         </div>
 
