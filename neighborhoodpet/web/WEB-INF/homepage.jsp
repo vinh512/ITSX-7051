@@ -226,24 +226,24 @@
                 <h2 class="text-center text-lg mt-5 mb-4 near">Meet Pets Near You</h2>
                 <div class="row">
                     <div class="col-lg-4 col-md-4 img-card">                        
-                        <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
-                        <div class="img-info">
-                            <div class="pet-name">Daisy</div>
-                            <div class="zip-code">Austin, 78751</div>
-                        </div>
-                    </div>  
-                    <div class="col-lg-4 col-md-4 img-card">                        
-                        <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
+                        <img src="${pageContext.request.contextPath}/images/TabbyCat.jpg" class="img-fluid">
                         <div class="img-info">
                             <div class="pet-name">Tuna</div>
-                            <div class="zip-code">Austin, 78750</div>
+                            <div class="zip-code">Austin, 78753</div>
                         </div>
                     </div>  
                     <div class="col-lg-4 col-md-4 img-card">                        
-                        <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">
+                        <img src="${pageContext.request.contextPath}/images/TerrierMix.jpg" class="img-fluid">
+                        <div class="img-info">
+                            <div class="pet-name">Daisy</div>
+                            <div class="zip-code">Austin, 78753</div>
+                        </div>
+                    </div>  
+                    <div class="col-lg-4 col-md-4 img-card">                        
+                        <img src="${pageContext.request.contextPath}/images/BoxTurtle.jpg" class="img-fluid">
                         <div class="img-info">
                             <div class="pet-name">Oscar</div>
-                            <div class="zip-code">Austin, 78752</div>
+                            <div class="zip-code">Austin, 78753</div>
                         </div>
                     </div>  
                 </div>
