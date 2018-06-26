@@ -72,6 +72,24 @@
                 color: #777;
                 font-size: 1.1rem;
             }
+            
+/*            ---------*/
+
+            footer {
+                color: white;
+                text-align: center;
+                background-color: lightblue;
+                margin-top: 75px;
+                padding: 15px;
+            }
+
+            footer span {
+                font-size: 1.2rem;
+            }
+            
+            .map {
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
         </style>
     </head>
     <body>
@@ -115,8 +133,6 @@
                     </div>
                 </c:forEach>
                 
-                
-                
                 <c:forEach var="profile" items="${userPetList}">
                     <div class="col-lg-4 col-md-4 img-card">
                         <a href="/neighborhoodpet/pet/info?id=${profile.petId}">                            
@@ -132,6 +148,15 @@
             </div>
         </div>
 
+        <!-- Map -->
+        <div class="text-center my-5">
+            <img class="map" src="/neighborhoodpet/images/Map.jpg" alt="map">
+        </div>
+                        
+        <!-- Footer-->
+        <footer>
+            <span>ACC Continuing Education 2018</span>
+        </footer>
 
     </body>
 </html>

@@ -145,6 +145,10 @@
                 background-color: #dfe0e0;
                 padding-bottom: 20px;
             }
+            
+            .map {
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
         </style>
     </head>
     <body>
@@ -215,7 +219,7 @@
             <br>
             <br>
         </div>
-        
+
         <!-- Sample Pet List -->
         <div class="gray-background">
             <div class="container">
@@ -246,6 +250,11 @@
             </div>
         </div>
 
+        <!-- Map -->
+        <div class="text-center my-5">
+            <img class="map" src="/neighborhoodpet/images/Map.jpg" alt="map">
+        </div>
+                        
         <!-- Footer-->
         <footer>
             <span>ACC Continuing Education 2018</span>
