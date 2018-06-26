@@ -43,6 +43,11 @@
                 background-color: lightblue;
                 margin-top: 75px;
                 padding: 15px;
+                
+                 position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
             }
 
             footer span {
@@ -108,10 +113,6 @@
                 font-size: 2rem;
                 padding-left: 15px;
             }
-
-            .add-pet {
-                margin-bottom: 260px;
-            }
         </style>
     </head>
     <body>
@@ -168,7 +169,7 @@
             <br>
 
             <form action="/neighborhoodpet/upload" method="get">
-                <input type="submit" class="btn btn-lg btn-info add-pet" value="Add Pet"/>
+                <input type="submit" class="btn btn-lg btn-info" value="Add Pet"/>
             </form>
         </div>
 
