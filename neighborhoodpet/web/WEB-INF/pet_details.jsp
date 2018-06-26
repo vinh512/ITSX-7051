@@ -13,11 +13,11 @@
                 color: #666;
                 background-color: #eee;
             }
-            
+
             h1 {
                 color: #63bedb;
             }
-            
+
             h2 {
                 color: #63bedb;
                 margin-top: 20px;
@@ -68,18 +68,18 @@
             #carouselExampleIndicators {
                 border-radius: 20px;   
             }
-            
-/*            ---------*/
+
+            /*            ---------*/
 
             .inline {
                 display: inline;
             }
-            
+
             .login {
                 font-size: 1.25rem;
                 text-decoration: none !important;
             }
-            
+
             .logout {
                 background: none;
                 border: none;
@@ -90,16 +90,28 @@
                 margin-right: 10px;
                 display: inline;
             }
-            
+
             .logout:hover {
                 color: #007bff;
             }
-            
+
+            .back-arrow {
+                font-size: 4rem;
+            }
+
+            .back {
+                font-size: 1.5rem;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
 
-   <!-- Navbar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
 
@@ -114,7 +126,7 @@
                             <form action="${pageContext.request.contextPath}/UserDetails" method="GET" class="inline">
                                 <input type="submit" value="<c:out value='${user.firstName}'/>" class="logout">
                             </form>
-                            
+
                             <!-- Log Out -->
                             <i class="fa fa-window-close"></i>
                             <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" class="inline">
@@ -138,23 +150,12 @@
 
         <div class="container">
             <h1>My name is ${userPetDetails.petName}!</h1>
-<!--            <img src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" class="img-fluid">-->
 
+            <!-- Beginning of Carousel -->    
             <div id="carouselExampleIndicators" class="carousel slide bk" data-ride="carousel" data-interval="false">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-75" src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-75" src="${pageContext.request.contextPath}/images/SleepyChihuahua.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-75" src="${pageContext.request.contextPath}/images/LabPuppy.jpeg" alt="Third slide">
+                        <img src="/neighborhoodpet/image?id=${imageData.ownerId}" class="img-fluid d-block"/>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -166,13 +167,13 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div> <!-- End of Carousel -->
-
         </div>
 
         <br>
         <div class="container">
             <h2>My Info</h2>
 
+            <!-- Pet Info -->
             <div class="row">
                 <div class="col-lg-1">
                     <span class="category">Breed</span>
@@ -216,10 +217,14 @@
             </div>                                
 
             <hr>
-            <h2>About Me</h2>
+            
+            <!-- Pet Bio -->
+            <h2>About ${userPetDetails.petName}</h2>
             <span class="detail-info">${userPetDetails.bio}</span>
+            
             <hr>
 
+            <!-- Owner Info -->
             <h2>Owner's Info:</h2>
             <div class="row">
                 <div class="col-lg-4">
@@ -232,23 +237,21 @@
                     <span class="detail-info">${userPetDetails.city}, ${userPetDetails.state} ${userPetDetails.zipCode}</span>
                 </div>
             </div>
-
             <button class="btn btn-lg btn-info">Contact Me</button>
 
+            <hr>
+
+            <!-- Back Button -->
+            <a href="/neighborhoodpet/DisplayPetListServlet">
+                <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Back</span>
+            </a>
+            
         </div>
 
+        <!-- Footer -->
         <footer>
             <span>ACC Continuing Education 2018</span>
         </footer>
-
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-        <!-- Popper JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
     </body>
 </html>

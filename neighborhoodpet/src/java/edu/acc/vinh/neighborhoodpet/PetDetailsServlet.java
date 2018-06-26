@@ -24,12 +24,13 @@ public class PetDetailsServlet extends HttpServlet {
         // get id value from query string
         int id = getIdParameter(request);
         
-        UserPetManager userPetManager = (UserPetManager) request.getServletContext().getAttribute("userPetManager");
-//        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
-//        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
+        UserPetManager userPetManager = (UserPetManager)request.getServletContext().getAttribute("userPetManager");
+        ImageManager imageManager = (ImageManager)request.getServletContext().getAttribute("imageManager");
         
+        ImageInfo imageData = imageManager.imageInfoByUserId(id);
         UserPet userPetDetails = getAccountDetails(userPetManager, id);
         
+        request.setAttribute("imageData", imageData);
         request.setAttribute("userPetDetails", userPetDetails);
 
         request.getRequestDispatcher("/WEB-INF/pet_details.jsp").forward(request, response);   
