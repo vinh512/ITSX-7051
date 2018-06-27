@@ -26,7 +26,7 @@
                             <form action="${pageContext.request.contextPath}/UserDetails" method="GET" class="inline">
                                 <input type="submit" value="<c:out value='${user.firstName}'/>" class="logout">
                             </form>
-
+                            
                             <!-- Log Out -->
                             <i class="fa fa-window-close"></i>
                             <form action="${pageContext.request.contextPath}/LogOutServlet" method="GET" class="inline">

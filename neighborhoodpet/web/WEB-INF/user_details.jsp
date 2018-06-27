@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>User Profile</title>
     </head>
-    
+
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
@@ -59,11 +59,11 @@
             </div>
 
             <hr>
-            
+
             <c:choose>
                 <c:when test="${imageId != null}">
                     <h2>Pets</h2>
-                    
+
                     <!-- Display Pet Card -->
                     <div class="col-lg-4 col-md-4 img-card no-padding">
                         <a href="/neighborhoodpet/pet/info?id=${userPetData.petId}">
@@ -78,17 +78,24 @@
                 <c:otherwise>
                     <h2>No Pets Registered</h2>
                     <br>
-                    
+
                     <!-- Add Pet Button -->
                     <form action="/neighborhoodpet/upload" method="get">
-                        <input type="submit" class="btn btn-lg btn-info" value="Add Pet"/>
+                        <input type="submit" class="btn btn-lg btn-info margin-bot" value="Add Pet"/>
                     </form>
                 </c:otherwise>
             </c:choose>
+
+            <hr>
+
+            <!-- Back Button -->
+            <a href="/neighborhoodpet/DisplayPetListServlet">
+                <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Pet List</span>
+            </a>
         </div>
 
         <!-- Footer -->
-        <footer class="footer-fixed">
+        <footer>
             <span>ACC Continuing Education 2018</span>
         </footer>
     </body>
