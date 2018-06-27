@@ -25,6 +25,22 @@
             .invalid-entry-msg {
                 color: red;
             }
+            
+            footer {
+                color: white;
+                text-align: center;
+                background-color: lightblue;
+                margin-top: 75px;
+                padding: 15px;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+
+            footer span {
+                font-size: 1.2rem;
+            }
             </style>
     </head>
     <body>
@@ -65,5 +81,10 @@
             </form>
             
         </div>
+        
+        <!-- Footer-->
+        <footer>
+            <span>ACC Continuing Education 2018</span>
+        </footer>
     </body>
 </html>

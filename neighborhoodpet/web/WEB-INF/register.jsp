@@ -17,6 +17,22 @@
             h1 {
                 color: #63bedb;
             }
+            
+            footer {
+                color: white;
+                text-align: center;
+                background-color: lightblue;
+                margin-top: 75px;
+                padding: 15px;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+
+            footer span {
+                font-size: 1.2rem;
+            }
 
             .wrap {
                 width: 700px;
@@ -61,7 +77,7 @@
                     </div>
                 </div>
 
-                <hr class="my-5">
+                <hr class="my-3">
                 <h1>Personal Info</h1>
 
                 <div class="form-row">
@@ -108,7 +124,11 @@
 
                 <input type="submit" class="btn btn-lg btn-info"/>
             </form>
-
         </div>
+        
+        <!-- Footer-->
+        <footer>
+            <span>ACC Continuing Education 2018</span>
+        </footer>
     </body>
 </html>

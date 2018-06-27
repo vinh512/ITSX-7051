@@ -38,7 +38,6 @@
                 background-color: lightblue;
                 margin-top: 75px;
                 padding: 15px;
-
                 position: fixed;
                 left: 0;
                 bottom: 0;
