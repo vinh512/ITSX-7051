@@ -44,7 +44,14 @@
                             <img src="/neighborhoodpet/image?id=${pet.ownerId}" class="img-fluid"/>
                             <div class="img-info">
                                 <div class="pet-name">${userPetList[status.index].petName}</div>
-                                <div class="zip-code">${userPetList[status.index].city}, ${userPetList[status.index].zipCode}</div>
+                                <c:choose>
+                                    <c:when test="${userPetList[status.index].isMissing == true}">
+                                        <div class="zip-code"><span class="missing">Missing</span> - ${userPetList[status.index].city}, ${userPetList[status.index].zipCode}</div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="zip-code">${userPetList[status.index].city}, ${userPetList[status.index].zipCode}</div>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </a>
                     </div>

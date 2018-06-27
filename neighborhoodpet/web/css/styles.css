@@ -169,6 +169,11 @@
                 font-size: 1.1rem;
             }
             
+            .missing {
+                color: #f87575;
+                font-weight: 600;
+            }
+            
             .no-padding {
                 padding: 0;
             }

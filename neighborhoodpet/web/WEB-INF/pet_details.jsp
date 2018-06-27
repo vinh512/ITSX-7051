@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>${userPetDetails.petName}'s Profile</title>
     </head>
-    
+
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
@@ -49,7 +49,14 @@
         <br>
 
         <div class="container">
-            <h1>My name is ${userPetDetails.petName}!</h1>
+            <c:choose>
+                <c:when test="${userPetDetails.isMissing == true}">
+                    <h1><span class='missing'>Missing </span>- Have you seen ${userPetDetails.petName}?</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1>My name is ${userPetDetails.petName}!</h1>
+                </c:otherwise>
+            </c:choose>
 
             <!-- Beginning of Carousel -->    
             <div id="carouselExampleIndicators" class="carousel slide bk" data-ride="carousel" data-interval="false">
@@ -117,11 +124,11 @@
             </div>                                
 
             <hr>
-            
+
             <!-- Pet Bio -->
             <h2>About ${userPetDetails.petName}</h2>
             <span class="detail-info">${userPetDetails.bio}</span>
-            
+
             <hr>
 
             <!-- Owner Info -->
@@ -145,7 +152,7 @@
             <a href="/neighborhoodpet/DisplayPetListServlet">
                 <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Pet List</span>
             </a>
-            
+
         </div>
 
         <!-- Footer -->

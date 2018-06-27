@@ -70,7 +70,14 @@
                             <img src="/neighborhoodpet/image?id=${imageId}" class="img-fluid"/>
                             <div class="img-info">
                                 <div class="pet-name">${userPetData.petName}</div>
-                                <div class="zip-code">${userPetData.city}, ${userPetData.zipCode}</div>
+                                <c:choose>
+                                    <c:when test="${userPetData.isMissing == true}">
+                                        <div class="zip-code"><span class="missing">Missing</span> - ${userPetData.city}, ${userPetData.zipCode}</div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="zip-code">${userPetData.city}, ${userPetData.zipCode}</div>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </a>
                     </div>
