@@ -243,7 +243,7 @@
 
             <!-- Back Button -->
             <a href="/neighborhoodpet/DisplayPetListServlet">
-                <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Back</span>
+                <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Pet List</span>
             </a>
             
         </div>

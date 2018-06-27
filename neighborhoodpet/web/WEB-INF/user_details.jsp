@@ -28,11 +28,6 @@
                 margin: 30px 0;
             }
 
-            img {
-                width: 600px;
-                border-radius: 15px;
-            }
-
             button {
                 margin: 30px 0;
             }
@@ -43,11 +38,11 @@
                 background-color: lightblue;
                 margin-top: 75px;
                 padding: 15px;
-                
-                 position: fixed;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
+
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
             }
 
             footer span {
@@ -113,13 +108,54 @@
                 font-size: 2rem;
                 padding-left: 15px;
             }
+            
+/*            --------*/
+
+            .img-info {
+                padding: 20px 0;
+                border-radius: 0 0 5px 5px;
+                background-color: #ffffff;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            }
+            
+            .img-info:hover {
+                background-color: #bddce6;
+            }
+            
+            .img-card {
+                margin: 15px 0;
+                text-align: center;            
+            }
+
+            img {
+                border-radius: 5px 5px 0 0;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            }
+            
+            a:hover {
+                text-decoration: none;
+            }
+            
+            .pet-name {
+                color: #3fa4c5;
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+            
+            .zip-code {
+                color: #777;
+                font-size: 1.1rem;
+            }
+            
+            .no-padding {
+                padding: 0;
+            }
         </style>
     </head>
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
-
                 <!-- Site Title -->
                 <a class="navbar-brand" href="/neighborhoodpet/"><i class="fa fa-paw"></i>&nbsp;Nextdoor Pets</a>
 
@@ -143,11 +179,11 @@
                         </ul>
                     </c:otherwise>
                 </c:choose>
-
             </div>
         </nav>
         <br>
 
+        <!-- User Info -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
@@ -165,14 +201,35 @@
             </div>
 
             <hr>
-            <h2>Pets</h2>
-            <br>
-
-            <form action="/neighborhoodpet/upload" method="get">
-                <input type="submit" class="btn btn-lg btn-info" value="Add Pet"/>
-            </form>
+            
+            <c:choose>
+                <c:when test="${imageId != null}">
+                    <h2>Pets</h2>
+                    
+                    <!-- Display Pet Card -->
+                    <div class="col-lg-4 col-md-4 img-card no-padding">
+                        <a href="/neighborhoodpet/pet/info?id=${userPetData.petId}">
+                            <img src="/neighborhoodpet/image?id=${imageId}" class="img-fluid"/>
+                            <div class="img-info">
+                                <div class="pet-name">${userPetData.petName}</div>
+                                <div class="zip-code">${userPetData.city}, ${userPetData.zipCode}</div>
+                            </div>
+                        </a>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <h2>No Pets Registered</h2>
+                    <br>
+                    
+                    <!-- Add Pet Button -->
+                    <form action="/neighborhoodpet/upload" method="get">
+                        <input type="submit" class="btn btn-lg btn-info" value="Add Pet"/>
+                    </form>
+                </c:otherwise>
+            </c:choose>
         </div>
 
+        <!-- Footer -->
         <footer>
             <span>ACC Continuing Education 2018</span>
         </footer>
