@@ -5,154 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
-        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/neighborhoodpet/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Home Page</title>
-        <style>
-            body {
-                color: #666;
-                background-color: #eee;
-            }
-
-            h1 {
-                color: #63bedb;
-            }
-
-            h2 {
-                color: #63bedb;
-                margin-top: 20px;
-            }
-
-            hr {
-                margin: 30px 0;
-            }
-
-            .headline {
-                color: white;
-            }
-
-            .jumbotron {
-                color: white;
-                min-height: 500px;
-                background-image: url("${pageContext.request.contextPath}/images/DogCatSleep.jpg");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                border-radius: 0;
-                margin-bottom: 80px;
-            }
-
-            .jumbotron h1 {
-                font-weight: 500;
-                font-size: 5.8rem;
-            }
-
-            .jumbotron p {
-                font-weight: 200;
-                font-size: 2.5rem;
-            }
-
-            .inline {
-                display: inline;
-            }
-
-            .login {
-                font-size: 1.25rem;
-                text-decoration: none !important;
-            }
-
-            .logout {
-                background: none;
-                border: none;
-                color: black;
-                cursor: pointer;
-                font-size: 1.25rem;
-                padding-left: 0px;
-                margin-right: 10px;
-                display: inline;
-            }
-
-            .logout:hover {
-                color: #007bff;
-            }
-
-            footer {
-                color: white;
-                text-align: center;
-                background-color: lightblue;
-                margin-top: 75px;
-                padding: 15px;
-            }
-
-            footer span {
-                font-size: 1.2rem;
-            }
-
-            button[type="submit"] {
-                font-size: 2rem;
-                background-color: #63bedb;
-                border: none;
-            }
-
-            /*            --------------*/
-
-            .img-card {
-                margin: 15px 0;
-                text-align: center;            
-            }
-
-            img {
-                border-radius: 5px 5px 0 0;
-                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            }
-
-            .img-info {
-                padding: 20px 0;
-                border-radius: 0 0 5px 5px;
-                background-color: #ffffff;
-                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            }
-
-            .pet-name {
-                color: #3fa4c5;
-                font-weight: 400;
-                font-size: 1.5rem;
-            }
-
-            .zip-code {
-                color: #777;
-                font-size: 1.1rem;
-            }
-
-            /*            ---------*/
-
-            .text-lg {
-                font-size: 3rem;
-            }
-
-            .text-wrap {
-                margin: 0 auto;
-                width: 600px;
-                font-size: 1.3rem;
-            }
-
-            .near {
-                padding-top: 20px;
-            }
-
-            .gray-background {
-                background-color: #dfe0e0;
-                padding-bottom: 20px;
-            }
-            
-            .map {
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            }
-        </style>
     </head>
+    
     <body>
-
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
@@ -254,7 +112,7 @@
         <div class="text-center my-5">
             <img class="map" src="/neighborhoodpet/images/Map.jpg" alt="map">
         </div>
-                        
+                
         <!-- Footer-->
         <footer>
             <span>ACC Continuing Education 2018</span>

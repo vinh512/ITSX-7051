@@ -5,96 +5,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
-        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/neighborhoodpet/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Pet Profiles</title>
-        <style>
-            body {
-                background-color: #eaeaea;
-            }
-
-            .img-card {
-                margin: 15px 0;
-                text-align: center;            
-            }
-
-            img {
-                border-radius: 5px 5px 0 0;
-                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            }
-
-            .inline {
-                display: inline;
-            }
-
-            .login {
-                font-size: 1.25rem;
-                text-decoration: none !important;
-            }
-
-            .logout {
-                background: none;
-                border: none;
-                color: black;
-                cursor: pointer;
-                font-size: 1.25rem;
-                padding-left: 0px;
-                margin-right: 10px;
-                display: inline;
-            }
-
-            .logout:hover {
-                color: #007bff;
-            }
-
-            .img-info {
-                padding: 20px 0;
-                border-radius: 0 0 5px 5px;
-                background-color: #ffffff;
-                box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            }
-            
-            .img-info:hover {
-                background-color: #bddce6;
-            }
-
-            a:hover {
-                text-decoration: none;
-            }
-            
-            .pet-name {
-                color: #3fa4c5;
-                font-weight: 400;
-                font-size: 1.5rem;
-            }
-            
-            .zip-code {
-                color: #777;
-                font-size: 1.1rem;
-            }
-            
-/*            ---------*/
-
-            footer {
-                color: white;
-                text-align: center;
-                background-color: lightblue;
-                margin-top: 75px;
-                padding: 15px;
-            }
-
-            footer span {
-                font-size: 1.2rem;
-            }
-            
-            .map {
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            }
-        </style>
     </head>
-    <body>
-        
 
+    <body>
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
                 <!-- Site Title -->

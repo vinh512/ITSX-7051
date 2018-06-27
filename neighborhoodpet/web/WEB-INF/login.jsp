@@ -5,46 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
-        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/neighborhoodpet/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
         <title>Login</title>
-        <style>
-            body {
-                color: #777;
-                background-color: #eee;
-            }
-            
-            h1 {
-                color: #63bedb;
-            }            
-            
-            .wrap {
-                width: 700px;
-            }
-            
-            .invalid-entry-msg {
-                color: red;
-            }
-            
-            footer {
-                color: white;
-                text-align: center;
-                background-color: lightblue;
-                margin-top: 75px;
-                padding: 15px;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-            }
-
-            footer span {
-                font-size: 1.2rem;
-            }
-            </style>
     </head>
+    
     <body>
-
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container wrap">
@@ -83,7 +49,7 @@
         </div>
         
         <!-- Footer-->
-        <footer>
+        <footer class="footer-fixed">
             <span>ACC Continuing Education 2018</span>
         </footer>
     </body>
