@@ -113,6 +113,40 @@ public class UserManager extends DBManager {
 
         return users;
     }
+
+   // Updates the database with new User values
+   public void updateUser(User user) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("UPDATE users SET firstName =?, "
+                    + "lastName =?, Address =?, City=?, State=?, ZipCode=? where userid =?");
+            
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getAddress());
+            statement.setString(4, user.getCity());
+            statement.setString(5, user.getState());
+            statement.setInt(6, user.getZipCode());
+            statement.setInt(7, user.getUserId());
+            
+            boolean ok = statement.execute();
+            System.out.println("Update ok? " + ok);
+            
+            statement.execute();
+        } 
+        
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        finally {
+            close(statement);
+            close(connection);
+        }
+    }
     
     // Extract values from ResultSet and instantiates a User from the data
     private User userFromResultSet(ResultSet resultSet) throws SQLException {

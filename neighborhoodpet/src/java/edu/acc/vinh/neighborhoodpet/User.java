@@ -1,29 +1,42 @@
 package edu.acc.vinh.neighborhoodpet;
 
 public class User {
-    private int    userId;
+
+    private int userId;
     private String firstName;
     private String lastName;
     private String address;
     private String city;
-    private String state;    
-    private int    zipCode;
+    private String state;
+    private int zipCode;
     private String email;
     private String password;
-
-    public User() {}
     
-    public User(String firstName, String lastName, String address, String city, String state, Integer zipCode, String email, String password){
+    public User() {
+    }
+
+    // Constructor used to initially create User with email & password
+    public User(String firstName, String lastName, String address, String city, String state, Integer zipCode, String email, String password) {
         this.firstName = firstName;
-        this.lastName  = lastName;
-        this.address   = address;
-        this.city      = city;
-        this.state     = state;
-        this.zipCode   = zipCode;
-        this.email     = email;
-        this.password  = password;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.email = email;
+        this.password = password;
     }
     
+    public User(String firstName, String lastName, String address, String city, String state, Integer zipCode, Integer userId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.userId = userId;
+    }
+
     public int getUserId() {
         return userId;
     }
@@ -31,7 +44,7 @@ public class User {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -90,8 +103,8 @@ public class User {
 
     public String getPassword() {
         return password;
-    }    
-    
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }

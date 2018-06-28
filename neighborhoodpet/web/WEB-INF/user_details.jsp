@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
         <link href="/neighborhoodpet/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
-        <title>User Profile</title>
+        <title>${user.firstName}'s Profile</title>
     </head>
 
     <body>
@@ -41,8 +41,10 @@
         </nav>
         <br>
 
-        <!-- User Info -->
+        
         <div class="container">
+            
+            <!-- User Info -->
             <div class="row">
                 <div class="col-lg-2">
                     <i class="fa fa-user user-profile-icon"></i>
@@ -50,12 +52,20 @@
                 <div class="col-lg-10">
                     <div class="user-name">${user.firstName} ${user.lastName}</div>
                     <div class="col-lg-12">
-                        <span class="detail-info">${user.address}</span>
+                        <span class="user-info">${user.address}</span>
                     </div>
                     <div class="col-lg-12">
-                        <span class="detail-info">${user.city}, ${user.state} ${user.zipCode}</span>
+                        <span class="user-info">${user.city}, ${user.state} ${user.zipCode}</span>
+                    </div>
+                    <div class='col-lg-12'>
+                        <form action="/neighborhoodpet/EditUser" method="get">
+                            <input type="submit" class="btn btn-lg btn-info edit-btn" value="Edit Info"/>
+                        </form>
                     </div>
                 </div>
+                    
+                    
+                    
             </div>
 
             <hr>

@@ -50,10 +50,10 @@
                 <div class="col-lg-10">
                     <div class="user-name">${user.firstName} ${user.lastName}</div>
                     <div class="col-lg-12">
-                        <span class="detail-info">${user.address}</span>
+                        <span class="user-info">${user.address}</span>
                     </div>
                     <div class="col-lg-12">
-                        <span class="detail-info">${user.city}, ${user.state} ${user.zipCode}</span>
+                        <span class="user-info">${user.city}, ${user.state} ${user.zipCode}</span>
                     </div>
                 </div>
             </div>
