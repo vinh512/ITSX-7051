@@ -40,7 +40,7 @@
                 <!-- Use varStatus as the index to iterate over the userPetList array -->
                 <c:forEach var="pet" items="${userPetImages}" varStatus="status">
                     <div class="col-lg-4 col-md-4 img-card">
-                        <a href="/neighborhoodpet/pet/info?id=${userPetList[status.index].petId}">
+                        <a href="/neighborhoodpet/pet/info?id=${userPetList[status.index].userId}">
                             <img src="/neighborhoodpet/image?id=${pet.ownerId}" class="img-fluid"/>
                             <div class="img-info">
                                 <div class="pet-name">${userPetList[status.index].petName}</div>

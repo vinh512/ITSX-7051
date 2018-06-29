@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
         <link href="/neighborhoodpet/css/styles.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
-        <title>${user.firstName}'s Profile</title>
+        <title>User Profile</title>
     </head>
-
+    
     <body>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-sm bg-light justify-content-between">
             <div class="container">
+
                 <!-- Site Title -->
                 <a class="navbar-brand" href="/neighborhoodpet/"><i class="fa fa-paw"></i>&nbsp;Nextdoor Pets</a>
 
@@ -42,8 +43,6 @@
         <br>
 
         <div class="container">
-
-            <!-- User Info -->
             <div class="row">
                 <div class="col-lg-2">
                     <i class="fa fa-user user-profile-icon"></i>
@@ -56,63 +55,26 @@
                     <div class="col-lg-12">
                         <span class="user-info">${user.city}, ${user.state} ${user.zipCode}</span>
                     </div>
-                    <div class='col-lg-12'>
-                        <form action="/neighborhoodpet/EditUser" method="get">
-                            <input type="submit" class="btn btn-lg btn-info edit-btn" value="Edit Info"/>
-                        </form>
-                    </div>
-                </div>                    
+                </div>
             </div>
 
             <hr>
+            <p>The user ID and thus image ID: ${user.userId}</p>
 
-            <c:choose>
-                <c:when test="${imageId != 0}">
-                    <h2>Pets</h2>
-                    <!-- Display Pet Card -->
-                    <div class="col-lg-4 col-md-4 img-card no-padding">
-                        <a href="/neighborhoodpet/pet/info?id=${imageId}">
-                            <img src="/neighborhoodpet/image?id=${imageId}" class="img-fluid"/>
-                            <div class="img-info">
-                                <div class="pet-name">${userPetData.petName}</div>
-                                <c:choose>
-                                    <c:when test="${userPetData.isMissing == true}">
-                                        <div class="zip-code"><span class="missing">Missing</span> - ${userPetData.city}, ${userPetData.zipCode}</div>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <div class="zip-code">${userPetData.city}, ${userPetData.zipCode}</div>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Remove Pet Button -->
-                    <form action="/neighborhoodpet/DeletePet" method="POST">
-                        <input type="submit" class="btn btn-lg btn-info edit-btn" value="Remove"/>
-                    </form>
-                </c:when>
-                <c:otherwise>
-                    <h2>No Pets Registered</h2>
-                    <br>
+            <form action="/neighborhoodpet/ImageUpload" method="POST" enctype="multipart/form-data" class="wrap">            
+                <h2>Upload Image&nbsp; </h2><input type="file" name="image"/>
+                
+                <input type="hidden" name="petOwnerId" value="${user.userId}">
 
-                    <!-- Add Pet Button -->
-                    <form action="/neighborhoodpet/upload" method="get">
-                        <input type="submit" class="btn btn-lg btn-info margin-bot" value="Add Pet"/>
-                    </form>
-                </c:otherwise>
-            </c:choose>
+                <br><br><br>
 
-            <hr>
+                <input type="submit" class="btn btn-lg btn-info"/>
 
-            <!-- Back Button -->
-            <a href="/neighborhoodpet/DisplayPetListServlet">
-                <i class="fa fa-chevron-circle-left back-arrow align-middle"></i><span class="align-middle back">&nbsp; Pet List</span>
-            </a>
+            </form>
+
         </div>
 
-        <!-- Footer -->
-        <footer>
+        <footer class="footer-fixed">
             <span>ACC Continuing Education 2018</span>
         </footer>
     </body>

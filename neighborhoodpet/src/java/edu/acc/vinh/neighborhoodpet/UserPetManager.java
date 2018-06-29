@@ -54,7 +54,7 @@ public class UserPetManager extends DBManager {
         
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("SELECT * FROM pets, users WHERE userid = pets.ownerId AND petId = ?");
+            statement = connection.prepareStatement("SELECT * FROM pets, users WHERE userid = pets.ownerId AND ownerId = ?");
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
             
