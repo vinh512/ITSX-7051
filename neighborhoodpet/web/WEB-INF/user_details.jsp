@@ -87,7 +87,8 @@
                             </div>
                         </a>
                     </div>
-                                
+                    
+                    <!-- Remove Pet Button -->
                     <form action="/neighborhoodpet/DeletePet" method="POST">
                         <input type="submit" class="btn btn-lg btn-info edit-btn" value="Remove"/>
                     </form>

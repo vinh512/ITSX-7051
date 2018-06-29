@@ -46,7 +46,7 @@ VALUES ('Pancake', 'Labrador', 'Male', 2, 'Small', 'Yellow', false, 1, 'Pancake 
        ('Whiskers', 'Tabby Cat', 'Female', 6, 'Small', 'Orange', false, 3, 'Whiskers often roams the neighborhood. Maybe he''s out looking for birds or mouses. Don''t worry though as he''s not lost. Thanks'),
        ('Daisy', 'Terrier-Mix', 'Female', 10, 'Medium', 'Cream', false, 4, 'Daisy is the light of my life. I can''t imagine life without her.'),
        ('Oreo', 'American Shorthair', 'Male', 4, 'Small', 'Gray with Black Stripes', false, 5, 'This guy just lounges wherever he goes. He''s the laziest cat I know.'),
-       ('Oscar', 'Box Turtle', 'Female', 5, 'Small', 'Brownish Green', true, 6, 'Oscar somehow escapes the backyard from time to time. Please contact me if you see a turtle on the loose.'),
+       ('Oscar', 'Box Turtle', 'Male', 5, 'Small', 'Brownish Green', true, 6, 'Oscar somehow escapes the backyard from time to time. Please contact me if you see a turtle on the loose.'),
        ('Felicia', 'Scottish Fold', 'Female', 3, 'Small', 'Orange with Stripes', false, 7, 'Felicia is strictly an indoor house cat so chances are slim she''d ever be seen outside.'),
        ('Rufus', 'French Bulldog', 'Male', 7, 'Medium', 'Dark Gray', true, 8, 'Rufus is lost! Please contact me as soon as you see him! Reward offered.');
 

@@ -160,4 +160,26 @@ public class ImageManager extends DBManager {
         return false;
     }
     
+     public void deleteImageById(int id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("DELETE FROM images WHERE id=?");
+            statement.setInt(1, id);
+
+            boolean ok = statement.execute();
+            //return this to the caller
+            System.out.println("DELETE IMAGE OK? " + ok);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        } finally {
+            close(connection);
+            close(statement);
+        }
+    }
+    
 }

@@ -13,28 +13,28 @@ public class DeletePet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        System.out.println("*** Entered doGet on /DeletePet! ***");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-//        UserManager userManager = (UserManager)request.getServletContext().getAttribute("userManager");
-//        PetManager petManager = (PetManager)request.getServletContext().getAttribute("petManager");
-        
+        System.out.println("*** Entered doPost on /DeletePet! ***");
         
         User user = (User)request.getSession().getAttribute("user");
-        
-//        int userId = user.getUserId();
-        
+
         petManager().deletePetById(user.getUserId());
+        imageManager().deleteImageById(user.getUserId());
         
         response.sendRedirect(request.getContextPath() + "/UserDetails");
     }
     
     private PetManager petManager() {
         return (PetManager)getServletContext().getAttribute("petManager");
+    }
+    
+    private ImageManager imageManager() {
+        return (ImageManager)getServletContext().getAttribute("imageManager");
     }
 
 }
