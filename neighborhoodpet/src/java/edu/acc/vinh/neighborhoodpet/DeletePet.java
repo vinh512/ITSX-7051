@@ -22,7 +22,7 @@ public class DeletePet extends HttpServlet {
         System.out.println("*** Entered doPost on /DeletePet! ***");
         
         User user = (User)request.getSession().getAttribute("user");
-
+        
         petManager().deletePetById(user.getUserId());
         imageManager().deleteImageById(user.getUserId());
         

@@ -132,7 +132,7 @@ public class PetManager extends DBManager {
 
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("DELETE FROM pets WHERE petId=?");
+            statement = connection.prepareStatement("DELETE FROM pets WHERE ownerId=?");
             statement.setInt(1, id);
 
             boolean ok = statement.execute();

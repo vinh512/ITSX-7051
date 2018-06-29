@@ -89,7 +89,7 @@
                     
                     <!-- Remove Pet Button -->
                     <form action="/neighborhoodpet/DeletePet" method="POST">
-                        <input type="submit" class="btn btn-lg btn-info edit-btn" value="Remove"/>
+                        <input type="submit" class="btn btn-lg btn-info" value="Remove"/>
                     </form>
                 </c:when>
                 <c:otherwise>

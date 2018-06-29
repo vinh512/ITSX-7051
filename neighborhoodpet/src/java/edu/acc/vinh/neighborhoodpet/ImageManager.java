@@ -166,7 +166,7 @@ public class ImageManager extends DBManager {
 
         try {
             connection = dataSource.getConnection();
-            statement = connection.prepareStatement("DELETE FROM images WHERE id=?");
+            statement = connection.prepareStatement("DELETE FROM images WHERE ownerId=?");
             statement.setInt(1, id);
 
             boolean ok = statement.execute();

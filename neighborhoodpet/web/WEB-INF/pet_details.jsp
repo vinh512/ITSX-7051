@@ -119,7 +119,7 @@
                     <span class="category">Pet&nbsp;ID</span>
                 </div>
                 <div class="col-lg-3">
-                    <span class="detail-info">${userPetDetails.petId}</span>
+                    <span class="detail-info">${userPetDetails.userId}</span>
                 </div>
             </div>                                
 
