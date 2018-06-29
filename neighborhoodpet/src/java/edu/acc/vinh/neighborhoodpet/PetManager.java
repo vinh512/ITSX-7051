@@ -126,4 +126,26 @@ public class PetManager extends DBManager {
         }
     }
     
+        public void deletePetById(int id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            statement = connection.prepareStatement("delete from pets where id=?");
+            statement.setInt(1, id);
+
+            boolean ok = statement.execute();
+            //return this to the caller
+            System.out.println("DELETE OK? " + ok);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        } finally {
+            close(connection);
+            close(statement);
+        }
+    }
+    
 }

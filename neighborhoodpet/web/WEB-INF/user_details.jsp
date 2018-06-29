@@ -41,9 +41,8 @@
         </nav>
         <br>
 
-        
         <div class="container">
-            
+
             <!-- User Info -->
             <div class="row">
                 <div class="col-lg-2">
@@ -62,16 +61,13 @@
                             <input type="submit" class="btn btn-lg btn-info edit-btn" value="Edit Info"/>
                         </form>
                     </div>
-                </div>
-                    
-                    
-                    
+                </div>                    
             </div>
 
             <hr>
 
             <c:choose>
-                <c:when test="${imageId != null}">
+                <c:when test="${imageId != 0}">
                     <h2>Pets</h2>
 
                     <!-- Display Pet Card -->
@@ -91,6 +87,10 @@
                             </div>
                         </a>
                     </div>
+                                
+                    <form action="/neighborhoodpet/DeletePet" method="POST">
+                        <input type="submit" class="btn btn-lg btn-info edit-btn" value="Remove"/>
+                    </form>
                 </c:when>
                 <c:otherwise>
                     <h2>No Pets Registered</h2>

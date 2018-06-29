@@ -47,16 +47,20 @@ public class RegisterServlet extends HttpServlet {
         // Gets all the users and puts them in an ArrayList
         userList = userManager.getAllUsers();
         
-        // Checks to see if there's an existing user with the same name & password
+        // Checks to see if there's an existing user with the same name & password. If not, returns null
         User user = userManager.findUserIfValid(userList, email, password);
         
         // If the user does not exist, set user into the database and session
         if (user == null) {
+            
+            // Create new User from the data collected from the form
+            User newUser = new User(firstName, lastName, address, city, state, zip, email, password);
+            
             // Adds User into database
-            userManager.addUser(new User(firstName, lastName, address, city, state, zip, email, password));
+            userManager.addUser(newUser);
             
             // Puts the user into session
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("user", newUser);
             
             response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");
         } else {

@@ -19,6 +19,7 @@ public class UserDetails extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("*** Entered doGet on /UserDetails! ***");
+        int imageId = 0;
         
         // Get DAOs from Listener
         ImageManager imageManager = (ImageManager)request.getServletContext().getAttribute("imageManager");
@@ -30,8 +31,14 @@ public class UserDetails extends HttpServlet {
         // Get User's Id
         int userSessionId = user.getUserId();
 
-        // Get Image Id based on User's Id
-        int imageId = imageManager.imageInfoByUserId(userSessionId).getId();
+        // If there's an image, get the image's ID value so that it can be used to display the pet image
+        if (imageManager.imageInfoByUserId(userSessionId) != null) {
+           imageId = imageManager.imageInfoByUserId(userSessionId).getId();
+        } 
+        // Else assign it a value of 0 (null effectively) for JSTL checking within the JSP to display proper html
+        else {
+           imageId = 0;
+        }
         
         UserPet userPetData = userPetManager.getDataById(dataSource, imageId);
 
@@ -46,5 +53,5 @@ public class UserDetails extends HttpServlet {
             throws ServletException, IOException {
 
     }
-
+        
 }
