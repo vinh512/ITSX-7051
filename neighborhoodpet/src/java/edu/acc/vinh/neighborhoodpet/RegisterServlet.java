@@ -59,8 +59,11 @@ public class RegisterServlet extends HttpServlet {
             // Adds User into database
             userManager.addUser(newUser);
             
+            // Gets the user from the database now with userId
+            User userFromDB = userManager.getUser(dataSource, email, password);
+            
             // Puts the user into session
-            request.getSession().setAttribute("user", newUser);
+            request.getSession().setAttribute("user", userFromDB);
             
             response.sendRedirect("/neighborhoodpet/DisplayPetListServlet");
         } else {

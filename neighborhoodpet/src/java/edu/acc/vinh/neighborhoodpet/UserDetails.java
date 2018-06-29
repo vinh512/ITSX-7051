@@ -31,7 +31,7 @@ public class UserDetails extends HttpServlet {
         // Get User's Id
         int userSessionId = user.getUserId();
         
-        System.out.println("Jose's id is: " + userSessionId);
+        System.out.println("id is: " + userSessionId);
 
         // If there's an image, get the image's ID value so that it can be used to display the pet image
         if (imageManager.imageInfoByUserId(userSessionId) != null) {
